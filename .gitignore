@@ -1,0 +1,16 @@
+**/db
+**/incremental_db
+**/output_files
+**/.qsys_edit
+**/*.sopcinfo
+**/tmp-clearbox
+**/*.qws
+**/*.qdf
+**/source/sequencer_qsys/*
+**/source/sequencer_qsys_tb/sequencer*
+**/source/sequencer_qsys_tb/simulation/aldec
+**/source/sequencer_qsys_tb/simulation/cadence
+**/source/sequencer_qsys_tb/simulation/mentor/*
+!**/source/sequencer_qsys_tb/simulation/mentor/adcsim_ch*.txt
+!**/source/sequencer_qsys_tb/simulation/mentor/*.do
+**/source/sequencer_qsys_tb/simulation/s*

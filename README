@@ -1,0 +1,125 @@
+TABLE OF CONTENTS
+	 LAST UPDATE - when was this project last updated?
+	     LICENSE - what licensing is used in this project?
+      RELEASES - what has changed?
+	 DOWNLOADING - how do you acquire this project?
+	 DESCRIPTION - why does this project exist?
+	    CONTENTS - what is provided in this project?
+	       USAGE - how do you use this project?
+	REQUIREMENTS - what do you need to make use of this project?
+	    SEE ALSO - other content or topics related to this project?
+
+
+LAST UPDATE
+
+June 10, 2019
+
+
+LICENSE
+
+This project is licensed under the MIT license.  Please see the 'LICENSE' text
+file in the top level directory of the repository for license details.
+
+
+RELEASES
+
+v2.1 Initial public release
+
+
+DOWNLOADING
+
+This project is stored in the internal Intel https://gitlab.devtools.intel.com
+repository named 'Power_Sequencer'.  There are a number of ways that you can
+download the contents of this project.
+
+If you wish to download the entire repository, you can clone the repo using
+'git', or download an archive of the repo using a web download utility like
+'curl' or 'wget', or use the GitHub download GUI from a web browser.
+
+To clone the project repo with 'git' use a command like this:
+
+git clone https://gitlab.devtools.intel.com/cesser/Power_Sequencer.git
+
+To download an archive of the project with 'wget' or 'curl' use a command like
+this:
+
+wget https://gitlab.devtools.intel.com/cesser/Power_Sequencer/-/archive/master/Power_sequencer-master.zip
+curl https://gitlab.devtools.intel.com/cesser/Power_Sequencer/-/archive/master/Power_sequencer-master.zip
+
+This is the format of the URL for archive download:
+
+https://github.com/01org/<REPO-NAME>/archive/<BRANCH-NAME>.zip
+https://github.com/01org/<REPO-NAME>/archive/<TAG-NAME>.zip
+https://github.com/01org/<REPO-NAME>/archive/<COMMIT-HASH>.zip
+
+You can download a specific archive of the project based on the branch name that
+you would like to download, or the tag name of a commit point that you would
+like to download, or the commit hash of the commit point that you would like to
+download.  The branch name, tag name, or commit hash for any of these archive
+points can be discovered by viewing the appropriate information on the GitHub
+repository web page.
+
+
+DESCRIPTION
+
+The Multi-Rail Power Sequencer and Monitor is a highly parameterizable set of
+IP blocks that can be customized to meet your power sequencing needs.  It
+controls the enable sequence of up to 143 output rails, can be distributed
+across multiple Max10 devices to increase the number of monitored channels,
+and can draw from a mixture of Power Good (POK) inputs as well as monitored
+voltage rails.  The sequencing can be based on voltages reaching a certain
+threshold as well as timed events, it offers parameterizable levels of glitch
+filtering on PG or voltage inputs, customizable retry responses, a comprehensive
+PMBus interface, and numerous other options to tailor the sequencer to the needs
+of your application.
+
+
+CONTENTS
+
+The following objects appear in the top level directory of this project.
+
+./docs
+  This directory contains documentation for the reference design.
+
+./quartus
+  This directory contains an example design for a full-featured six-rail
+  sequencer.
+
+./source
+  This directory contains all of the design files for the Multi-Rail Power
+  Sequencer and Monitor design.
+
+./sequencer_qsys_tb
+  Contains simulation support files for the testbench that enables one to
+  simulate the example design using the Mentor Graphics® ModelSim® / QuestaSim®
+  simulation tool.
+
+
+USAGE
+
+Please refer to the user documentation, as well as the example design in the
+./quartus directory for usage.  The source directory can either be contained
+within a stand-alone project (as is done in the project archive), or copied
+to a directory of library components and referenced by the Quartus project.
+The "Power_Sequencer.doc" document contains details on how to parameterize,
+simulate, and compile the design.
+
+
+REQUIREMENTS
+
+This project development began in the Quartus Prime 18.1 tools environment but
+it should work fine in future tools releases as well.  There should be no device
+specific requirements with any of the components in this project.  Besides logic
+elements to implement the logic in these components, there are no other specific
+device resources required.  A stable free running clock is about as strong as
+the requirements get, however some of these components can tolerate a pll
+derived clock as well.
+
+
+SEE ALSO
+
+For more information about Platform Designer, please see this landing page on
+Intel.com which points to numerous Platform Designer support resources including
+documentation, training materials, tutorials, specifications, etc:
+
+https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-software/qsys.html

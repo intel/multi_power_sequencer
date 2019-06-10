@@ -1,0 +1,3501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="System" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element ADC_Core
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element ADC_Core.sequencer_csr
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "0";
+         type = "String";
+      }
+   }
+   element ADC_Decoder
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element AVMM_Initializer
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element PLL_LockSplit
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element PLL_Main
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element PLL_Main.pll_slave
+   {
+      datum baseAddress
+      {
+         value = "16";
+         type = "String";
+      }
+   }
+   element PMBus_Slave
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element Sequencer_Core
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element Sequencer_VMonitor
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
+   element clk_50m
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element resetn_pb
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="10M08SAE144C8G" />
+ <parameter name="deviceFamily" value="MAX 10" />
+ <parameter name="deviceSpeedGrade" value="8" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface name="clk_50m" internal="clk_50m.clk_in" type="clock" dir="end" />
+ <interface name="pb_resetn" internal="resetn_pb.in_reset" type="reset" dir="end" />
+ <interface name="pg" internal="ADC_Decoder.pg_input" type="conduit" dir="end" />
+ <interface name="pll_main_areset_conduit" internal="PLL_Main.areset_conduit" />
+ <interface name="pmbus" internal="PMBus_Slave.PMBus" type="conduit" dir="end" />
+ <interface
+   name="seqctl"
+   internal="Sequencer_Core.sequencer_control"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seqstat"
+   internal="Sequencer_Core.sequencer_status"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="smb_alertn"
+   internal="Sequencer_VMonitor.smb_alertn"
+   type="conduit"
+   dir="end" />
+ <module name="ADC_Core" kind="altera_modular_adc" version="18.1" enabled="1">
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <parameter name="CLOCK_FREQ" value="50000000" />
+  <parameter name="CORE_VAR" value="2" />
+  <parameter name="DEVICE_PART" value="10M08SAE144C8G" />
+  <parameter name="ENABLE_DEBUG" value="0" />
+  <parameter name="FAMILY" value="MAX 10" />
+  <parameter name="MONITOR_COUNT_WIDTH" value="12" />
+  <parameter name="clkdiv" value="2" />
+  <parameter name="en_thmax_ch0" value="false" />
+  <parameter name="en_thmax_ch1" value="false" />
+  <parameter name="en_thmax_ch10" value="false" />
+  <parameter name="en_thmax_ch11" value="false" />
+  <parameter name="en_thmax_ch12" value="false" />
+  <parameter name="en_thmax_ch13" value="false" />
+  <parameter name="en_thmax_ch14" value="false" />
+  <parameter name="en_thmax_ch15" value="false" />
+  <parameter name="en_thmax_ch16" value="false" />
+  <parameter name="en_thmax_ch2" value="false" />
+  <parameter name="en_thmax_ch3" value="false" />
+  <parameter name="en_thmax_ch4" value="false" />
+  <parameter name="en_thmax_ch5" value="false" />
+  <parameter name="en_thmax_ch6" value="false" />
+  <parameter name="en_thmax_ch7" value="false" />
+  <parameter name="en_thmax_ch8" value="false" />
+  <parameter name="en_thmax_ch9" value="false" />
+  <parameter name="en_thmin_ch0" value="false" />
+  <parameter name="en_thmin_ch1" value="false" />
+  <parameter name="en_thmin_ch10" value="false" />
+  <parameter name="en_thmin_ch11" value="false" />
+  <parameter name="en_thmin_ch12" value="false" />
+  <parameter name="en_thmin_ch13" value="false" />
+  <parameter name="en_thmin_ch14" value="false" />
+  <parameter name="en_thmin_ch15" value="false" />
+  <parameter name="en_thmin_ch16" value="false" />
+  <parameter name="en_thmin_ch2" value="false" />
+  <parameter name="en_thmin_ch3" value="false" />
+  <parameter name="en_thmin_ch4" value="false" />
+  <parameter name="en_thmin_ch5" value="false" />
+  <parameter name="en_thmin_ch6" value="false" />
+  <parameter name="en_thmin_ch7" value="false" />
+  <parameter name="en_thmin_ch8" value="false" />
+  <parameter name="en_thmin_ch9" value="false" />
+  <parameter name="en_tsd_max" value="false" />
+  <parameter name="en_tsd_min" value="false" />
+  <parameter name="enable_usr_sim" value="1" />
+  <parameter name="external_vref" value="2.5" />
+  <parameter name="int_vref_vr" value="3.3" />
+  <parameter name="ip_is_for_which_adc" value="1" />
+  <parameter name="prescaler_ch16" value="false" />
+  <parameter name="prescaler_ch8" value="false" />
+  <parameter name="refsel" value="0" />
+  <parameter name="sample_rate" value="0" />
+  <parameter name="seq_order_length" value="7" />
+  <parameter name="seq_order_slot_1" value="1" />
+  <parameter name="seq_order_slot_10" value="30" />
+  <parameter name="seq_order_slot_11" value="30" />
+  <parameter name="seq_order_slot_12" value="30" />
+  <parameter name="seq_order_slot_13" value="30" />
+  <parameter name="seq_order_slot_14" value="30" />
+  <parameter name="seq_order_slot_15" value="30" />
+  <parameter name="seq_order_slot_16" value="30" />
+  <parameter name="seq_order_slot_17" value="30" />
+  <parameter name="seq_order_slot_18" value="30" />
+  <parameter name="seq_order_slot_19" value="30" />
+  <parameter name="seq_order_slot_2" value="2" />
+  <parameter name="seq_order_slot_20" value="30" />
+  <parameter name="seq_order_slot_21" value="30" />
+  <parameter name="seq_order_slot_22" value="30" />
+  <parameter name="seq_order_slot_23" value="30" />
+  <parameter name="seq_order_slot_24" value="30" />
+  <parameter name="seq_order_slot_25" value="30" />
+  <parameter name="seq_order_slot_26" value="30" />
+  <parameter name="seq_order_slot_27" value="30" />
+  <parameter name="seq_order_slot_28" value="30" />
+  <parameter name="seq_order_slot_29" value="30" />
+  <parameter name="seq_order_slot_3" value="3" />
+  <parameter name="seq_order_slot_30" value="30" />
+  <parameter name="seq_order_slot_31" value="30" />
+  <parameter name="seq_order_slot_32" value="30" />
+  <parameter name="seq_order_slot_33" value="30" />
+  <parameter name="seq_order_slot_34" value="30" />
+  <parameter name="seq_order_slot_35" value="30" />
+  <parameter name="seq_order_slot_36" value="30" />
+  <parameter name="seq_order_slot_37" value="30" />
+  <parameter name="seq_order_slot_38" value="30" />
+  <parameter name="seq_order_slot_39" value="30" />
+  <parameter name="seq_order_slot_4" value="4" />
+  <parameter name="seq_order_slot_40" value="30" />
+  <parameter name="seq_order_slot_41" value="30" />
+  <parameter name="seq_order_slot_42" value="30" />
+  <parameter name="seq_order_slot_43" value="30" />
+  <parameter name="seq_order_slot_44" value="30" />
+  <parameter name="seq_order_slot_45" value="30" />
+  <parameter name="seq_order_slot_46" value="30" />
+  <parameter name="seq_order_slot_47" value="30" />
+  <parameter name="seq_order_slot_48" value="30" />
+  <parameter name="seq_order_slot_49" value="30" />
+  <parameter name="seq_order_slot_5" value="5" />
+  <parameter name="seq_order_slot_50" value="30" />
+  <parameter name="seq_order_slot_51" value="30" />
+  <parameter name="seq_order_slot_52" value="30" />
+  <parameter name="seq_order_slot_53" value="30" />
+  <parameter name="seq_order_slot_54" value="30" />
+  <parameter name="seq_order_slot_55" value="30" />
+  <parameter name="seq_order_slot_56" value="30" />
+  <parameter name="seq_order_slot_57" value="30" />
+  <parameter name="seq_order_slot_58" value="30" />
+  <parameter name="seq_order_slot_59" value="30" />
+  <parameter name="seq_order_slot_6" value="6" />
+  <parameter name="seq_order_slot_60" value="30" />
+  <parameter name="seq_order_slot_61" value="30" />
+  <parameter name="seq_order_slot_62" value="30" />
+  <parameter name="seq_order_slot_63" value="30" />
+  <parameter name="seq_order_slot_64" value="30" />
+  <parameter name="seq_order_slot_7" value="8" />
+  <parameter name="seq_order_slot_8" value="7" />
+  <parameter name="seq_order_slot_9" value="30" />
+  <parameter name="simfilename_ch0" value="adcsim_ch0.txt" />
+  <parameter name="simfilename_ch1" value="adcsim_ch1.txt" />
+  <parameter name="simfilename_ch10" value="" />
+  <parameter name="simfilename_ch11" value="" />
+  <parameter name="simfilename_ch12" value="" />
+  <parameter name="simfilename_ch13" value="" />
+  <parameter name="simfilename_ch14" value="" />
+  <parameter name="simfilename_ch15" value="" />
+  <parameter name="simfilename_ch16" value="" />
+  <parameter name="simfilename_ch2" value="adcsim_ch2.txt" />
+  <parameter name="simfilename_ch3" value="adcsim_ch3.txt" />
+  <parameter name="simfilename_ch4" value="adcsim_ch4.txt" />
+  <parameter name="simfilename_ch5" value="adcsim_ch5.txt" />
+  <parameter name="simfilename_ch6" value="adcsim_ch6.txt" />
+  <parameter name="simfilename_ch7" value="adcsim_ch7.txt" />
+  <parameter name="simfilename_ch8" value="adcsim_ch8.txt" />
+  <parameter name="simfilename_ch9" value="" />
+  <parameter name="thmax_ch0" value="0.0" />
+  <parameter name="thmax_ch1" value="0.0" />
+  <parameter name="thmax_ch10" value="0.0" />
+  <parameter name="thmax_ch11" value="0.0" />
+  <parameter name="thmax_ch12" value="0.0" />
+  <parameter name="thmax_ch13" value="0.0" />
+  <parameter name="thmax_ch14" value="0.0" />
+  <parameter name="thmax_ch15" value="0.0" />
+  <parameter name="thmax_ch16" value="0.0" />
+  <parameter name="thmax_ch2" value="0.0" />
+  <parameter name="thmax_ch3" value="0.0" />
+  <parameter name="thmax_ch4" value="0.0" />
+  <parameter name="thmax_ch5" value="0.0" />
+  <parameter name="thmax_ch6" value="0.0" />
+  <parameter name="thmax_ch7" value="0.0" />
+  <parameter name="thmax_ch8" value="0.0" />
+  <parameter name="thmax_ch9" value="0.0" />
+  <parameter name="thmin_ch0" value="0.0" />
+  <parameter name="thmin_ch1" value="0.0" />
+  <parameter name="thmin_ch10" value="0.0" />
+  <parameter name="thmin_ch11" value="0.0" />
+  <parameter name="thmin_ch12" value="0.0" />
+  <parameter name="thmin_ch13" value="0.0" />
+  <parameter name="thmin_ch14" value="0.0" />
+  <parameter name="thmin_ch15" value="0.0" />
+  <parameter name="thmin_ch16" value="0.0" />
+  <parameter name="thmin_ch2" value="0.0" />
+  <parameter name="thmin_ch3" value="0.0" />
+  <parameter name="thmin_ch4" value="0.0" />
+  <parameter name="thmin_ch5" value="0.0" />
+  <parameter name="thmin_ch6" value="0.0" />
+  <parameter name="thmin_ch7" value="0.0" />
+  <parameter name="thmin_ch8" value="0.0" />
+  <parameter name="thmin_ch9" value="0.0" />
+  <parameter name="tsclksel" value="1" />
+  <parameter name="tsd_max" value="125" />
+  <parameter name="tsd_min" value="0" />
+  <parameter name="use_ch0" value="false" />
+  <parameter name="use_ch1" value="true" />
+  <parameter name="use_ch10" value="false" />
+  <parameter name="use_ch11" value="false" />
+  <parameter name="use_ch12" value="false" />
+  <parameter name="use_ch13" value="false" />
+  <parameter name="use_ch14" value="false" />
+  <parameter name="use_ch15" value="false" />
+  <parameter name="use_ch16" value="false" />
+  <parameter name="use_ch2" value="true" />
+  <parameter name="use_ch3" value="true" />
+  <parameter name="use_ch4" value="true" />
+  <parameter name="use_ch5" value="true" />
+  <parameter name="use_ch6" value="true" />
+  <parameter name="use_ch7" value="true" />
+  <parameter name="use_ch8" value="true" />
+  <parameter name="use_ch9" value="false" />
+  <parameter name="use_tsd" value="false" />
+ </module>
+ <module
+   name="ADC_Decoder"
+   kind="sequencer_vmondecode"
+   version="1.0"
+   enabled="1">
+  <parameter name="ADC_CHANNEL_IFNUM">1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</parameter>
+  <parameter name="ADC_CHANNEL_VOUTNUM">2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</parameter>
+  <parameter name="ADC_IFNUM" value="1" />
+  <parameter name="CLOCK_RATE_CLK" value="50000000" />
+  <parameter name="PG_DEBOUNCE" value="1" />
+  <parameter name="PG_NUM" value="7" />
+  <parameter name="VIN_ADC_CHANNEL" value="1" />
+  <parameter name="VIN_ADC_IFNUM" value="1" />
+  <parameter name="VRAILS" value="6" />
+ </module>
+ <module
+   name="AVMM_Initializer"
+   kind="avmm_sequencer"
+   version="1.0"
+   enabled="1">
+  <parameter name="P_ADDRSIZE" value="8" />
+  <parameter name="P_DATASIZE" value="32" />
+ </module>
+ <module
+   name="PLL_LockSplit"
+   kind="pll_lock_splitter"
+   version="1.0"
+   enabled="1" />
+ <module name="PLL_Main" kind="altpll" version="18.1" enabled="1">
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="AUTO_INCLK_INTERFACE_CLOCK_RATE" value="50000000" />
+  <parameter name="AVALON_USE_SEPARATE_SYSCLK" value="NO" />
+  <parameter name="BANDWIDTH" value="" />
+  <parameter name="BANDWIDTH_TYPE" value="AUTO" />
+  <parameter name="CLK0_DIVIDE_BY" value="1" />
+  <parameter name="CLK0_DUTY_CYCLE" value="50" />
+  <parameter name="CLK0_MULTIPLY_BY" value="1" />
+  <parameter name="CLK0_PHASE_SHIFT" value="0" />
+  <parameter name="CLK1_DIVIDE_BY" value="5" />
+  <parameter name="CLK1_DUTY_CYCLE" value="50" />
+  <parameter name="CLK1_MULTIPLY_BY" value="1" />
+  <parameter name="CLK1_PHASE_SHIFT" value="0" />
+  <parameter name="CLK2_DIVIDE_BY" value="" />
+  <parameter name="CLK2_DUTY_CYCLE" value="" />
+  <parameter name="CLK2_MULTIPLY_BY" value="" />
+  <parameter name="CLK2_PHASE_SHIFT" value="" />
+  <parameter name="CLK3_DIVIDE_BY" value="" />
+  <parameter name="CLK3_DUTY_CYCLE" value="" />
+  <parameter name="CLK3_MULTIPLY_BY" value="" />
+  <parameter name="CLK3_PHASE_SHIFT" value="" />
+  <parameter name="CLK4_DIVIDE_BY" value="" />
+  <parameter name="CLK4_DUTY_CYCLE" value="" />
+  <parameter name="CLK4_MULTIPLY_BY" value="" />
+  <parameter name="CLK4_PHASE_SHIFT" value="" />
+  <parameter name="CLK5_DIVIDE_BY" value="" />
+  <parameter name="CLK5_DUTY_CYCLE" value="" />
+  <parameter name="CLK5_MULTIPLY_BY" value="" />
+  <parameter name="CLK5_PHASE_SHIFT" value="" />
+  <parameter name="CLK6_DIVIDE_BY" value="" />
+  <parameter name="CLK6_DUTY_CYCLE" value="" />
+  <parameter name="CLK6_MULTIPLY_BY" value="" />
+  <parameter name="CLK6_PHASE_SHIFT" value="" />
+  <parameter name="CLK7_DIVIDE_BY" value="" />
+  <parameter name="CLK7_DUTY_CYCLE" value="" />
+  <parameter name="CLK7_MULTIPLY_BY" value="" />
+  <parameter name="CLK7_PHASE_SHIFT" value="" />
+  <parameter name="CLK8_DIVIDE_BY" value="" />
+  <parameter name="CLK8_DUTY_CYCLE" value="" />
+  <parameter name="CLK8_MULTIPLY_BY" value="" />
+  <parameter name="CLK8_PHASE_SHIFT" value="" />
+  <parameter name="CLK9_DIVIDE_BY" value="" />
+  <parameter name="CLK9_DUTY_CYCLE" value="" />
+  <parameter name="CLK9_MULTIPLY_BY" value="" />
+  <parameter name="CLK9_PHASE_SHIFT" value="" />
+  <parameter name="COMPENSATE_CLOCK" value="CLK0" />
+  <parameter name="DOWN_SPREAD" value="" />
+  <parameter name="DPA_DIVIDER" value="" />
+  <parameter name="DPA_DIVIDE_BY" value="" />
+  <parameter name="DPA_MULTIPLY_BY" value="" />
+  <parameter name="ENABLE_SWITCH_OVER_COUNTER" value="" />
+  <parameter name="EXTCLK0_DIVIDE_BY" value="" />
+  <parameter name="EXTCLK0_DUTY_CYCLE" value="" />
+  <parameter name="EXTCLK0_MULTIPLY_BY" value="" />
+  <parameter name="EXTCLK0_PHASE_SHIFT" value="" />
+  <parameter name="EXTCLK1_DIVIDE_BY" value="" />
+  <parameter name="EXTCLK1_DUTY_CYCLE" value="" />
+  <parameter name="EXTCLK1_MULTIPLY_BY" value="" />
+  <parameter name="EXTCLK1_PHASE_SHIFT" value="" />
+  <parameter name="EXTCLK2_DIVIDE_BY" value="" />
+  <parameter name="EXTCLK2_DUTY_CYCLE" value="" />
+  <parameter name="EXTCLK2_MULTIPLY_BY" value="" />
+  <parameter name="EXTCLK2_PHASE_SHIFT" value="" />
+  <parameter name="EXTCLK3_DIVIDE_BY" value="" />
+  <parameter name="EXTCLK3_DUTY_CYCLE" value="" />
+  <parameter name="EXTCLK3_MULTIPLY_BY" value="" />
+  <parameter name="EXTCLK3_PHASE_SHIFT" value="" />
+  <parameter name="FEEDBACK_SOURCE" value="" />
+  <parameter name="GATE_LOCK_COUNTER" value="" />
+  <parameter name="GATE_LOCK_SIGNAL" value="" />
+  <parameter name="HIDDEN_CONSTANTS">CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_UNUSED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#CLK0_MULTIPLY_BY 1 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#WIDTH_CLOCK 5 CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#PLL_TYPE AUTO CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 1 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 20000 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 0 CT#PORT_ARESET PORT_UNUSED CT#BANDWIDTH_TYPE AUTO CT#INTENDED_DEVICE_FAMILY {MAX 10} CT#PORT_SCANREAD PORT_UNUSED CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 1 CT#CLK1_DIVIDE_BY 5 CT#PORT_LOCKED PORT_USED</parameter>
+  <parameter name="HIDDEN_CUSTOM_ELABORATION">altpll_avalon_elaboration</parameter>
+  <parameter name="HIDDEN_CUSTOM_POST_EDIT">altpll_avalon_post_edit</parameter>
+  <parameter name="HIDDEN_IF_PORTS">IF#phasecounterselect {input 3} IF#locked {output 0} IF#reset {input 0} IF#clk {input 0} IF#phaseupdown {input 0} IF#scandone {output 0} IF#readdata {output 32} IF#write {input 0} IF#scanclk {input 0} IF#phasedone {output 0} IF#c4 {output 0} IF#c3 {output 0} IF#c2 {output 0} IF#address {input 2} IF#c1 {output 0} IF#c0 {output 0} IF#writedata {input 32} IF#read {input 0} IF#areset {input 0} IF#scanclkena {input 0} IF#scandataout {output 0} IF#configupdate {input 0} IF#phasestep {input 0} IF#scandata {input 0}</parameter>
+  <parameter name="HIDDEN_IS_FIRST_EDIT" value="0" />
+  <parameter name="HIDDEN_IS_NUMERIC">IN#WIDTH_CLOCK 1 IN#CLK0_DUTY_CYCLE 1 IN#PLL_TARGET_HARCOPY_CHECK 1 IN#CLK1_MULTIPLY_BY 1 IN#SWITCHOVER_COUNT_EDIT 1 IN#INCLK0_INPUT_FREQUENCY 1 IN#PLL_LVDS_PLL_CHECK 1 IN#PLL_AUTOPLL_CHECK 1 IN#PLL_FASTPLL_CHECK 1 IN#CLK1_DUTY_CYCLE 1 IN#PLL_ENHPLL_CHECK 1 IN#DIV_FACTOR1 1 IN#DIV_FACTOR0 1 IN#LVDS_MODE_DATA_RATE_DIRTY 1 IN#GLOCK_COUNTER_EDIT 1 IN#CLK0_DIVIDE_BY 1 IN#MULT_FACTOR1 1 IN#MULT_FACTOR0 1 IN#CLK0_MULTIPLY_BY 1 IN#USE_MIL_SPEED_GRADE 1 IN#CLK1_DIVIDE_BY 1</parameter>
+  <parameter name="HIDDEN_MF_PORTS">MF#areset 1 MF#clk 1 MF#locked 1 MF#inclk 1</parameter>
+  <parameter name="HIDDEN_PRIVATES">PT#GLOCKED_FEATURE_ENABLED 0 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 50.000 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 1 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 0 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 0 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 1 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 1 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ1 10.00000000 PT#OUTPUT_FREQ0 100.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE Any PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT1 0.00000000 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 5 PT#DIV_FACTOR0 1 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE1 10.000000 PT#EFF_OUTPUT_FREQ_VALUE0 50.000000 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK4 0 PT#STICKY_CLK3 0 PT#STICKY_CLK2 0 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK1 0 PT#MIRROR_CLK0 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#CLKLOSS_CHECK 0 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR1 1 PT#MULT_FACTOR0 1 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {MAX 10} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1537832136329124.mif PT#ACTIVECLK_CHECK 0</parameter>
+  <parameter name="HIDDEN_USED_PORTS">UP#locked used UP#c1 used UP#c0 used UP#areset used UP#inclk0 used</parameter>
+  <parameter name="INCLK0_INPUT_FREQUENCY" value="20000" />
+  <parameter name="INCLK1_INPUT_FREQUENCY" value="" />
+  <parameter name="INTENDED_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="INVALID_LOCK_MULTIPLIER" value="" />
+  <parameter name="LOCK_HIGH" value="" />
+  <parameter name="LOCK_LOW" value="" />
+  <parameter name="OPERATION_MODE" value="NORMAL" />
+  <parameter name="PLL_TYPE" value="AUTO" />
+  <parameter name="PORT_ACTIVECLOCK" value="PORT_UNUSED" />
+  <parameter name="PORT_ARESET" value="PORT_UNUSED" />
+  <parameter name="PORT_CLKBAD0" value="PORT_UNUSED" />
+  <parameter name="PORT_CLKBAD1" value="PORT_UNUSED" />
+  <parameter name="PORT_CLKLOSS" value="PORT_UNUSED" />
+  <parameter name="PORT_CLKSWITCH" value="PORT_UNUSED" />
+  <parameter name="PORT_CONFIGUPDATE" value="PORT_UNUSED" />
+  <parameter name="PORT_ENABLE0" value="" />
+  <parameter name="PORT_ENABLE1" value="" />
+  <parameter name="PORT_FBIN" value="PORT_UNUSED" />
+  <parameter name="PORT_FBOUT" value="" />
+  <parameter name="PORT_INCLK0" value="PORT_USED" />
+  <parameter name="PORT_INCLK1" value="PORT_UNUSED" />
+  <parameter name="PORT_LOCKED" value="PORT_USED" />
+  <parameter name="PORT_PFDENA" value="PORT_UNUSED" />
+  <parameter name="PORT_PHASECOUNTERSELECT" value="PORT_UNUSED" />
+  <parameter name="PORT_PHASEDONE" value="PORT_UNUSED" />
+  <parameter name="PORT_PHASESTEP" value="PORT_UNUSED" />
+  <parameter name="PORT_PHASEUPDOWN" value="PORT_UNUSED" />
+  <parameter name="PORT_PLLENA" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANACLR" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANCLK" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANCLKENA" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANDATA" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANDATAOUT" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANDONE" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANREAD" value="PORT_UNUSED" />
+  <parameter name="PORT_SCANWRITE" value="PORT_UNUSED" />
+  <parameter name="PORT_SCLKOUT0" value="" />
+  <parameter name="PORT_SCLKOUT1" value="" />
+  <parameter name="PORT_VCOOVERRANGE" value="" />
+  <parameter name="PORT_VCOUNDERRANGE" value="" />
+  <parameter name="PORT_clk0" value="PORT_USED" />
+  <parameter name="PORT_clk1" value="PORT_USED" />
+  <parameter name="PORT_clk2" value="PORT_UNUSED" />
+  <parameter name="PORT_clk3" value="PORT_UNUSED" />
+  <parameter name="PORT_clk4" value="PORT_UNUSED" />
+  <parameter name="PORT_clk5" value="PORT_UNUSED" />
+  <parameter name="PORT_clk6" value="" />
+  <parameter name="PORT_clk7" value="" />
+  <parameter name="PORT_clk8" value="" />
+  <parameter name="PORT_clk9" value="" />
+  <parameter name="PORT_clkena0" value="PORT_UNUSED" />
+  <parameter name="PORT_clkena1" value="PORT_UNUSED" />
+  <parameter name="PORT_clkena2" value="PORT_UNUSED" />
+  <parameter name="PORT_clkena3" value="PORT_UNUSED" />
+  <parameter name="PORT_clkena4" value="PORT_UNUSED" />
+  <parameter name="PORT_clkena5" value="PORT_UNUSED" />
+  <parameter name="PORT_extclk0" value="PORT_UNUSED" />
+  <parameter name="PORT_extclk1" value="PORT_UNUSED" />
+  <parameter name="PORT_extclk2" value="PORT_UNUSED" />
+  <parameter name="PORT_extclk3" value="PORT_UNUSED" />
+  <parameter name="PORT_extclkena0" value="" />
+  <parameter name="PORT_extclkena1" value="" />
+  <parameter name="PORT_extclkena2" value="" />
+  <parameter name="PORT_extclkena3" value="" />
+  <parameter name="PRIMARY_CLOCK" value="" />
+  <parameter name="QUALIFY_CONF_DONE" value="" />
+  <parameter name="SCAN_CHAIN" value="" />
+  <parameter name="SCAN_CHAIN_MIF_FILE" value="" />
+  <parameter name="SCLKOUT0_PHASE_SHIFT" value="" />
+  <parameter name="SCLKOUT1_PHASE_SHIFT" value="" />
+  <parameter name="SELF_RESET_ON_GATED_LOSS_LOCK" value="" />
+  <parameter name="SELF_RESET_ON_LOSS_LOCK" value="" />
+  <parameter name="SKIP_VCO" value="" />
+  <parameter name="SPREAD_FREQUENCY" value="" />
+  <parameter name="SWITCH_OVER_COUNTER" value="" />
+  <parameter name="SWITCH_OVER_ON_GATED_LOCK" value="" />
+  <parameter name="SWITCH_OVER_ON_LOSSCLK" value="" />
+  <parameter name="SWITCH_OVER_TYPE" value="" />
+  <parameter name="USING_FBMIMICBIDIR_PORT" value="" />
+  <parameter name="VALID_LOCK_MULTIPLIER" value="" />
+  <parameter name="VCO_DIVIDE_BY" value="" />
+  <parameter name="VCO_FREQUENCY_CONTROL" value="" />
+  <parameter name="VCO_MULTIPLY_BY" value="" />
+  <parameter name="VCO_PHASE_SHIFT_STEP" value="" />
+  <parameter name="WIDTH_CLOCK" value="5" />
+  <parameter name="WIDTH_PHASECOUNTERSELECT" value="" />
+ </module>
+ <module name="PMBus_Slave" kind="PMBus_Slave" version="1.0" enabled="1">
+  <parameter name="MAX_BYTES" value="4" />
+  <parameter name="PMB_SLAVE_ADDR" value="85" />
+ </module>
+ <module name="Sequencer_Core" kind="sequencer_top" version="1.0" enabled="1">
+  <parameter name="CLOCK_RATE_CLK" value="50000000" />
+  <parameter name="DCHGDLY">0us,0us,0us,0us,0us,0us</parameter>
+  <parameter name="G_PWR_GROUPS" value="3" />
+  <parameter name="PWR_GROUP_NUM">0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142</parameter>
+  <parameter name="QUALTIME">10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms</parameter>
+  <parameter name="RESTARTDLY" value="200ms" />
+  <parameter name="SEQDLY">10us,10us,10us,10us,10us,10us,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms</parameter>
+  <parameter name="USE_PWR_GROUPS" value="false" />
+  <parameter name="VRAILS" value="6" />
+ </module>
+ <module
+   name="Sequencer_VMonitor"
+   kind="sequencer_vmonregs"
+   version="1.0"
+   enabled="1">
+  <parameter name="ADC_SAMPLES" value="5" />
+  <parameter name="ADC_VREF" value="2.489" />
+  <parameter name="FEATURE_LEVEL" value="2" />
+  <parameter name="PG_NUM" value="7" />
+  <parameter name="RETRY_ATTEMPTS" value="3" />
+  <parameter name="RETRY_TIMEOUT" value="1" />
+  <parameter name="VIN_OFF" value="90.0" />
+  <parameter name="VIN_ON" value="95.0" />
+  <parameter name="VIN_OVF" value="107.0" />
+  <parameter name="VIN_OVRSP" value="true" />
+  <parameter name="VIN_OVW" value="105.0" />
+  <parameter name="VIN_TYP" value="1.65" />
+  <parameter name="VIN_UVF" value="93.0" />
+  <parameter name="VIN_UVRSP" value="true" />
+  <parameter name="VIN_UVW" value="97.0" />
+  <parameter name="VOUT0_OFF" value="90.0" />
+  <parameter name="VOUT0_ON" value="95.0" />
+  <parameter name="VOUT0_OVF" value="107.0" />
+  <parameter name="VOUT0_OVRSP" value="true" />
+  <parameter name="VOUT0_OVW" value="105.0" />
+  <parameter name="VOUT0_TYP" value="0.6" />
+  <parameter name="VOUT0_UVF" value="93.0" />
+  <parameter name="VOUT0_UVRSP" value="true" />
+  <parameter name="VOUT0_UVW" value="97.0" />
+  <parameter name="VOUT100_OFF" value="90.0" />
+  <parameter name="VOUT100_ON" value="95.0" />
+  <parameter name="VOUT100_OVF" value="107.0" />
+  <parameter name="VOUT100_OVRSP" value="true" />
+  <parameter name="VOUT100_OVW" value="105.0" />
+  <parameter name="VOUT100_TYP" value="2.5" />
+  <parameter name="VOUT100_UVF" value="93.0" />
+  <parameter name="VOUT100_UVRSP" value="true" />
+  <parameter name="VOUT100_UVW" value="97.0" />
+  <parameter name="VOUT101_OFF" value="90.0" />
+  <parameter name="VOUT101_ON" value="95.0" />
+  <parameter name="VOUT101_OVF" value="107.0" />
+  <parameter name="VOUT101_OVRSP" value="true" />
+  <parameter name="VOUT101_OVW" value="105.0" />
+  <parameter name="VOUT101_TYP" value="2.5" />
+  <parameter name="VOUT101_UVF" value="93.0" />
+  <parameter name="VOUT101_UVRSP" value="true" />
+  <parameter name="VOUT101_UVW" value="97.0" />
+  <parameter name="VOUT102_OFF" value="90.0" />
+  <parameter name="VOUT102_ON" value="95.0" />
+  <parameter name="VOUT102_OVF" value="107.0" />
+  <parameter name="VOUT102_OVRSP" value="true" />
+  <parameter name="VOUT102_OVW" value="105.0" />
+  <parameter name="VOUT102_TYP" value="2.5" />
+  <parameter name="VOUT102_UVF" value="93.0" />
+  <parameter name="VOUT102_UVRSP" value="true" />
+  <parameter name="VOUT102_UVW" value="97.0" />
+  <parameter name="VOUT103_OFF" value="90.0" />
+  <parameter name="VOUT103_ON" value="95.0" />
+  <parameter name="VOUT103_OVF" value="107.0" />
+  <parameter name="VOUT103_OVRSP" value="true" />
+  <parameter name="VOUT103_OVW" value="105.0" />
+  <parameter name="VOUT103_TYP" value="2.5" />
+  <parameter name="VOUT103_UVF" value="93.0" />
+  <parameter name="VOUT103_UVRSP" value="true" />
+  <parameter name="VOUT103_UVW" value="97.0" />
+  <parameter name="VOUT104_OFF" value="90.0" />
+  <parameter name="VOUT104_ON" value="95.0" />
+  <parameter name="VOUT104_OVF" value="107.0" />
+  <parameter name="VOUT104_OVRSP" value="true" />
+  <parameter name="VOUT104_OVW" value="105.0" />
+  <parameter name="VOUT104_TYP" value="2.5" />
+  <parameter name="VOUT104_UVF" value="93.0" />
+  <parameter name="VOUT104_UVRSP" value="true" />
+  <parameter name="VOUT104_UVW" value="97.0" />
+  <parameter name="VOUT105_OFF" value="90.0" />
+  <parameter name="VOUT105_ON" value="95.0" />
+  <parameter name="VOUT105_OVF" value="107.0" />
+  <parameter name="VOUT105_OVRSP" value="true" />
+  <parameter name="VOUT105_OVW" value="105.0" />
+  <parameter name="VOUT105_TYP" value="2.5" />
+  <parameter name="VOUT105_UVF" value="93.0" />
+  <parameter name="VOUT105_UVRSP" value="true" />
+  <parameter name="VOUT105_UVW" value="97.0" />
+  <parameter name="VOUT106_OFF" value="90.0" />
+  <parameter name="VOUT106_ON" value="95.0" />
+  <parameter name="VOUT106_OVF" value="107.0" />
+  <parameter name="VOUT106_OVRSP" value="true" />
+  <parameter name="VOUT106_OVW" value="105.0" />
+  <parameter name="VOUT106_TYP" value="2.5" />
+  <parameter name="VOUT106_UVF" value="93.0" />
+  <parameter name="VOUT106_UVRSP" value="true" />
+  <parameter name="VOUT106_UVW" value="97.0" />
+  <parameter name="VOUT107_OFF" value="90.0" />
+  <parameter name="VOUT107_ON" value="95.0" />
+  <parameter name="VOUT107_OVF" value="107.0" />
+  <parameter name="VOUT107_OVRSP" value="true" />
+  <parameter name="VOUT107_OVW" value="105.0" />
+  <parameter name="VOUT107_TYP" value="2.5" />
+  <parameter name="VOUT107_UVF" value="93.0" />
+  <parameter name="VOUT107_UVRSP" value="true" />
+  <parameter name="VOUT107_UVW" value="97.0" />
+  <parameter name="VOUT108_OFF" value="90.0" />
+  <parameter name="VOUT108_ON" value="95.0" />
+  <parameter name="VOUT108_OVF" value="107.0" />
+  <parameter name="VOUT108_OVRSP" value="true" />
+  <parameter name="VOUT108_OVW" value="105.0" />
+  <parameter name="VOUT108_TYP" value="2.5" />
+  <parameter name="VOUT108_UVF" value="93.0" />
+  <parameter name="VOUT108_UVRSP" value="true" />
+  <parameter name="VOUT108_UVW" value="97.0" />
+  <parameter name="VOUT109_OFF" value="90.0" />
+  <parameter name="VOUT109_ON" value="95.0" />
+  <parameter name="VOUT109_OVF" value="107.0" />
+  <parameter name="VOUT109_OVRSP" value="true" />
+  <parameter name="VOUT109_OVW" value="105.0" />
+  <parameter name="VOUT109_TYP" value="2.5" />
+  <parameter name="VOUT109_UVF" value="93.0" />
+  <parameter name="VOUT109_UVRSP" value="true" />
+  <parameter name="VOUT109_UVW" value="97.0" />
+  <parameter name="VOUT10_OFF" value="90.0" />
+  <parameter name="VOUT10_ON" value="95.0" />
+  <parameter name="VOUT10_OVF" value="107.0" />
+  <parameter name="VOUT10_OVRSP" value="true" />
+  <parameter name="VOUT10_OVW" value="105.0" />
+  <parameter name="VOUT10_TYP" value="2.5" />
+  <parameter name="VOUT10_UVF" value="93.0" />
+  <parameter name="VOUT10_UVRSP" value="true" />
+  <parameter name="VOUT10_UVW" value="97.0" />
+  <parameter name="VOUT110_OFF" value="90.0" />
+  <parameter name="VOUT110_ON" value="95.0" />
+  <parameter name="VOUT110_OVF" value="107.0" />
+  <parameter name="VOUT110_OVRSP" value="true" />
+  <parameter name="VOUT110_OVW" value="105.0" />
+  <parameter name="VOUT110_TYP" value="2.5" />
+  <parameter name="VOUT110_UVF" value="93.0" />
+  <parameter name="VOUT110_UVRSP" value="true" />
+  <parameter name="VOUT110_UVW" value="97.0" />
+  <parameter name="VOUT111_OFF" value="90.0" />
+  <parameter name="VOUT111_ON" value="95.0" />
+  <parameter name="VOUT111_OVF" value="107.0" />
+  <parameter name="VOUT111_OVRSP" value="true" />
+  <parameter name="VOUT111_OVW" value="105.0" />
+  <parameter name="VOUT111_TYP" value="2.5" />
+  <parameter name="VOUT111_UVF" value="93.0" />
+  <parameter name="VOUT111_UVRSP" value="true" />
+  <parameter name="VOUT111_UVW" value="97.0" />
+  <parameter name="VOUT112_OFF" value="90.0" />
+  <parameter name="VOUT112_ON" value="95.0" />
+  <parameter name="VOUT112_OVF" value="107.0" />
+  <parameter name="VOUT112_OVRSP" value="true" />
+  <parameter name="VOUT112_OVW" value="105.0" />
+  <parameter name="VOUT112_TYP" value="2.5" />
+  <parameter name="VOUT112_UVF" value="93.0" />
+  <parameter name="VOUT112_UVRSP" value="true" />
+  <parameter name="VOUT112_UVW" value="97.0" />
+  <parameter name="VOUT113_OFF" value="90.0" />
+  <parameter name="VOUT113_ON" value="95.0" />
+  <parameter name="VOUT113_OVF" value="107.0" />
+  <parameter name="VOUT113_OVRSP" value="true" />
+  <parameter name="VOUT113_OVW" value="105.0" />
+  <parameter name="VOUT113_TYP" value="2.5" />
+  <parameter name="VOUT113_UVF" value="93.0" />
+  <parameter name="VOUT113_UVRSP" value="true" />
+  <parameter name="VOUT113_UVW" value="97.0" />
+  <parameter name="VOUT114_OFF" value="90.0" />
+  <parameter name="VOUT114_ON" value="95.0" />
+  <parameter name="VOUT114_OVF" value="107.0" />
+  <parameter name="VOUT114_OVRSP" value="true" />
+  <parameter name="VOUT114_OVW" value="105.0" />
+  <parameter name="VOUT114_TYP" value="2.5" />
+  <parameter name="VOUT114_UVF" value="93.0" />
+  <parameter name="VOUT114_UVRSP" value="true" />
+  <parameter name="VOUT114_UVW" value="97.0" />
+  <parameter name="VOUT115_OFF" value="90.0" />
+  <parameter name="VOUT115_ON" value="95.0" />
+  <parameter name="VOUT115_OVF" value="107.0" />
+  <parameter name="VOUT115_OVRSP" value="true" />
+  <parameter name="VOUT115_OVW" value="105.0" />
+  <parameter name="VOUT115_TYP" value="2.5" />
+  <parameter name="VOUT115_UVF" value="93.0" />
+  <parameter name="VOUT115_UVRSP" value="true" />
+  <parameter name="VOUT115_UVW" value="97.0" />
+  <parameter name="VOUT116_OFF" value="90.0" />
+  <parameter name="VOUT116_ON" value="95.0" />
+  <parameter name="VOUT116_OVF" value="107.0" />
+  <parameter name="VOUT116_OVRSP" value="true" />
+  <parameter name="VOUT116_OVW" value="105.0" />
+  <parameter name="VOUT116_TYP" value="2.5" />
+  <parameter name="VOUT116_UVF" value="93.0" />
+  <parameter name="VOUT116_UVRSP" value="true" />
+  <parameter name="VOUT116_UVW" value="97.0" />
+  <parameter name="VOUT117_OFF" value="90.0" />
+  <parameter name="VOUT117_ON" value="95.0" />
+  <parameter name="VOUT117_OVF" value="107.0" />
+  <parameter name="VOUT117_OVRSP" value="true" />
+  <parameter name="VOUT117_OVW" value="105.0" />
+  <parameter name="VOUT117_TYP" value="2.5" />
+  <parameter name="VOUT117_UVF" value="93.0" />
+  <parameter name="VOUT117_UVRSP" value="true" />
+  <parameter name="VOUT117_UVW" value="97.0" />
+  <parameter name="VOUT118_OFF" value="90.0" />
+  <parameter name="VOUT118_ON" value="95.0" />
+  <parameter name="VOUT118_OVF" value="107.0" />
+  <parameter name="VOUT118_OVRSP" value="true" />
+  <parameter name="VOUT118_OVW" value="105.0" />
+  <parameter name="VOUT118_TYP" value="2.5" />
+  <parameter name="VOUT118_UVF" value="93.0" />
+  <parameter name="VOUT118_UVRSP" value="true" />
+  <parameter name="VOUT118_UVW" value="97.0" />
+  <parameter name="VOUT119_OFF" value="90.0" />
+  <parameter name="VOUT119_ON" value="95.0" />
+  <parameter name="VOUT119_OVF" value="107.0" />
+  <parameter name="VOUT119_OVRSP" value="true" />
+  <parameter name="VOUT119_OVW" value="105.0" />
+  <parameter name="VOUT119_TYP" value="2.5" />
+  <parameter name="VOUT119_UVF" value="93.0" />
+  <parameter name="VOUT119_UVRSP" value="true" />
+  <parameter name="VOUT119_UVW" value="97.0" />
+  <parameter name="VOUT11_OFF" value="90.0" />
+  <parameter name="VOUT11_ON" value="95.0" />
+  <parameter name="VOUT11_OVF" value="107.0" />
+  <parameter name="VOUT11_OVRSP" value="true" />
+  <parameter name="VOUT11_OVW" value="105.0" />
+  <parameter name="VOUT11_TYP" value="2.5" />
+  <parameter name="VOUT11_UVF" value="93.0" />
+  <parameter name="VOUT11_UVRSP" value="true" />
+  <parameter name="VOUT11_UVW" value="97.0" />
+  <parameter name="VOUT120_OFF" value="90.0" />
+  <parameter name="VOUT120_ON" value="95.0" />
+  <parameter name="VOUT120_OVF" value="107.0" />
+  <parameter name="VOUT120_OVRSP" value="true" />
+  <parameter name="VOUT120_OVW" value="105.0" />
+  <parameter name="VOUT120_TYP" value="2.5" />
+  <parameter name="VOUT120_UVF" value="93.0" />
+  <parameter name="VOUT120_UVRSP" value="true" />
+  <parameter name="VOUT120_UVW" value="97.0" />
+  <parameter name="VOUT121_OFF" value="90.0" />
+  <parameter name="VOUT121_ON" value="95.0" />
+  <parameter name="VOUT121_OVF" value="107.0" />
+  <parameter name="VOUT121_OVRSP" value="true" />
+  <parameter name="VOUT121_OVW" value="105.0" />
+  <parameter name="VOUT121_TYP" value="2.5" />
+  <parameter name="VOUT121_UVF" value="93.0" />
+  <parameter name="VOUT121_UVRSP" value="true" />
+  <parameter name="VOUT121_UVW" value="97.0" />
+  <parameter name="VOUT122_OFF" value="90.0" />
+  <parameter name="VOUT122_ON" value="95.0" />
+  <parameter name="VOUT122_OVF" value="107.0" />
+  <parameter name="VOUT122_OVRSP" value="true" />
+  <parameter name="VOUT122_OVW" value="105.0" />
+  <parameter name="VOUT122_TYP" value="2.5" />
+  <parameter name="VOUT122_UVF" value="93.0" />
+  <parameter name="VOUT122_UVRSP" value="true" />
+  <parameter name="VOUT122_UVW" value="97.0" />
+  <parameter name="VOUT123_OFF" value="90.0" />
+  <parameter name="VOUT123_ON" value="95.0" />
+  <parameter name="VOUT123_OVF" value="107.0" />
+  <parameter name="VOUT123_OVRSP" value="true" />
+  <parameter name="VOUT123_OVW" value="105.0" />
+  <parameter name="VOUT123_TYP" value="2.5" />
+  <parameter name="VOUT123_UVF" value="93.0" />
+  <parameter name="VOUT123_UVRSP" value="true" />
+  <parameter name="VOUT123_UVW" value="97.0" />
+  <parameter name="VOUT124_OFF" value="90.0" />
+  <parameter name="VOUT124_ON" value="95.0" />
+  <parameter name="VOUT124_OVF" value="107.0" />
+  <parameter name="VOUT124_OVRSP" value="true" />
+  <parameter name="VOUT124_OVW" value="105.0" />
+  <parameter name="VOUT124_TYP" value="2.5" />
+  <parameter name="VOUT124_UVF" value="93.0" />
+  <parameter name="VOUT124_UVRSP" value="true" />
+  <parameter name="VOUT124_UVW" value="97.0" />
+  <parameter name="VOUT125_OFF" value="90.0" />
+  <parameter name="VOUT125_ON" value="95.0" />
+  <parameter name="VOUT125_OVF" value="107.0" />
+  <parameter name="VOUT125_OVRSP" value="true" />
+  <parameter name="VOUT125_OVW" value="105.0" />
+  <parameter name="VOUT125_TYP" value="2.5" />
+  <parameter name="VOUT125_UVF" value="93.0" />
+  <parameter name="VOUT125_UVRSP" value="true" />
+  <parameter name="VOUT125_UVW" value="97.0" />
+  <parameter name="VOUT126_OFF" value="90.0" />
+  <parameter name="VOUT126_ON" value="95.0" />
+  <parameter name="VOUT126_OVF" value="107.0" />
+  <parameter name="VOUT126_OVRSP" value="true" />
+  <parameter name="VOUT126_OVW" value="105.0" />
+  <parameter name="VOUT126_TYP" value="2.5" />
+  <parameter name="VOUT126_UVF" value="93.0" />
+  <parameter name="VOUT126_UVRSP" value="true" />
+  <parameter name="VOUT126_UVW" value="97.0" />
+  <parameter name="VOUT127_OFF" value="90.0" />
+  <parameter name="VOUT127_ON" value="95.0" />
+  <parameter name="VOUT127_OVF" value="107.0" />
+  <parameter name="VOUT127_OVRSP" value="true" />
+  <parameter name="VOUT127_OVW" value="105.0" />
+  <parameter name="VOUT127_TYP" value="2.5" />
+  <parameter name="VOUT127_UVF" value="93.0" />
+  <parameter name="VOUT127_UVRSP" value="true" />
+  <parameter name="VOUT127_UVW" value="97.0" />
+  <parameter name="VOUT128_OFF" value="90.0" />
+  <parameter name="VOUT128_ON" value="95.0" />
+  <parameter name="VOUT128_OVF" value="107.0" />
+  <parameter name="VOUT128_OVRSP" value="true" />
+  <parameter name="VOUT128_OVW" value="105.0" />
+  <parameter name="VOUT128_TYP" value="2.5" />
+  <parameter name="VOUT128_UVF" value="93.0" />
+  <parameter name="VOUT128_UVRSP" value="true" />
+  <parameter name="VOUT128_UVW" value="97.0" />
+  <parameter name="VOUT129_OFF" value="90.0" />
+  <parameter name="VOUT129_ON" value="95.0" />
+  <parameter name="VOUT129_OVF" value="107.0" />
+  <parameter name="VOUT129_OVRSP" value="true" />
+  <parameter name="VOUT129_OVW" value="105.0" />
+  <parameter name="VOUT129_TYP" value="2.5" />
+  <parameter name="VOUT129_UVF" value="93.0" />
+  <parameter name="VOUT129_UVRSP" value="true" />
+  <parameter name="VOUT129_UVW" value="97.0" />
+  <parameter name="VOUT12_OFF" value="90.0" />
+  <parameter name="VOUT12_ON" value="95.0" />
+  <parameter name="VOUT12_OVF" value="107.0" />
+  <parameter name="VOUT12_OVRSP" value="true" />
+  <parameter name="VOUT12_OVW" value="105.0" />
+  <parameter name="VOUT12_TYP" value="2.5" />
+  <parameter name="VOUT12_UVF" value="93.0" />
+  <parameter name="VOUT12_UVRSP" value="true" />
+  <parameter name="VOUT12_UVW" value="97.0" />
+  <parameter name="VOUT130_OFF" value="90.0" />
+  <parameter name="VOUT130_ON" value="95.0" />
+  <parameter name="VOUT130_OVF" value="107.0" />
+  <parameter name="VOUT130_OVRSP" value="true" />
+  <parameter name="VOUT130_OVW" value="105.0" />
+  <parameter name="VOUT130_TYP" value="2.5" />
+  <parameter name="VOUT130_UVF" value="93.0" />
+  <parameter name="VOUT130_UVRSP" value="true" />
+  <parameter name="VOUT130_UVW" value="97.0" />
+  <parameter name="VOUT131_OFF" value="90.0" />
+  <parameter name="VOUT131_ON" value="95.0" />
+  <parameter name="VOUT131_OVF" value="107.0" />
+  <parameter name="VOUT131_OVRSP" value="true" />
+  <parameter name="VOUT131_OVW" value="105.0" />
+  <parameter name="VOUT131_TYP" value="2.5" />
+  <parameter name="VOUT131_UVF" value="93.0" />
+  <parameter name="VOUT131_UVRSP" value="true" />
+  <parameter name="VOUT131_UVW" value="97.0" />
+  <parameter name="VOUT132_OFF" value="90.0" />
+  <parameter name="VOUT132_ON" value="95.0" />
+  <parameter name="VOUT132_OVF" value="107.0" />
+  <parameter name="VOUT132_OVRSP" value="true" />
+  <parameter name="VOUT132_OVW" value="105.0" />
+  <parameter name="VOUT132_TYP" value="2.5" />
+  <parameter name="VOUT132_UVF" value="93.0" />
+  <parameter name="VOUT132_UVRSP" value="true" />
+  <parameter name="VOUT132_UVW" value="97.0" />
+  <parameter name="VOUT133_OFF" value="90.0" />
+  <parameter name="VOUT133_ON" value="95.0" />
+  <parameter name="VOUT133_OVF" value="107.0" />
+  <parameter name="VOUT133_OVRSP" value="true" />
+  <parameter name="VOUT133_OVW" value="105.0" />
+  <parameter name="VOUT133_TYP" value="2.5" />
+  <parameter name="VOUT133_UVF" value="93.0" />
+  <parameter name="VOUT133_UVRSP" value="true" />
+  <parameter name="VOUT133_UVW" value="97.0" />
+  <parameter name="VOUT134_OFF" value="90.0" />
+  <parameter name="VOUT134_ON" value="95.0" />
+  <parameter name="VOUT134_OVF" value="107.0" />
+  <parameter name="VOUT134_OVRSP" value="true" />
+  <parameter name="VOUT134_OVW" value="105.0" />
+  <parameter name="VOUT134_TYP" value="2.5" />
+  <parameter name="VOUT134_UVF" value="93.0" />
+  <parameter name="VOUT134_UVRSP" value="true" />
+  <parameter name="VOUT134_UVW" value="97.0" />
+  <parameter name="VOUT135_OFF" value="90.0" />
+  <parameter name="VOUT135_ON" value="95.0" />
+  <parameter name="VOUT135_OVF" value="107.0" />
+  <parameter name="VOUT135_OVRSP" value="true" />
+  <parameter name="VOUT135_OVW" value="105.0" />
+  <parameter name="VOUT135_TYP" value="2.5" />
+  <parameter name="VOUT135_UVF" value="93.0" />
+  <parameter name="VOUT135_UVRSP" value="true" />
+  <parameter name="VOUT135_UVW" value="97.0" />
+  <parameter name="VOUT136_OFF" value="90.0" />
+  <parameter name="VOUT136_ON" value="95.0" />
+  <parameter name="VOUT136_OVF" value="107.0" />
+  <parameter name="VOUT136_OVRSP" value="true" />
+  <parameter name="VOUT136_OVW" value="105.0" />
+  <parameter name="VOUT136_TYP" value="2.5" />
+  <parameter name="VOUT136_UVF" value="93.0" />
+  <parameter name="VOUT136_UVRSP" value="true" />
+  <parameter name="VOUT136_UVW" value="97.0" />
+  <parameter name="VOUT137_OFF" value="90.0" />
+  <parameter name="VOUT137_ON" value="95.0" />
+  <parameter name="VOUT137_OVF" value="107.0" />
+  <parameter name="VOUT137_OVRSP" value="true" />
+  <parameter name="VOUT137_OVW" value="105.0" />
+  <parameter name="VOUT137_TYP" value="2.5" />
+  <parameter name="VOUT137_UVF" value="93.0" />
+  <parameter name="VOUT137_UVRSP" value="true" />
+  <parameter name="VOUT137_UVW" value="97.0" />
+  <parameter name="VOUT138_OFF" value="90.0" />
+  <parameter name="VOUT138_ON" value="95.0" />
+  <parameter name="VOUT138_OVF" value="107.0" />
+  <parameter name="VOUT138_OVRSP" value="true" />
+  <parameter name="VOUT138_OVW" value="105.0" />
+  <parameter name="VOUT138_TYP" value="2.5" />
+  <parameter name="VOUT138_UVF" value="93.0" />
+  <parameter name="VOUT138_UVRSP" value="true" />
+  <parameter name="VOUT138_UVW" value="97.0" />
+  <parameter name="VOUT139_OFF" value="90.0" />
+  <parameter name="VOUT139_ON" value="95.0" />
+  <parameter name="VOUT139_OVF" value="107.0" />
+  <parameter name="VOUT139_OVRSP" value="true" />
+  <parameter name="VOUT139_OVW" value="105.0" />
+  <parameter name="VOUT139_TYP" value="2.5" />
+  <parameter name="VOUT139_UVF" value="93.0" />
+  <parameter name="VOUT139_UVRSP" value="true" />
+  <parameter name="VOUT139_UVW" value="97.0" />
+  <parameter name="VOUT13_OFF" value="90.0" />
+  <parameter name="VOUT13_ON" value="95.0" />
+  <parameter name="VOUT13_OVF" value="107.0" />
+  <parameter name="VOUT13_OVRSP" value="true" />
+  <parameter name="VOUT13_OVW" value="105.0" />
+  <parameter name="VOUT13_TYP" value="2.5" />
+  <parameter name="VOUT13_UVF" value="93.0" />
+  <parameter name="VOUT13_UVRSP" value="true" />
+  <parameter name="VOUT13_UVW" value="97.0" />
+  <parameter name="VOUT140_OFF" value="90.0" />
+  <parameter name="VOUT140_ON" value="95.0" />
+  <parameter name="VOUT140_OVF" value="107.0" />
+  <parameter name="VOUT140_OVRSP" value="true" />
+  <parameter name="VOUT140_OVW" value="105.0" />
+  <parameter name="VOUT140_TYP" value="2.5" />
+  <parameter name="VOUT140_UVF" value="93.0" />
+  <parameter name="VOUT140_UVRSP" value="true" />
+  <parameter name="VOUT140_UVW" value="97.0" />
+  <parameter name="VOUT141_OFF" value="90.0" />
+  <parameter name="VOUT141_ON" value="95.0" />
+  <parameter name="VOUT141_OVF" value="107.0" />
+  <parameter name="VOUT141_OVRSP" value="true" />
+  <parameter name="VOUT141_OVW" value="105.0" />
+  <parameter name="VOUT141_TYP" value="2.5" />
+  <parameter name="VOUT141_UVF" value="93.0" />
+  <parameter name="VOUT141_UVRSP" value="true" />
+  <parameter name="VOUT141_UVW" value="97.0" />
+  <parameter name="VOUT142_OFF" value="90.0" />
+  <parameter name="VOUT142_ON" value="95.0" />
+  <parameter name="VOUT142_OVF" value="107.0" />
+  <parameter name="VOUT142_OVRSP" value="true" />
+  <parameter name="VOUT142_OVW" value="105.0" />
+  <parameter name="VOUT142_TYP" value="2.5" />
+  <parameter name="VOUT142_UVF" value="93.0" />
+  <parameter name="VOUT142_UVRSP" value="true" />
+  <parameter name="VOUT142_UVW" value="97.0" />
+  <parameter name="VOUT14_OFF" value="90.0" />
+  <parameter name="VOUT14_ON" value="95.0" />
+  <parameter name="VOUT14_OVF" value="107.0" />
+  <parameter name="VOUT14_OVRSP" value="true" />
+  <parameter name="VOUT14_OVW" value="105.0" />
+  <parameter name="VOUT14_TYP" value="2.5" />
+  <parameter name="VOUT14_UVF" value="93.0" />
+  <parameter name="VOUT14_UVRSP" value="true" />
+  <parameter name="VOUT14_UVW" value="97.0" />
+  <parameter name="VOUT15_OFF" value="90.0" />
+  <parameter name="VOUT15_ON" value="95.0" />
+  <parameter name="VOUT15_OVF" value="107.0" />
+  <parameter name="VOUT15_OVRSP" value="true" />
+  <parameter name="VOUT15_OVW" value="105.0" />
+  <parameter name="VOUT15_TYP" value="2.5" />
+  <parameter name="VOUT15_UVF" value="93.0" />
+  <parameter name="VOUT15_UVRSP" value="true" />
+  <parameter name="VOUT15_UVW" value="97.0" />
+  <parameter name="VOUT16_OFF" value="90.0" />
+  <parameter name="VOUT16_ON" value="95.0" />
+  <parameter name="VOUT16_OVF" value="107.0" />
+  <parameter name="VOUT16_OVRSP" value="true" />
+  <parameter name="VOUT16_OVW" value="105.0" />
+  <parameter name="VOUT16_TYP" value="2.5" />
+  <parameter name="VOUT16_UVF" value="93.0" />
+  <parameter name="VOUT16_UVRSP" value="true" />
+  <parameter name="VOUT16_UVW" value="97.0" />
+  <parameter name="VOUT17_OFF" value="90.0" />
+  <parameter name="VOUT17_ON" value="95.0" />
+  <parameter name="VOUT17_OVF" value="107.0" />
+  <parameter name="VOUT17_OVRSP" value="true" />
+  <parameter name="VOUT17_OVW" value="105.0" />
+  <parameter name="VOUT17_TYP" value="2.5" />
+  <parameter name="VOUT17_UVF" value="93.0" />
+  <parameter name="VOUT17_UVRSP" value="true" />
+  <parameter name="VOUT17_UVW" value="97.0" />
+  <parameter name="VOUT18_OFF" value="90.0" />
+  <parameter name="VOUT18_ON" value="95.0" />
+  <parameter name="VOUT18_OVF" value="107.0" />
+  <parameter name="VOUT18_OVRSP" value="true" />
+  <parameter name="VOUT18_OVW" value="105.0" />
+  <parameter name="VOUT18_TYP" value="2.5" />
+  <parameter name="VOUT18_UVF" value="93.0" />
+  <parameter name="VOUT18_UVRSP" value="true" />
+  <parameter name="VOUT18_UVW" value="97.0" />
+  <parameter name="VOUT19_OFF" value="90.0" />
+  <parameter name="VOUT19_ON" value="95.0" />
+  <parameter name="VOUT19_OVF" value="107.0" />
+  <parameter name="VOUT19_OVRSP" value="true" />
+  <parameter name="VOUT19_OVW" value="105.0" />
+  <parameter name="VOUT19_TYP" value="2.5" />
+  <parameter name="VOUT19_UVF" value="93.0" />
+  <parameter name="VOUT19_UVRSP" value="true" />
+  <parameter name="VOUT19_UVW" value="97.0" />
+  <parameter name="VOUT1_OFF" value="90.0" />
+  <parameter name="VOUT1_ON" value="95.0" />
+  <parameter name="VOUT1_OVF" value="107.0" />
+  <parameter name="VOUT1_OVRSP" value="true" />
+  <parameter name="VOUT1_OVW" value="105.0" />
+  <parameter name="VOUT1_TYP" value="0.596" />
+  <parameter name="VOUT1_UVF" value="93.0" />
+  <parameter name="VOUT1_UVRSP" value="true" />
+  <parameter name="VOUT1_UVW" value="97.0" />
+  <parameter name="VOUT20_OFF" value="90.0" />
+  <parameter name="VOUT20_ON" value="95.0" />
+  <parameter name="VOUT20_OVF" value="107.0" />
+  <parameter name="VOUT20_OVRSP" value="true" />
+  <parameter name="VOUT20_OVW" value="105.0" />
+  <parameter name="VOUT20_TYP" value="2.5" />
+  <parameter name="VOUT20_UVF" value="93.0" />
+  <parameter name="VOUT20_UVRSP" value="true" />
+  <parameter name="VOUT20_UVW" value="97.0" />
+  <parameter name="VOUT21_OFF" value="90.0" />
+  <parameter name="VOUT21_ON" value="95.0" />
+  <parameter name="VOUT21_OVF" value="107.0" />
+  <parameter name="VOUT21_OVRSP" value="true" />
+  <parameter name="VOUT21_OVW" value="105.0" />
+  <parameter name="VOUT21_TYP" value="2.5" />
+  <parameter name="VOUT21_UVF" value="93.0" />
+  <parameter name="VOUT21_UVRSP" value="true" />
+  <parameter name="VOUT21_UVW" value="97.0" />
+  <parameter name="VOUT22_OFF" value="90.0" />
+  <parameter name="VOUT22_ON" value="95.0" />
+  <parameter name="VOUT22_OVF" value="107.0" />
+  <parameter name="VOUT22_OVRSP" value="true" />
+  <parameter name="VOUT22_OVW" value="105.0" />
+  <parameter name="VOUT22_TYP" value="2.5" />
+  <parameter name="VOUT22_UVF" value="93.0" />
+  <parameter name="VOUT22_UVRSP" value="true" />
+  <parameter name="VOUT22_UVW" value="97.0" />
+  <parameter name="VOUT23_OFF" value="90.0" />
+  <parameter name="VOUT23_ON" value="95.0" />
+  <parameter name="VOUT23_OVF" value="107.0" />
+  <parameter name="VOUT23_OVRSP" value="true" />
+  <parameter name="VOUT23_OVW" value="105.0" />
+  <parameter name="VOUT23_TYP" value="2.5" />
+  <parameter name="VOUT23_UVF" value="93.0" />
+  <parameter name="VOUT23_UVRSP" value="true" />
+  <parameter name="VOUT23_UVW" value="97.0" />
+  <parameter name="VOUT24_OFF" value="90.0" />
+  <parameter name="VOUT24_ON" value="95.0" />
+  <parameter name="VOUT24_OVF" value="107.0" />
+  <parameter name="VOUT24_OVRSP" value="true" />
+  <parameter name="VOUT24_OVW" value="105.0" />
+  <parameter name="VOUT24_TYP" value="2.5" />
+  <parameter name="VOUT24_UVF" value="93.0" />
+  <parameter name="VOUT24_UVRSP" value="true" />
+  <parameter name="VOUT24_UVW" value="97.0" />
+  <parameter name="VOUT25_OFF" value="90.0" />
+  <parameter name="VOUT25_ON" value="95.0" />
+  <parameter name="VOUT25_OVF" value="107.0" />
+  <parameter name="VOUT25_OVRSP" value="true" />
+  <parameter name="VOUT25_OVW" value="105.0" />
+  <parameter name="VOUT25_TYP" value="2.5" />
+  <parameter name="VOUT25_UVF" value="93.0" />
+  <parameter name="VOUT25_UVRSP" value="true" />
+  <parameter name="VOUT25_UVW" value="97.0" />
+  <parameter name="VOUT26_OFF" value="90.0" />
+  <parameter name="VOUT26_ON" value="95.0" />
+  <parameter name="VOUT26_OVF" value="107.0" />
+  <parameter name="VOUT26_OVRSP" value="true" />
+  <parameter name="VOUT26_OVW" value="105.0" />
+  <parameter name="VOUT26_TYP" value="2.5" />
+  <parameter name="VOUT26_UVF" value="93.0" />
+  <parameter name="VOUT26_UVRSP" value="true" />
+  <parameter name="VOUT26_UVW" value="97.0" />
+  <parameter name="VOUT27_OFF" value="90.0" />
+  <parameter name="VOUT27_ON" value="95.0" />
+  <parameter name="VOUT27_OVF" value="107.0" />
+  <parameter name="VOUT27_OVRSP" value="true" />
+  <parameter name="VOUT27_OVW" value="105.0" />
+  <parameter name="VOUT27_TYP" value="2.5" />
+  <parameter name="VOUT27_UVF" value="93.0" />
+  <parameter name="VOUT27_UVRSP" value="true" />
+  <parameter name="VOUT27_UVW" value="97.0" />
+  <parameter name="VOUT28_OFF" value="90.0" />
+  <parameter name="VOUT28_ON" value="95.0" />
+  <parameter name="VOUT28_OVF" value="107.0" />
+  <parameter name="VOUT28_OVRSP" value="true" />
+  <parameter name="VOUT28_OVW" value="105.0" />
+  <parameter name="VOUT28_TYP" value="2.5" />
+  <parameter name="VOUT28_UVF" value="93.0" />
+  <parameter name="VOUT28_UVRSP" value="true" />
+  <parameter name="VOUT28_UVW" value="97.0" />
+  <parameter name="VOUT29_OFF" value="90.0" />
+  <parameter name="VOUT29_ON" value="95.0" />
+  <parameter name="VOUT29_OVF" value="107.0" />
+  <parameter name="VOUT29_OVRSP" value="true" />
+  <parameter name="VOUT29_OVW" value="105.0" />
+  <parameter name="VOUT29_TYP" value="2.5" />
+  <parameter name="VOUT29_UVF" value="93.0" />
+  <parameter name="VOUT29_UVRSP" value="true" />
+  <parameter name="VOUT29_UVW" value="97.0" />
+  <parameter name="VOUT2_OFF" value="90.0" />
+  <parameter name="VOUT2_ON" value="95.0" />
+  <parameter name="VOUT2_OVF" value="107.0" />
+  <parameter name="VOUT2_OVRSP" value="true" />
+  <parameter name="VOUT2_OVW" value="105.0" />
+  <parameter name="VOUT2_TYP" value="0.596" />
+  <parameter name="VOUT2_UVF" value="93.0" />
+  <parameter name="VOUT2_UVRSP" value="true" />
+  <parameter name="VOUT2_UVW" value="97.0" />
+  <parameter name="VOUT30_OFF" value="90.0" />
+  <parameter name="VOUT30_ON" value="95.0" />
+  <parameter name="VOUT30_OVF" value="107.0" />
+  <parameter name="VOUT30_OVRSP" value="true" />
+  <parameter name="VOUT30_OVW" value="105.0" />
+  <parameter name="VOUT30_TYP" value="2.5" />
+  <parameter name="VOUT30_UVF" value="93.0" />
+  <parameter name="VOUT30_UVRSP" value="true" />
+  <parameter name="VOUT30_UVW" value="97.0" />
+  <parameter name="VOUT31_OFF" value="90.0" />
+  <parameter name="VOUT31_ON" value="95.0" />
+  <parameter name="VOUT31_OVF" value="107.0" />
+  <parameter name="VOUT31_OVRSP" value="true" />
+  <parameter name="VOUT31_OVW" value="105.0" />
+  <parameter name="VOUT31_TYP" value="2.5" />
+  <parameter name="VOUT31_UVF" value="93.0" />
+  <parameter name="VOUT31_UVRSP" value="true" />
+  <parameter name="VOUT31_UVW" value="97.0" />
+  <parameter name="VOUT32_OFF" value="90.0" />
+  <parameter name="VOUT32_ON" value="95.0" />
+  <parameter name="VOUT32_OVF" value="107.0" />
+  <parameter name="VOUT32_OVRSP" value="true" />
+  <parameter name="VOUT32_OVW" value="105.0" />
+  <parameter name="VOUT32_TYP" value="2.5" />
+  <parameter name="VOUT32_UVF" value="93.0" />
+  <parameter name="VOUT32_UVRSP" value="true" />
+  <parameter name="VOUT32_UVW" value="97.0" />
+  <parameter name="VOUT33_OFF" value="90.0" />
+  <parameter name="VOUT33_ON" value="95.0" />
+  <parameter name="VOUT33_OVF" value="107.0" />
+  <parameter name="VOUT33_OVRSP" value="true" />
+  <parameter name="VOUT33_OVW" value="105.0" />
+  <parameter name="VOUT33_TYP" value="2.5" />
+  <parameter name="VOUT33_UVF" value="93.0" />
+  <parameter name="VOUT33_UVRSP" value="true" />
+  <parameter name="VOUT33_UVW" value="97.0" />
+  <parameter name="VOUT34_OFF" value="90.0" />
+  <parameter name="VOUT34_ON" value="95.0" />
+  <parameter name="VOUT34_OVF" value="107.0" />
+  <parameter name="VOUT34_OVRSP" value="true" />
+  <parameter name="VOUT34_OVW" value="105.0" />
+  <parameter name="VOUT34_TYP" value="2.5" />
+  <parameter name="VOUT34_UVF" value="93.0" />
+  <parameter name="VOUT34_UVRSP" value="true" />
+  <parameter name="VOUT34_UVW" value="97.0" />
+  <parameter name="VOUT35_OFF" value="90.0" />
+  <parameter name="VOUT35_ON" value="95.0" />
+  <parameter name="VOUT35_OVF" value="107.0" />
+  <parameter name="VOUT35_OVRSP" value="true" />
+  <parameter name="VOUT35_OVW" value="105.0" />
+  <parameter name="VOUT35_TYP" value="2.5" />
+  <parameter name="VOUT35_UVF" value="93.0" />
+  <parameter name="VOUT35_UVRSP" value="true" />
+  <parameter name="VOUT35_UVW" value="97.0" />
+  <parameter name="VOUT36_OFF" value="90.0" />
+  <parameter name="VOUT36_ON" value="95.0" />
+  <parameter name="VOUT36_OVF" value="107.0" />
+  <parameter name="VOUT36_OVRSP" value="true" />
+  <parameter name="VOUT36_OVW" value="105.0" />
+  <parameter name="VOUT36_TYP" value="2.5" />
+  <parameter name="VOUT36_UVF" value="93.0" />
+  <parameter name="VOUT36_UVRSP" value="true" />
+  <parameter name="VOUT36_UVW" value="97.0" />
+  <parameter name="VOUT37_OFF" value="90.0" />
+  <parameter name="VOUT37_ON" value="95.0" />
+  <parameter name="VOUT37_OVF" value="107.0" />
+  <parameter name="VOUT37_OVRSP" value="true" />
+  <parameter name="VOUT37_OVW" value="105.0" />
+  <parameter name="VOUT37_TYP" value="2.5" />
+  <parameter name="VOUT37_UVF" value="93.0" />
+  <parameter name="VOUT37_UVRSP" value="true" />
+  <parameter name="VOUT37_UVW" value="97.0" />
+  <parameter name="VOUT38_OFF" value="90.0" />
+  <parameter name="VOUT38_ON" value="95.0" />
+  <parameter name="VOUT38_OVF" value="107.0" />
+  <parameter name="VOUT38_OVRSP" value="true" />
+  <parameter name="VOUT38_OVW" value="105.0" />
+  <parameter name="VOUT38_TYP" value="2.5" />
+  <parameter name="VOUT38_UVF" value="93.0" />
+  <parameter name="VOUT38_UVRSP" value="true" />
+  <parameter name="VOUT38_UVW" value="97.0" />
+  <parameter name="VOUT39_OFF" value="90.0" />
+  <parameter name="VOUT39_ON" value="95.0" />
+  <parameter name="VOUT39_OVF" value="107.0" />
+  <parameter name="VOUT39_OVRSP" value="true" />
+  <parameter name="VOUT39_OVW" value="105.0" />
+  <parameter name="VOUT39_TYP" value="2.5" />
+  <parameter name="VOUT39_UVF" value="93.0" />
+  <parameter name="VOUT39_UVRSP" value="true" />
+  <parameter name="VOUT39_UVW" value="97.0" />
+  <parameter name="VOUT3_OFF" value="90.0" />
+  <parameter name="VOUT3_ON" value="95.0" />
+  <parameter name="VOUT3_OVF" value="107.0" />
+  <parameter name="VOUT3_OVRSP" value="true" />
+  <parameter name="VOUT3_OVW" value="105.0" />
+  <parameter name="VOUT3_TYP" value="0.599" />
+  <parameter name="VOUT3_UVF" value="93.0" />
+  <parameter name="VOUT3_UVRSP" value="true" />
+  <parameter name="VOUT3_UVW" value="97.0" />
+  <parameter name="VOUT40_OFF" value="90.0" />
+  <parameter name="VOUT40_ON" value="95.0" />
+  <parameter name="VOUT40_OVF" value="107.0" />
+  <parameter name="VOUT40_OVRSP" value="true" />
+  <parameter name="VOUT40_OVW" value="105.0" />
+  <parameter name="VOUT40_TYP" value="2.5" />
+  <parameter name="VOUT40_UVF" value="93.0" />
+  <parameter name="VOUT40_UVRSP" value="true" />
+  <parameter name="VOUT40_UVW" value="97.0" />
+  <parameter name="VOUT41_OFF" value="90.0" />
+  <parameter name="VOUT41_ON" value="95.0" />
+  <parameter name="VOUT41_OVF" value="107.0" />
+  <parameter name="VOUT41_OVRSP" value="true" />
+  <parameter name="VOUT41_OVW" value="105.0" />
+  <parameter name="VOUT41_TYP" value="2.5" />
+  <parameter name="VOUT41_UVF" value="93.0" />
+  <parameter name="VOUT41_UVRSP" value="true" />
+  <parameter name="VOUT41_UVW" value="97.0" />
+  <parameter name="VOUT42_OFF" value="90.0" />
+  <parameter name="VOUT42_ON" value="95.0" />
+  <parameter name="VOUT42_OVF" value="107.0" />
+  <parameter name="VOUT42_OVRSP" value="true" />
+  <parameter name="VOUT42_OVW" value="105.0" />
+  <parameter name="VOUT42_TYP" value="2.5" />
+  <parameter name="VOUT42_UVF" value="93.0" />
+  <parameter name="VOUT42_UVRSP" value="true" />
+  <parameter name="VOUT42_UVW" value="97.0" />
+  <parameter name="VOUT43_OFF" value="90.0" />
+  <parameter name="VOUT43_ON" value="95.0" />
+  <parameter name="VOUT43_OVF" value="107.0" />
+  <parameter name="VOUT43_OVRSP" value="true" />
+  <parameter name="VOUT43_OVW" value="105.0" />
+  <parameter name="VOUT43_TYP" value="2.5" />
+  <parameter name="VOUT43_UVF" value="93.0" />
+  <parameter name="VOUT43_UVRSP" value="true" />
+  <parameter name="VOUT43_UVW" value="97.0" />
+  <parameter name="VOUT44_OFF" value="90.0" />
+  <parameter name="VOUT44_ON" value="95.0" />
+  <parameter name="VOUT44_OVF" value="107.0" />
+  <parameter name="VOUT44_OVRSP" value="true" />
+  <parameter name="VOUT44_OVW" value="105.0" />
+  <parameter name="VOUT44_TYP" value="2.5" />
+  <parameter name="VOUT44_UVF" value="93.0" />
+  <parameter name="VOUT44_UVRSP" value="true" />
+  <parameter name="VOUT44_UVW" value="97.0" />
+  <parameter name="VOUT45_OFF" value="90.0" />
+  <parameter name="VOUT45_ON" value="95.0" />
+  <parameter name="VOUT45_OVF" value="107.0" />
+  <parameter name="VOUT45_OVRSP" value="true" />
+  <parameter name="VOUT45_OVW" value="105.0" />
+  <parameter name="VOUT45_TYP" value="2.5" />
+  <parameter name="VOUT45_UVF" value="93.0" />
+  <parameter name="VOUT45_UVRSP" value="true" />
+  <parameter name="VOUT45_UVW" value="97.0" />
+  <parameter name="VOUT46_OFF" value="90.0" />
+  <parameter name="VOUT46_ON" value="95.0" />
+  <parameter name="VOUT46_OVF" value="107.0" />
+  <parameter name="VOUT46_OVRSP" value="true" />
+  <parameter name="VOUT46_OVW" value="105.0" />
+  <parameter name="VOUT46_TYP" value="2.5" />
+  <parameter name="VOUT46_UVF" value="93.0" />
+  <parameter name="VOUT46_UVRSP" value="true" />
+  <parameter name="VOUT46_UVW" value="97.0" />
+  <parameter name="VOUT47_OFF" value="90.0" />
+  <parameter name="VOUT47_ON" value="95.0" />
+  <parameter name="VOUT47_OVF" value="107.0" />
+  <parameter name="VOUT47_OVRSP" value="true" />
+  <parameter name="VOUT47_OVW" value="105.0" />
+  <parameter name="VOUT47_TYP" value="2.5" />
+  <parameter name="VOUT47_UVF" value="93.0" />
+  <parameter name="VOUT47_UVRSP" value="true" />
+  <parameter name="VOUT47_UVW" value="97.0" />
+  <parameter name="VOUT48_OFF" value="90.0" />
+  <parameter name="VOUT48_ON" value="95.0" />
+  <parameter name="VOUT48_OVF" value="107.0" />
+  <parameter name="VOUT48_OVRSP" value="true" />
+  <parameter name="VOUT48_OVW" value="105.0" />
+  <parameter name="VOUT48_TYP" value="2.5" />
+  <parameter name="VOUT48_UVF" value="93.0" />
+  <parameter name="VOUT48_UVRSP" value="true" />
+  <parameter name="VOUT48_UVW" value="97.0" />
+  <parameter name="VOUT49_OFF" value="90.0" />
+  <parameter name="VOUT49_ON" value="95.0" />
+  <parameter name="VOUT49_OVF" value="107.0" />
+  <parameter name="VOUT49_OVRSP" value="true" />
+  <parameter name="VOUT49_OVW" value="105.0" />
+  <parameter name="VOUT49_TYP" value="2.5" />
+  <parameter name="VOUT49_UVF" value="93.0" />
+  <parameter name="VOUT49_UVRSP" value="true" />
+  <parameter name="VOUT49_UVW" value="97.0" />
+  <parameter name="VOUT4_OFF" value="90.0" />
+  <parameter name="VOUT4_ON" value="95.0" />
+  <parameter name="VOUT4_OVF" value="107.0" />
+  <parameter name="VOUT4_OVRSP" value="true" />
+  <parameter name="VOUT4_OVW" value="105.0" />
+  <parameter name="VOUT4_TYP" value="0.597" />
+  <parameter name="VOUT4_UVF" value="93.0" />
+  <parameter name="VOUT4_UVRSP" value="true" />
+  <parameter name="VOUT4_UVW" value="97.0" />
+  <parameter name="VOUT50_OFF" value="90.0" />
+  <parameter name="VOUT50_ON" value="95.0" />
+  <parameter name="VOUT50_OVF" value="107.0" />
+  <parameter name="VOUT50_OVRSP" value="true" />
+  <parameter name="VOUT50_OVW" value="105.0" />
+  <parameter name="VOUT50_TYP" value="2.5" />
+  <parameter name="VOUT50_UVF" value="93.0" />
+  <parameter name="VOUT50_UVRSP" value="true" />
+  <parameter name="VOUT50_UVW" value="97.0" />
+  <parameter name="VOUT51_OFF" value="90.0" />
+  <parameter name="VOUT51_ON" value="95.0" />
+  <parameter name="VOUT51_OVF" value="107.0" />
+  <parameter name="VOUT51_OVRSP" value="true" />
+  <parameter name="VOUT51_OVW" value="105.0" />
+  <parameter name="VOUT51_TYP" value="2.5" />
+  <parameter name="VOUT51_UVF" value="93.0" />
+  <parameter name="VOUT51_UVRSP" value="true" />
+  <parameter name="VOUT51_UVW" value="97.0" />
+  <parameter name="VOUT52_OFF" value="90.0" />
+  <parameter name="VOUT52_ON" value="95.0" />
+  <parameter name="VOUT52_OVF" value="107.0" />
+  <parameter name="VOUT52_OVRSP" value="true" />
+  <parameter name="VOUT52_OVW" value="105.0" />
+  <parameter name="VOUT52_TYP" value="2.5" />
+  <parameter name="VOUT52_UVF" value="93.0" />
+  <parameter name="VOUT52_UVRSP" value="true" />
+  <parameter name="VOUT52_UVW" value="97.0" />
+  <parameter name="VOUT53_OFF" value="90.0" />
+  <parameter name="VOUT53_ON" value="95.0" />
+  <parameter name="VOUT53_OVF" value="107.0" />
+  <parameter name="VOUT53_OVRSP" value="true" />
+  <parameter name="VOUT53_OVW" value="105.0" />
+  <parameter name="VOUT53_TYP" value="2.5" />
+  <parameter name="VOUT53_UVF" value="93.0" />
+  <parameter name="VOUT53_UVRSP" value="true" />
+  <parameter name="VOUT53_UVW" value="97.0" />
+  <parameter name="VOUT54_OFF" value="90.0" />
+  <parameter name="VOUT54_ON" value="95.0" />
+  <parameter name="VOUT54_OVF" value="107.0" />
+  <parameter name="VOUT54_OVRSP" value="true" />
+  <parameter name="VOUT54_OVW" value="105.0" />
+  <parameter name="VOUT54_TYP" value="2.5" />
+  <parameter name="VOUT54_UVF" value="93.0" />
+  <parameter name="VOUT54_UVRSP" value="true" />
+  <parameter name="VOUT54_UVW" value="97.0" />
+  <parameter name="VOUT55_OFF" value="90.0" />
+  <parameter name="VOUT55_ON" value="95.0" />
+  <parameter name="VOUT55_OVF" value="107.0" />
+  <parameter name="VOUT55_OVRSP" value="true" />
+  <parameter name="VOUT55_OVW" value="105.0" />
+  <parameter name="VOUT55_TYP" value="2.5" />
+  <parameter name="VOUT55_UVF" value="93.0" />
+  <parameter name="VOUT55_UVRSP" value="true" />
+  <parameter name="VOUT55_UVW" value="97.0" />
+  <parameter name="VOUT56_OFF" value="90.0" />
+  <parameter name="VOUT56_ON" value="95.0" />
+  <parameter name="VOUT56_OVF" value="107.0" />
+  <parameter name="VOUT56_OVRSP" value="true" />
+  <parameter name="VOUT56_OVW" value="105.0" />
+  <parameter name="VOUT56_TYP" value="2.5" />
+  <parameter name="VOUT56_UVF" value="93.0" />
+  <parameter name="VOUT56_UVRSP" value="true" />
+  <parameter name="VOUT56_UVW" value="97.0" />
+  <parameter name="VOUT57_OFF" value="90.0" />
+  <parameter name="VOUT57_ON" value="95.0" />
+  <parameter name="VOUT57_OVF" value="107.0" />
+  <parameter name="VOUT57_OVRSP" value="true" />
+  <parameter name="VOUT57_OVW" value="105.0" />
+  <parameter name="VOUT57_TYP" value="2.5" />
+  <parameter name="VOUT57_UVF" value="93.0" />
+  <parameter name="VOUT57_UVRSP" value="true" />
+  <parameter name="VOUT57_UVW" value="97.0" />
+  <parameter name="VOUT58_OFF" value="90.0" />
+  <parameter name="VOUT58_ON" value="95.0" />
+  <parameter name="VOUT58_OVF" value="107.0" />
+  <parameter name="VOUT58_OVRSP" value="true" />
+  <parameter name="VOUT58_OVW" value="105.0" />
+  <parameter name="VOUT58_TYP" value="2.5" />
+  <parameter name="VOUT58_UVF" value="93.0" />
+  <parameter name="VOUT58_UVRSP" value="true" />
+  <parameter name="VOUT58_UVW" value="97.0" />
+  <parameter name="VOUT59_OFF" value="90.0" />
+  <parameter name="VOUT59_ON" value="95.0" />
+  <parameter name="VOUT59_OVF" value="107.0" />
+  <parameter name="VOUT59_OVRSP" value="true" />
+  <parameter name="VOUT59_OVW" value="105.0" />
+  <parameter name="VOUT59_TYP" value="2.5" />
+  <parameter name="VOUT59_UVF" value="93.0" />
+  <parameter name="VOUT59_UVRSP" value="true" />
+  <parameter name="VOUT59_UVW" value="97.0" />
+  <parameter name="VOUT5_OFF" value="90.0" />
+  <parameter name="VOUT5_ON" value="95.0" />
+  <parameter name="VOUT5_OVF" value="107.0" />
+  <parameter name="VOUT5_OVRSP" value="true" />
+  <parameter name="VOUT5_OVW" value="105.0" />
+  <parameter name="VOUT5_TYP" value="0.6" />
+  <parameter name="VOUT5_UVF" value="93.0" />
+  <parameter name="VOUT5_UVRSP" value="true" />
+  <parameter name="VOUT5_UVW" value="97.0" />
+  <parameter name="VOUT60_OFF" value="90.0" />
+  <parameter name="VOUT60_ON" value="95.0" />
+  <parameter name="VOUT60_OVF" value="107.0" />
+  <parameter name="VOUT60_OVRSP" value="true" />
+  <parameter name="VOUT60_OVW" value="105.0" />
+  <parameter name="VOUT60_TYP" value="2.5" />
+  <parameter name="VOUT60_UVF" value="93.0" />
+  <parameter name="VOUT60_UVRSP" value="true" />
+  <parameter name="VOUT60_UVW" value="97.0" />
+  <parameter name="VOUT61_OFF" value="90.0" />
+  <parameter name="VOUT61_ON" value="95.0" />
+  <parameter name="VOUT61_OVF" value="107.0" />
+  <parameter name="VOUT61_OVRSP" value="true" />
+  <parameter name="VOUT61_OVW" value="105.0" />
+  <parameter name="VOUT61_TYP" value="2.5" />
+  <parameter name="VOUT61_UVF" value="93.0" />
+  <parameter name="VOUT61_UVRSP" value="true" />
+  <parameter name="VOUT61_UVW" value="97.0" />
+  <parameter name="VOUT62_OFF" value="90.0" />
+  <parameter name="VOUT62_ON" value="95.0" />
+  <parameter name="VOUT62_OVF" value="107.0" />
+  <parameter name="VOUT62_OVRSP" value="true" />
+  <parameter name="VOUT62_OVW" value="105.0" />
+  <parameter name="VOUT62_TYP" value="2.5" />
+  <parameter name="VOUT62_UVF" value="93.0" />
+  <parameter name="VOUT62_UVRSP" value="true" />
+  <parameter name="VOUT62_UVW" value="97.0" />
+  <parameter name="VOUT63_OFF" value="90.0" />
+  <parameter name="VOUT63_ON" value="95.0" />
+  <parameter name="VOUT63_OVF" value="107.0" />
+  <parameter name="VOUT63_OVRSP" value="true" />
+  <parameter name="VOUT63_OVW" value="105.0" />
+  <parameter name="VOUT63_TYP" value="2.5" />
+  <parameter name="VOUT63_UVF" value="93.0" />
+  <parameter name="VOUT63_UVRSP" value="true" />
+  <parameter name="VOUT63_UVW" value="97.0" />
+  <parameter name="VOUT64_OFF" value="90.0" />
+  <parameter name="VOUT64_ON" value="95.0" />
+  <parameter name="VOUT64_OVF" value="107.0" />
+  <parameter name="VOUT64_OVRSP" value="true" />
+  <parameter name="VOUT64_OVW" value="105.0" />
+  <parameter name="VOUT64_TYP" value="2.5" />
+  <parameter name="VOUT64_UVF" value="93.0" />
+  <parameter name="VOUT64_UVRSP" value="true" />
+  <parameter name="VOUT64_UVW" value="97.0" />
+  <parameter name="VOUT65_OFF" value="90.0" />
+  <parameter name="VOUT65_ON" value="95.0" />
+  <parameter name="VOUT65_OVF" value="107.0" />
+  <parameter name="VOUT65_OVRSP" value="true" />
+  <parameter name="VOUT65_OVW" value="105.0" />
+  <parameter name="VOUT65_TYP" value="2.5" />
+  <parameter name="VOUT65_UVF" value="93.0" />
+  <parameter name="VOUT65_UVRSP" value="true" />
+  <parameter name="VOUT65_UVW" value="97.0" />
+  <parameter name="VOUT66_OFF" value="90.0" />
+  <parameter name="VOUT66_ON" value="95.0" />
+  <parameter name="VOUT66_OVF" value="107.0" />
+  <parameter name="VOUT66_OVRSP" value="true" />
+  <parameter name="VOUT66_OVW" value="105.0" />
+  <parameter name="VOUT66_TYP" value="2.5" />
+  <parameter name="VOUT66_UVF" value="93.0" />
+  <parameter name="VOUT66_UVRSP" value="true" />
+  <parameter name="VOUT66_UVW" value="97.0" />
+  <parameter name="VOUT67_OFF" value="90.0" />
+  <parameter name="VOUT67_ON" value="95.0" />
+  <parameter name="VOUT67_OVF" value="107.0" />
+  <parameter name="VOUT67_OVRSP" value="true" />
+  <parameter name="VOUT67_OVW" value="105.0" />
+  <parameter name="VOUT67_TYP" value="2.5" />
+  <parameter name="VOUT67_UVF" value="93.0" />
+  <parameter name="VOUT67_UVRSP" value="true" />
+  <parameter name="VOUT67_UVW" value="97.0" />
+  <parameter name="VOUT68_OFF" value="90.0" />
+  <parameter name="VOUT68_ON" value="95.0" />
+  <parameter name="VOUT68_OVF" value="107.0" />
+  <parameter name="VOUT68_OVRSP" value="true" />
+  <parameter name="VOUT68_OVW" value="105.0" />
+  <parameter name="VOUT68_TYP" value="2.5" />
+  <parameter name="VOUT68_UVF" value="93.0" />
+  <parameter name="VOUT68_UVRSP" value="true" />
+  <parameter name="VOUT68_UVW" value="97.0" />
+  <parameter name="VOUT69_OFF" value="90.0" />
+  <parameter name="VOUT69_ON" value="95.0" />
+  <parameter name="VOUT69_OVF" value="107.0" />
+  <parameter name="VOUT69_OVRSP" value="true" />
+  <parameter name="VOUT69_OVW" value="105.0" />
+  <parameter name="VOUT69_TYP" value="2.5" />
+  <parameter name="VOUT69_UVF" value="93.0" />
+  <parameter name="VOUT69_UVRSP" value="true" />
+  <parameter name="VOUT69_UVW" value="97.0" />
+  <parameter name="VOUT6_OFF" value="90.0" />
+  <parameter name="VOUT6_ON" value="95.0" />
+  <parameter name="VOUT6_OVF" value="107.0" />
+  <parameter name="VOUT6_OVRSP" value="true" />
+  <parameter name="VOUT6_OVW" value="105.0" />
+  <parameter name="VOUT6_TYP" value="2.5" />
+  <parameter name="VOUT6_UVF" value="93.0" />
+  <parameter name="VOUT6_UVRSP" value="true" />
+  <parameter name="VOUT6_UVW" value="97.0" />
+  <parameter name="VOUT70_OFF" value="90.0" />
+  <parameter name="VOUT70_ON" value="95.0" />
+  <parameter name="VOUT70_OVF" value="107.0" />
+  <parameter name="VOUT70_OVRSP" value="true" />
+  <parameter name="VOUT70_OVW" value="105.0" />
+  <parameter name="VOUT70_TYP" value="2.5" />
+  <parameter name="VOUT70_UVF" value="93.0" />
+  <parameter name="VOUT70_UVRSP" value="true" />
+  <parameter name="VOUT70_UVW" value="97.0" />
+  <parameter name="VOUT71_OFF" value="90.0" />
+  <parameter name="VOUT71_ON" value="95.0" />
+  <parameter name="VOUT71_OVF" value="107.0" />
+  <parameter name="VOUT71_OVRSP" value="true" />
+  <parameter name="VOUT71_OVW" value="105.0" />
+  <parameter name="VOUT71_TYP" value="2.5" />
+  <parameter name="VOUT71_UVF" value="93.0" />
+  <parameter name="VOUT71_UVRSP" value="true" />
+  <parameter name="VOUT71_UVW" value="97.0" />
+  <parameter name="VOUT72_OFF" value="90.0" />
+  <parameter name="VOUT72_ON" value="95.0" />
+  <parameter name="VOUT72_OVF" value="107.0" />
+  <parameter name="VOUT72_OVRSP" value="true" />
+  <parameter name="VOUT72_OVW" value="105.0" />
+  <parameter name="VOUT72_TYP" value="2.5" />
+  <parameter name="VOUT72_UVF" value="93.0" />
+  <parameter name="VOUT72_UVRSP" value="true" />
+  <parameter name="VOUT72_UVW" value="97.0" />
+  <parameter name="VOUT73_OFF" value="90.0" />
+  <parameter name="VOUT73_ON" value="95.0" />
+  <parameter name="VOUT73_OVF" value="107.0" />
+  <parameter name="VOUT73_OVRSP" value="true" />
+  <parameter name="VOUT73_OVW" value="105.0" />
+  <parameter name="VOUT73_TYP" value="2.5" />
+  <parameter name="VOUT73_UVF" value="93.0" />
+  <parameter name="VOUT73_UVRSP" value="true" />
+  <parameter name="VOUT73_UVW" value="97.0" />
+  <parameter name="VOUT74_OFF" value="90.0" />
+  <parameter name="VOUT74_ON" value="95.0" />
+  <parameter name="VOUT74_OVF" value="107.0" />
+  <parameter name="VOUT74_OVRSP" value="true" />
+  <parameter name="VOUT74_OVW" value="105.0" />
+  <parameter name="VOUT74_TYP" value="2.5" />
+  <parameter name="VOUT74_UVF" value="93.0" />
+  <parameter name="VOUT74_UVRSP" value="true" />
+  <parameter name="VOUT74_UVW" value="97.0" />
+  <parameter name="VOUT75_OFF" value="90.0" />
+  <parameter name="VOUT75_ON" value="95.0" />
+  <parameter name="VOUT75_OVF" value="107.0" />
+  <parameter name="VOUT75_OVRSP" value="true" />
+  <parameter name="VOUT75_OVW" value="105.0" />
+  <parameter name="VOUT75_TYP" value="2.5" />
+  <parameter name="VOUT75_UVF" value="93.0" />
+  <parameter name="VOUT75_UVRSP" value="true" />
+  <parameter name="VOUT75_UVW" value="97.0" />
+  <parameter name="VOUT76_OFF" value="90.0" />
+  <parameter name="VOUT76_ON" value="95.0" />
+  <parameter name="VOUT76_OVF" value="107.0" />
+  <parameter name="VOUT76_OVRSP" value="true" />
+  <parameter name="VOUT76_OVW" value="105.0" />
+  <parameter name="VOUT76_TYP" value="2.5" />
+  <parameter name="VOUT76_UVF" value="93.0" />
+  <parameter name="VOUT76_UVRSP" value="true" />
+  <parameter name="VOUT76_UVW" value="97.0" />
+  <parameter name="VOUT77_OFF" value="90.0" />
+  <parameter name="VOUT77_ON" value="95.0" />
+  <parameter name="VOUT77_OVF" value="107.0" />
+  <parameter name="VOUT77_OVRSP" value="true" />
+  <parameter name="VOUT77_OVW" value="105.0" />
+  <parameter name="VOUT77_TYP" value="2.5" />
+  <parameter name="VOUT77_UVF" value="93.0" />
+  <parameter name="VOUT77_UVRSP" value="true" />
+  <parameter name="VOUT77_UVW" value="97.0" />
+  <parameter name="VOUT78_OFF" value="90.0" />
+  <parameter name="VOUT78_ON" value="95.0" />
+  <parameter name="VOUT78_OVF" value="107.0" />
+  <parameter name="VOUT78_OVRSP" value="true" />
+  <parameter name="VOUT78_OVW" value="105.0" />
+  <parameter name="VOUT78_TYP" value="2.5" />
+  <parameter name="VOUT78_UVF" value="93.0" />
+  <parameter name="VOUT78_UVRSP" value="true" />
+  <parameter name="VOUT78_UVW" value="97.0" />
+  <parameter name="VOUT79_OFF" value="90.0" />
+  <parameter name="VOUT79_ON" value="95.0" />
+  <parameter name="VOUT79_OVF" value="107.0" />
+  <parameter name="VOUT79_OVRSP" value="true" />
+  <parameter name="VOUT79_OVW" value="105.0" />
+  <parameter name="VOUT79_TYP" value="2.5" />
+  <parameter name="VOUT79_UVF" value="93.0" />
+  <parameter name="VOUT79_UVRSP" value="true" />
+  <parameter name="VOUT79_UVW" value="97.0" />
+  <parameter name="VOUT7_OFF" value="90.0" />
+  <parameter name="VOUT7_ON" value="95.0" />
+  <parameter name="VOUT7_OVF" value="107.0" />
+  <parameter name="VOUT7_OVRSP" value="true" />
+  <parameter name="VOUT7_OVW" value="105.0" />
+  <parameter name="VOUT7_TYP" value="2.5" />
+  <parameter name="VOUT7_UVF" value="93.0" />
+  <parameter name="VOUT7_UVRSP" value="true" />
+  <parameter name="VOUT7_UVW" value="97.0" />
+  <parameter name="VOUT80_OFF" value="90.0" />
+  <parameter name="VOUT80_ON" value="95.0" />
+  <parameter name="VOUT80_OVF" value="107.0" />
+  <parameter name="VOUT80_OVRSP" value="true" />
+  <parameter name="VOUT80_OVW" value="105.0" />
+  <parameter name="VOUT80_TYP" value="2.5" />
+  <parameter name="VOUT80_UVF" value="93.0" />
+  <parameter name="VOUT80_UVRSP" value="true" />
+  <parameter name="VOUT80_UVW" value="97.0" />
+  <parameter name="VOUT81_OFF" value="90.0" />
+  <parameter name="VOUT81_ON" value="95.0" />
+  <parameter name="VOUT81_OVF" value="107.0" />
+  <parameter name="VOUT81_OVRSP" value="true" />
+  <parameter name="VOUT81_OVW" value="105.0" />
+  <parameter name="VOUT81_TYP" value="2.5" />
+  <parameter name="VOUT81_UVF" value="93.0" />
+  <parameter name="VOUT81_UVRSP" value="true" />
+  <parameter name="VOUT81_UVW" value="97.0" />
+  <parameter name="VOUT82_OFF" value="90.0" />
+  <parameter name="VOUT82_ON" value="95.0" />
+  <parameter name="VOUT82_OVF" value="107.0" />
+  <parameter name="VOUT82_OVRSP" value="true" />
+  <parameter name="VOUT82_OVW" value="105.0" />
+  <parameter name="VOUT82_TYP" value="2.5" />
+  <parameter name="VOUT82_UVF" value="93.0" />
+  <parameter name="VOUT82_UVRSP" value="true" />
+  <parameter name="VOUT82_UVW" value="97.0" />
+  <parameter name="VOUT83_OFF" value="90.0" />
+  <parameter name="VOUT83_ON" value="95.0" />
+  <parameter name="VOUT83_OVF" value="107.0" />
+  <parameter name="VOUT83_OVRSP" value="true" />
+  <parameter name="VOUT83_OVW" value="105.0" />
+  <parameter name="VOUT83_TYP" value="2.5" />
+  <parameter name="VOUT83_UVF" value="93.0" />
+  <parameter name="VOUT83_UVRSP" value="true" />
+  <parameter name="VOUT83_UVW" value="97.0" />
+  <parameter name="VOUT84_OFF" value="90.0" />
+  <parameter name="VOUT84_ON" value="95.0" />
+  <parameter name="VOUT84_OVF" value="107.0" />
+  <parameter name="VOUT84_OVRSP" value="true" />
+  <parameter name="VOUT84_OVW" value="105.0" />
+  <parameter name="VOUT84_TYP" value="2.5" />
+  <parameter name="VOUT84_UVF" value="93.0" />
+  <parameter name="VOUT84_UVRSP" value="true" />
+  <parameter name="VOUT84_UVW" value="97.0" />
+  <parameter name="VOUT85_OFF" value="90.0" />
+  <parameter name="VOUT85_ON" value="95.0" />
+  <parameter name="VOUT85_OVF" value="107.0" />
+  <parameter name="VOUT85_OVRSP" value="true" />
+  <parameter name="VOUT85_OVW" value="105.0" />
+  <parameter name="VOUT85_TYP" value="2.5" />
+  <parameter name="VOUT85_UVF" value="93.0" />
+  <parameter name="VOUT85_UVRSP" value="true" />
+  <parameter name="VOUT85_UVW" value="97.0" />
+  <parameter name="VOUT86_OFF" value="90.0" />
+  <parameter name="VOUT86_ON" value="95.0" />
+  <parameter name="VOUT86_OVF" value="107.0" />
+  <parameter name="VOUT86_OVRSP" value="true" />
+  <parameter name="VOUT86_OVW" value="105.0" />
+  <parameter name="VOUT86_TYP" value="2.5" />
+  <parameter name="VOUT86_UVF" value="93.0" />
+  <parameter name="VOUT86_UVRSP" value="true" />
+  <parameter name="VOUT86_UVW" value="97.0" />
+  <parameter name="VOUT87_OFF" value="90.0" />
+  <parameter name="VOUT87_ON" value="95.0" />
+  <parameter name="VOUT87_OVF" value="107.0" />
+  <parameter name="VOUT87_OVRSP" value="true" />
+  <parameter name="VOUT87_OVW" value="105.0" />
+  <parameter name="VOUT87_TYP" value="2.5" />
+  <parameter name="VOUT87_UVF" value="93.0" />
+  <parameter name="VOUT87_UVRSP" value="true" />
+  <parameter name="VOUT87_UVW" value="97.0" />
+  <parameter name="VOUT88_OFF" value="90.0" />
+  <parameter name="VOUT88_ON" value="95.0" />
+  <parameter name="VOUT88_OVF" value="107.0" />
+  <parameter name="VOUT88_OVRSP" value="true" />
+  <parameter name="VOUT88_OVW" value="105.0" />
+  <parameter name="VOUT88_TYP" value="2.5" />
+  <parameter name="VOUT88_UVF" value="93.0" />
+  <parameter name="VOUT88_UVRSP" value="true" />
+  <parameter name="VOUT88_UVW" value="97.0" />
+  <parameter name="VOUT89_OFF" value="90.0" />
+  <parameter name="VOUT89_ON" value="95.0" />
+  <parameter name="VOUT89_OVF" value="107.0" />
+  <parameter name="VOUT89_OVRSP" value="true" />
+  <parameter name="VOUT89_OVW" value="105.0" />
+  <parameter name="VOUT89_TYP" value="2.5" />
+  <parameter name="VOUT89_UVF" value="93.0" />
+  <parameter name="VOUT89_UVRSP" value="true" />
+  <parameter name="VOUT89_UVW" value="97.0" />
+  <parameter name="VOUT8_OFF" value="90.0" />
+  <parameter name="VOUT8_ON" value="95.0" />
+  <parameter name="VOUT8_OVF" value="107.0" />
+  <parameter name="VOUT8_OVRSP" value="true" />
+  <parameter name="VOUT8_OVW" value="105.0" />
+  <parameter name="VOUT8_TYP" value="2.5" />
+  <parameter name="VOUT8_UVF" value="93.0" />
+  <parameter name="VOUT8_UVRSP" value="true" />
+  <parameter name="VOUT8_UVW" value="97.0" />
+  <parameter name="VOUT90_OFF" value="90.0" />
+  <parameter name="VOUT90_ON" value="95.0" />
+  <parameter name="VOUT90_OVF" value="107.0" />
+  <parameter name="VOUT90_OVRSP" value="true" />
+  <parameter name="VOUT90_OVW" value="105.0" />
+  <parameter name="VOUT90_TYP" value="2.5" />
+  <parameter name="VOUT90_UVF" value="93.0" />
+  <parameter name="VOUT90_UVRSP" value="true" />
+  <parameter name="VOUT90_UVW" value="97.0" />
+  <parameter name="VOUT91_OFF" value="90.0" />
+  <parameter name="VOUT91_ON" value="95.0" />
+  <parameter name="VOUT91_OVF" value="107.0" />
+  <parameter name="VOUT91_OVRSP" value="true" />
+  <parameter name="VOUT91_OVW" value="105.0" />
+  <parameter name="VOUT91_TYP" value="2.5" />
+  <parameter name="VOUT91_UVF" value="93.0" />
+  <parameter name="VOUT91_UVRSP" value="true" />
+  <parameter name="VOUT91_UVW" value="97.0" />
+  <parameter name="VOUT92_OFF" value="90.0" />
+  <parameter name="VOUT92_ON" value="95.0" />
+  <parameter name="VOUT92_OVF" value="107.0" />
+  <parameter name="VOUT92_OVRSP" value="true" />
+  <parameter name="VOUT92_OVW" value="105.0" />
+  <parameter name="VOUT92_TYP" value="2.5" />
+  <parameter name="VOUT92_UVF" value="93.0" />
+  <parameter name="VOUT92_UVRSP" value="true" />
+  <parameter name="VOUT92_UVW" value="97.0" />
+  <parameter name="VOUT93_OFF" value="90.0" />
+  <parameter name="VOUT93_ON" value="95.0" />
+  <parameter name="VOUT93_OVF" value="107.0" />
+  <parameter name="VOUT93_OVRSP" value="true" />
+  <parameter name="VOUT93_OVW" value="105.0" />
+  <parameter name="VOUT93_TYP" value="2.5" />
+  <parameter name="VOUT93_UVF" value="93.0" />
+  <parameter name="VOUT93_UVRSP" value="true" />
+  <parameter name="VOUT93_UVW" value="97.0" />
+  <parameter name="VOUT94_OFF" value="90.0" />
+  <parameter name="VOUT94_ON" value="95.0" />
+  <parameter name="VOUT94_OVF" value="107.0" />
+  <parameter name="VOUT94_OVRSP" value="true" />
+  <parameter name="VOUT94_OVW" value="105.0" />
+  <parameter name="VOUT94_TYP" value="2.5" />
+  <parameter name="VOUT94_UVF" value="93.0" />
+  <parameter name="VOUT94_UVRSP" value="true" />
+  <parameter name="VOUT94_UVW" value="97.0" />
+  <parameter name="VOUT95_OFF" value="90.0" />
+  <parameter name="VOUT95_ON" value="95.0" />
+  <parameter name="VOUT95_OVF" value="107.0" />
+  <parameter name="VOUT95_OVRSP" value="true" />
+  <parameter name="VOUT95_OVW" value="105.0" />
+  <parameter name="VOUT95_TYP" value="2.5" />
+  <parameter name="VOUT95_UVF" value="93.0" />
+  <parameter name="VOUT95_UVRSP" value="true" />
+  <parameter name="VOUT95_UVW" value="97.0" />
+  <parameter name="VOUT96_OFF" value="90.0" />
+  <parameter name="VOUT96_ON" value="95.0" />
+  <parameter name="VOUT96_OVF" value="107.0" />
+  <parameter name="VOUT96_OVRSP" value="true" />
+  <parameter name="VOUT96_OVW" value="105.0" />
+  <parameter name="VOUT96_TYP" value="2.5" />
+  <parameter name="VOUT96_UVF" value="93.0" />
+  <parameter name="VOUT96_UVRSP" value="true" />
+  <parameter name="VOUT96_UVW" value="97.0" />
+  <parameter name="VOUT97_OFF" value="90.0" />
+  <parameter name="VOUT97_ON" value="95.0" />
+  <parameter name="VOUT97_OVF" value="107.0" />
+  <parameter name="VOUT97_OVRSP" value="true" />
+  <parameter name="VOUT97_OVW" value="105.0" />
+  <parameter name="VOUT97_TYP" value="2.5" />
+  <parameter name="VOUT97_UVF" value="93.0" />
+  <parameter name="VOUT97_UVRSP" value="true" />
+  <parameter name="VOUT97_UVW" value="97.0" />
+  <parameter name="VOUT98_OFF" value="90.0" />
+  <parameter name="VOUT98_ON" value="95.0" />
+  <parameter name="VOUT98_OVF" value="107.0" />
+  <parameter name="VOUT98_OVRSP" value="true" />
+  <parameter name="VOUT98_OVW" value="105.0" />
+  <parameter name="VOUT98_TYP" value="2.5" />
+  <parameter name="VOUT98_UVF" value="93.0" />
+  <parameter name="VOUT98_UVRSP" value="true" />
+  <parameter name="VOUT98_UVW" value="97.0" />
+  <parameter name="VOUT99_OFF" value="90.0" />
+  <parameter name="VOUT99_ON" value="95.0" />
+  <parameter name="VOUT99_OVF" value="107.0" />
+  <parameter name="VOUT99_OVRSP" value="true" />
+  <parameter name="VOUT99_OVW" value="105.0" />
+  <parameter name="VOUT99_TYP" value="2.5" />
+  <parameter name="VOUT99_UVF" value="93.0" />
+  <parameter name="VOUT99_UVRSP" value="true" />
+  <parameter name="VOUT99_UVW" value="97.0" />
+  <parameter name="VOUT9_OFF" value="90.0" />
+  <parameter name="VOUT9_ON" value="95.0" />
+  <parameter name="VOUT9_OVF" value="107.0" />
+  <parameter name="VOUT9_OVRSP" value="true" />
+  <parameter name="VOUT9_OVW" value="105.0" />
+  <parameter name="VOUT9_TYP" value="2.5" />
+  <parameter name="VOUT9_UVF" value="93.0" />
+  <parameter name="VOUT9_UVRSP" value="true" />
+  <parameter name="VOUT9_UVW" value="97.0" />
+  <parameter name="VRAILS" value="6" />
+ </module>
+ <module name="clk_50m" kind="clock_source" version="18.1" enabled="1">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module
+   name="resetn_pb"
+   kind="altera_reset_bridge"
+   version="18.1"
+   enabled="1">
+  <parameter name="ACTIVE_LOW_RESET" value="1" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="NUM_RESET_OUTPUTS" value="1" />
+  <parameter name="SYNCHRONOUS_EDGES" value="none" />
+  <parameter name="USE_RESET_REQUEST" value="0" />
+ </module>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="PMBus_Slave.PMBus_AVS"
+   end="Sequencer_VMonitor.avs">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="AVMM_Initializer.avm"
+   end="ADC_Core.sequencer_csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon_streaming"
+   version="18.1"
+   start="ADC_Core.response"
+   end="ADC_Decoder.adc_in0" />
+ <connection kind="clock" version="18.1" start="PLL_Main.c0" end="ADC_Core.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c0"
+   end="Sequencer_VMonitor.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c0"
+   end="AVMM_Initializer.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c0"
+   end="Sequencer_Core.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c0"
+   end="ADC_Decoder.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c0"
+   end="PMBus_Slave.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="PLL_Main.c1"
+   end="ADC_Core.adc_pll_clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_50m.clk"
+   end="PLL_Main.inclk_interface" />
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="ADC_Core.adc_pll_locked"
+   end="PLL_LockSplit.locked_out">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="PLL_LockSplit.pll_locked"
+   end="PLL_Main.locked_conduit">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="Sequencer_Core.sequencer_monitor"
+   end="Sequencer_VMonitor.sequencer_monitor">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="18.1"
+   start="Sequencer_VMonitor.vmon_conduit"
+   end="ADC_Decoder.vmon_conduit">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_50m.clk_reset"
+   end="Sequencer_VMonitor.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_50m.clk_reset"
+   end="ADC_Decoder.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_50m.clk_reset"
+   end="PMBus_Slave.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_50m.clk_reset"
+   end="ADC_Core.reset_sink" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_50m.clk_reset"
+   end="AVMM_Initializer.resetn" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="resetn_pb.out_reset"
+   end="clk_50m.clk_in_reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="resetn_pb.out_reset"
+   end="PLL_Main.inclk_interface_reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="PLL_LockSplit.reset"
+   end="clk_50m.clk_in_reset" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+</system>
