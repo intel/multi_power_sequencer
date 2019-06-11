@@ -28,8 +28,8 @@ v2.1 Initial public release
 
 DOWNLOADING
 
-This project is stored in the internal Intel https://gitlab.devtools.intel.com
-repository named 'Power_Sequencer'.  There are a number of ways that you can
+This project is stored in the public repository named 'Multi_Power_Sequencer', located at
+https://github.com/intel/multi_power_sequencer.  There are a number of ways that you can
 download the contents of this project.
 
 If you wish to download the entire repository, you can clone the repo using
@@ -38,19 +38,19 @@ If you wish to download the entire repository, you can clone the repo using
 
 To clone the project repo with 'git' use a command like this:
 
-git clone https://gitlab.devtools.intel.com/cesser/Power_Sequencer.git
+git clone https://github.com/intel/multi_power_sequencer.git
 
 To download an archive of the project with 'wget' or 'curl' use a command like
 this:
 
-wget https://gitlab.devtools.intel.com/cesser/Power_Sequencer/-/archive/master/Power_sequencer-master.zip
-curl https://gitlab.devtools.intel.com/cesser/Power_Sequencer/-/archive/master/Power_sequencer-master.zip
+wget https://github.com/intel/multi_power_sequencer/archive/master.zip
+curl https://github.com/intel/multi_power_sequencer/archive/master.zip
 
 This is the format of the URL for archive download:
 
-https://github.com/01org/<REPO-NAME>/archive/<BRANCH-NAME>.zip
-https://github.com/01org/<REPO-NAME>/archive/<TAG-NAME>.zip
-https://github.com/01org/<REPO-NAME>/archive/<COMMIT-HASH>.zip
+https://github.com/intel/multi_power_sequencer/archive/<BRANCH-NAME>.zip
+https://github.com/intel/multi_power_sequencer/archive/<TAG-NAME>.zip
+https://github.com/intel/multi_power_sequencer/archive/<COMMIT-HASH>.zip
 
 You can download a specific archive of the project based on the branch name that
 you would like to download, or the tag name of a commit point that you would
