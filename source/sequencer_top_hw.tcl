@@ -309,6 +309,22 @@ proc elaborate {} {
       if { [ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ] >= $max_groups } {
         send_message {error} "Power Group setting for voltage rail $idx_vrails is out of range!!!"
       }
+      set cmp_delays($idx_vrails) 0
+    }
+    
+    for { set idx_vrails [ expr [ get_parameter_value VRAILS ] - 1 ] } { $idx_vrails >= 0 } { incr idx_vrails -1} {
+      if { $cmp_delays([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ]) == 1 } {
+        if { ($tmp_seqdly([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ])) ne [ lindex [ get_parameter_value SEQDLY ] $idx_vrails ]} {
+          send_message {warning} "Sequencer Delay setting of [ lindex [ get_parameter_value SEQDLY ] $idx_vrails ] for voltage rail $idx_vrails in group [ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ] does not match the value for the last rail in the group ($tmp_seqdly([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ]))."
+        }
+        if { ($tmp_qualtime([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ])) ne [ lindex [ get_parameter_value QUALTIME ] $idx_vrails ]} {
+          send_message {warning} "Qualification Window setting of [ lindex [ get_parameter_value QUALTIME ] $idx_vrails ] for voltage rail $idx_vrails in group [ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ] does not match the value for the last rail in the group ($tmp_qualtime([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ]))."
+        }
+      } else {
+        set cmp_delays([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ]) 1
+        set tmp_seqdly([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ])  [ lindex [ get_parameter_value SEQDLY ] $idx_vrails ]
+        set tmp_qualtime([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx_vrails ])  [ lindex [ get_parameter_value QUALTIME ] $idx_vrails ]
+      }
     }
   }
 
@@ -404,27 +420,30 @@ proc generate { entity_name } {
     set P_PWR_GROUPS  [expr [get_parameter_value VRAILS] - 1]
   } 
   set P_PWRGROUP ""
-  set P_SEQDLY ""
-  set P_QUALTIME ""
-  set P_DCHGDLY ""
-  for { set idx 0 } { $idx <= $P_PWR_GROUPS } { incr idx } {
-    if { $idx == $P_PWR_GROUPS } {
-      append P_SEQDLY "[ lindex [ get_parameter_value SEQDLY ] $idx ]"
-      append P_QUALTIME "[ lindex [ get_parameter_value QUALTIME ] $idx ]"
-      #append P_DCHGDLY "[ lindex [ get_parameter_value DCHGDLY ] $idx ]"
-      append P_DCHGDLY "0us"
-    } else {
-      append P_SEQDLY "[ lindex [ get_parameter_value SEQDLY ] $idx ], "
-      append P_QUALTIME "[ lindex [ get_parameter_value QUALTIME ] $idx ], "
-      #append P_DCHGDLY "[ lindex [ get_parameter_value DCHGDLY ] $idx ], "
-      append P_DCHGDLY "0us, "
-    }
-  }
   for { set idx 0 } { $idx <= $P_VRAILS } { incr idx } {
     if { $idx == $P_VRAILS } {
       append P_PWRGROUP "[ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx ]"
     } else {
       append P_PWRGROUP "[ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx ], "
+    }
+    set TMP_SEQDLY([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx ])  [ lindex [ get_parameter_value SEQDLY ] $idx ]
+    set TMP_QUALTIME([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx ])  [ lindex [ get_parameter_value QUALTIME ] $idx ]
+    #set TMP_DCHGDLY([ lindex [ get_parameter_value PWR_GROUP_NUM ] $idx ])  [ lindex [ get_parameter_value DCHGDLY ] $idx ]
+  }
+  set P_SEQDLY ""
+  set P_QUALTIME ""
+  set P_DCHGDLY ""
+  for { set idx 0 } { $idx <= $P_PWR_GROUPS } { incr idx } {
+    if { $idx == $P_PWR_GROUPS } {
+      append P_SEQDLY "$TMP_SEQDLY($idx)"
+      append P_QUALTIME "$TMP_QUALTIME($idx)"
+      #append P_DCHGDLY "$TMP_DCHGDLY($idx)"
+      append P_DCHGDLY "0us"
+    } else {
+      append P_SEQDLY "$TMP_SEQDLY($idx), "
+      append P_QUALTIME "$TMP_QUALTIME($idx), "
+      #append P_DCHGDLY "$TMP_DCHGDLY($idx), "
+      append P_DCHGDLY "0us, "
     }
   }
   set P_RESTARTDLY "0ns, "

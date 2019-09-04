@@ -226,7 +226,7 @@ refer to the applicable agreement for further details.
 (symbol
 	(rect 456 136 792 512)
 	(text "sequencer_qsys" (rect 120 -1 232 15)(font "Arial" (font_size 10)))
-	(text "U_SEQ" (rect 8 360 41 377)(font "Intel Clear" ))
+	(text "U_SEQ" (rect 8 360 44 372)(font "Arial" ))
 	(port
 		(pt 0 72)
 		(input)

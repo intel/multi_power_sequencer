@@ -117,7 +117,7 @@ set_parameter_property VIN_ADC_IFNUM ALLOWED_RANGES {1}
 
 add_parameter VIN_ADC_CHANNEL INTEGER 0
 set_parameter_property VIN_ADC_CHANNEL DISPLAY_NAME "ADC/PG Channel for VIN"
-set_parameter_property VIN_ADC_CHANNEL DESCRIPTION "Defines which physical ADC channel (ADC0 - ADC8), or Power Good (PG) input should be mapped to VIN."
+set_parameter_property VIN_ADC_CHANNEL DESCRIPTION "Defines which physical ADC channel (ADC0 - ADC16), or Power Good (PG) input should be mapped to VIN."
 set_parameter_property VIN_ADC_CHANNEL ALLOWED_RANGES 0:143
 
 add_parameter VOUT_NAME STRING_LIST
@@ -154,7 +154,7 @@ add_display_item "ADC Channel Mapping" id0 text "<html><dl>
 <dd>Indicates which Avalon-ST ADC interface is transmitting the voltage level for the specified VOUT rail, or <br>
 whether the Power Good (PG) will be used to monitor a given VOUT rail.<br/><br/></dd>
 <dt>ADC/PG Channel:</dt>
-<dd>Defines which physical ADC channel (ADC0 - ADC8), or Power Good (PG) input should be mapped to VOUT.</dd>
+<dd>Defines which physical ADC channel (ADC0 - ADC16), or Power Good (PG) input should be mapped to VOUT.</dd>
 </dl>"
 add_display_item "ADC Channel Mapping" myTable GROUP TABLE
 add_display_item myTable VOUT_NAME PARAMETER
@@ -216,7 +216,7 @@ proc elaborate {} {
 
   #+---------------------------------------------------------------------------
   # Check for duplicate entries in the table
-  set max_chan [expr ($pgnum > 8) ? $pgnum : 8]
+  set max_chan [expr ($pgnum > 16) ? $pgnum : 16]
   for { set idx_ifs 0 } { $idx_ifs <= $ifnum } { incr idx_ifs } {
     for { set idx_chs 0 } { $idx_chs <= $max_chan } { incr idx_chs } {
       set chk_if($idx_ifs,$idx_chs) 0
@@ -225,8 +225,14 @@ proc elaborate {} {
   set idx_ifs [ get_parameter_value VIN_ADC_IFNUM ]
   set idx_chs [ get_parameter_value VIN_ADC_CHANNEL ]
   if { $idx_ifs == "PG_Input" } { 
+    if { ($idx_chs > $pgnum) } {
+      send_message {error} "Specified PG Input bit $idx_chs is higher than the number of PG Inputs ($pgnum)!!!"
+    }
     set chk_if(0,$idx_chs) 1
   } else {
+    if { ($idx_chs > 16) } {
+      send_message {error} "Specified ADC Channel $idx_chs is not valid!!!"
+    }
     set chk_if($idx_ifs,$idx_chs) 1
   }  
   # Loop through the channels of the ADC Interfaces, mapping the correct VOUT rails to the channels
@@ -234,16 +240,24 @@ proc elaborate {} {
     set idx_ifs [ lindex [ get_parameter_value ADC_CHANNEL_IFNUM ] $idx_vout ]
     set idx_chs [ lindex [ get_parameter_value ADC_CHANNEL_VOUTNUM ] $idx_vout ]
     if { $idx_ifs == "PG_Input" } {
-      if { $chk_if(0,$idx_chs) == 1 } {
-        send_message {warning} "PG Input bit $idx_chs is used for multiple rails!!!"
+      if { ($idx_chs > $pgnum) } {
+        send_message {error} "Specified PG Input bit $idx_chs is higher than the number of PG Inputs ($pgnum)!!!"
       } else {
-        set chk_if(0,$idx_chs) 1
+        if { $chk_if(0,$idx_chs) == 1 } {
+          send_message {warning} "PG Input bit $idx_chs is used for multiple rails!!!"
+        } else {
+          set chk_if(0,$idx_chs) 1
+        }
       }
     } else {
-      if { $chk_if($idx_ifs,$idx_chs) == 1 } {
-        send_message {warning} "ADC Interface $idx_ifs channel $idx_chs is used for multiple rails!!!"
+      if { ($idx_chs > 16) } {
+        send_message {error} "Specified ADC Channel $idx_chs is not valid!!!"
       } else {
-        set chk_if($idx_ifs,$idx_chs) 1
+        if { $chk_if($idx_ifs,$idx_chs) == 1 } {
+          send_message {warning} "ADC Interface $idx_ifs channel $idx_chs is used for multiple rails!!!"
+        } else {
+          set chk_if($idx_ifs,$idx_chs) 1
+        }
       }
     }
   }
@@ -339,7 +353,7 @@ proc generate { entity_name } {
   # Initialize the ADC Channel Map Array to an unused VOUT rail (199)
   send_message {info} "Generating file: sequencer_vmondecode_pkg.sv"
   for { set i 1 } { $i <= [ get_parameter_value ADC_IFNUM ] } { incr i } {   
-    for { set j 0 } { $j <= 8 } { incr j } {   
+    for { set j 0 } { $j <= 16 } { incr j } {   
       set array_chan_map($i,$j) 199
     }
   }
@@ -391,8 +405,8 @@ proc generate { entity_name } {
   for { set i 1 } { $i <= [ get_parameter_value ADC_IFNUM ] } { incr i } {
     if { $i == 1 } { append P_ADC_CHAN_MAP "'\{" }
     append P_ADC_CHAN_MAP "'\{"
-    for { set j 0 } { $j <= 8 } { incr j } {
-      if { $j == 8 } {
+    for { set j 0 } { $j <= 16 } { incr j } {
+      if { $j == 16 } {
         append P_ADC_CHAN_MAP "$array_chan_map($i,$j)"
       } else {
         append P_ADC_CHAN_MAP "$array_chan_map($i,$j), "
@@ -470,7 +484,7 @@ package sequencer_vmondecode_pkg;
   //   being monitored.  \"0\" indicates VIN and the VOUT rails are indicated in increasing
   //   value, up to the \"VRAILS\" parameter.  Any number greater than \"VRAILS\" (such as 199)
   //   is ignored, indicating that the channel is not utilized by the sequencer.
-  localparam int P_ADC_CHAN_MAP\[0:$P_ADC_IFNUM\]\[0:8\]  = $P_ADC_CHAN_MAP;
+  localparam int P_ADC_CHAN_MAP\[0:$P_ADC_IFNUM\]\[0:16\]  = $P_ADC_CHAN_MAP;
   // When the Power Good (PG) Inputs are not being used, the following define disables the interface"
   if {$P_PGNUM != 0} {
     puts $f_handle "  //`define DISABLE_PGBUS"
