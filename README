@@ -23,7 +23,11 @@ file in the top level directory of the repository for license details.
 
 RELEASES
 
-v2.1 Initial public release
+v2.1.2 Removed "Altera Confidential" from footer and rounded off resource estimates in
+       the User's Guide.
+v2.1.1 Increased max number of ADC channels in VMonDecode from 9 to 17; corrected indexing
+       of delays in PowerSequencer when the "Power Groups" option is used.
+v2.1.0 Initial public release
 
 
 DOWNLOADING
@@ -74,6 +78,13 @@ PMBus interface, and numerous other options to tailor the sequencer to the needs
 of your application.
 
 
+DOCUMENTATION
+
+Official documentation for the Multi-Rail Power Sequencer and Monitor can be
+found at the following link:
+https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/an/an896.pdf
+
+
 CONTENTS
 
 The following objects appear in the top level directory of this project.
@@ -118,8 +129,11 @@ derived clock as well.
 
 SEE ALSO
 
+The official project website for the Multi-Rail Power Sequencer and Monitor can
+be found at:
+https://01.org/multi-rail-power-sequencer-and-monitor
+
 For more information about Platform Designer, please see this landing page on
 Intel.com which points to numerous Platform Designer support resources including
 documentation, training materials, tutorials, specifications, etc:
-
 https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-software/qsys.html
