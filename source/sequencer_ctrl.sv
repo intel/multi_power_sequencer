@@ -43,6 +43,7 @@ module sequencer_ctrl #(
   input                  KEEPALIVE,
   output reg             CNTR_EN,
   input [C_CNTRSIZE-1:0] CNTR,
+	input                  GROUP_PWRGD_HI,
 	input                  VRAIL_PWRGD,
 	output reg             VRAIL_FAULT,
 	output reg             VRAIL_ENA,
@@ -157,7 +158,7 @@ module sequencer_ctrl #(
       // Wait for the power good signal to be deasserted before discharging
       //   the supply
       ST_WAIT4PWRNOTGD: begin
-        if (!VRAIL_PWRGD) begin
+        if ((!VRAIL_PWRGD) && (!GROUP_PWRGD_HI)) begin
           // If no delay is specified, bypass the discharge delay
           if (DLY_PNG2DCHG == 0)
             seq_nextstate <= ST_DISCHARGE;

@@ -313,6 +313,9 @@ module sequencer_vmonregs #(
       // OR together the select lines from all response registers
       assign reg_global_resp_sel = (cmd_struct[ 5].select[reg_page_q] || cmd_struct[ 9].select[reg_page_q] || cmd_struct[11].select[0] || cmd_struct[15].select[0]) ? 1'b1 : 1'b0;
     end
+    else begin
+      assign reg_global_resp_q = {P_RETRY_ATTEMPTS, P_RETRY_TIMEOUT};
+    end
 
     // Implement the threshold registers for the full-featured design
     if ((P_VRAIL_SEL[0] == 1) && (P_MONITOR_FUNCT_LEVEL == 2))

@@ -64,6 +64,7 @@ module sequencer_top #(
   wire [PWR_GROUPS-1:0] vrail_ena_i;
   wire [PWR_GROUPS-1:0] vrail_dchg_i;
   reg  [PWR_GROUPS-1:0] group_pwrgd;
+  reg  [PWR_GROUPS-1:0] group_pwrgd_hi;
   reg  nFault_q;
  
   // Counter to measure delay
@@ -146,18 +147,22 @@ module sequencer_top #(
     // AND together the Power Good signals that share the same Power Group
     if (VRAILS > PWR_GROUPS) begin
       always @(*) begin : P_BuildGroups
-        automatic reg [PWR_GROUPS-1:0] tmp_pwrgd = '1; // local variable (scope limited to process)
+        automatic reg [PWR_GROUPS-1:0] tmp_pwrgd_and = '1; // local variable (scope limited to process)
+        automatic reg [PWR_GROUPS-1:0] tmp_pwrgd_or = '0; // local variable (scope limited to process)
         for (int i=0; i<VRAILS; i=i+1) begin
-          tmp_pwrgd[P_PWRGROUP[i]] = tmp_pwrgd[P_PWRGROUP[i]] && VRAIL_PWRGD[i];
-          VMON_ENA[i] = vrail_ena_i[P_PWRGROUP[i]];
+          tmp_pwrgd_and[P_PWRGROUP[i]] = tmp_pwrgd_and[P_PWRGROUP[i]] & VRAIL_PWRGD[i];
+          tmp_pwrgd_or [P_PWRGROUP[i]] = tmp_pwrgd_or [P_PWRGROUP[i]] | VRAIL_PWRGD[i];
+          VMON_ENA[i]                  = vrail_ena_i[P_PWRGROUP[i]];
         end
-        group_pwrgd = tmp_pwrgd;
+        group_pwrgd    = tmp_pwrgd_and;
+        group_pwrgd_hi = tmp_pwrgd_or;
       end
     end
     // Power Groups aren't being used, so pass the Power Good signal through to the sequencers
     else begin
-      assign group_pwrgd = VRAIL_PWRGD;
-      assign VMON_ENA = vrail_ena_i;
+      assign group_pwrgd    = VRAIL_PWRGD;
+      assign group_pwrgd_hi = VRAIL_PWRGD;
+      assign VMON_ENA       = vrail_ena_i;
     end
   endgenerate
 
@@ -203,6 +208,7 @@ module sequencer_top #(
                        .KEEPALIVE(seq_keepalive[gv_i]),
                        .CNTR_EN(cntr_en[gv_i]),
                        .CNTR(cntr_q),
+                       .GROUP_PWRGD_HI(group_pwrgd_hi[gv_i]),
                        .VRAIL_PWRGD(group_pwrgd[gv_i]),
                        .VRAIL_FAULT(vrail_fault[gv_i]),
                        .VRAIL_ENA(vrail_ena_i[gv_i]),

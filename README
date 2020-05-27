@@ -12,7 +12,7 @@ TABLE OF CONTENTS
 
 LAST UPDATE
 
-June 10, 2019
+May 27, 2020
 
 
 LICENSE
@@ -23,6 +23,9 @@ file in the top level directory of the repository for license details.
 
 RELEASES
 
+v2.1.3 Issues corrected:
+   - Powerdown of groups only checked for one rail instead of all POKs low before sequencing next group.
+   - Retries and timeout values were not being passed to sequencer when PMBus was disabled.
 v2.1.2 Removed "Altera Confidential" from footer and rounded off resource estimates in
        the User's Guide.
 v2.1.1 Increased max number of ADC channels in VMonDecode from 9 to 17; corrected indexing
