@@ -46,7 +46,7 @@ package sequencer_vmondecode_pkg;
   //   being monitored.  "0" indicates VIN and the VOUT rails are indicated in increasing
   //   value, up to the "VRAILS" parameter.  Any number greater than "VRAILS" (such as 199)
   //   is ignored, indicating that the channel is not utilized by the sequencer.
-  localparam int P_ADC_CHAN_MAP[0:0][0:8]  = '{'{199, 0, 1, 2, 3, 4, 5, 199, 6}};
+  localparam int P_ADC_CHAN_MAP[0:0][0:16]  = '{'{199, 0, 1, 2, 3, 4, 5, 199, 6, 199, 199, 199, 199, 199, 199, 199, 199}};
   // When the Power Good (PG) Inputs are not being used, the following define disables the interface
   //`define DISABLE_PGBUS
   // Map physical PG input to logical channel number.  Array element "0" is for VIN, and the

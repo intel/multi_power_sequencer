@@ -1586,7 +1586,7 @@
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
- <parameter name="device" value="10M08SAE144C8G" />
+ <parameter name="device" value="10M04SAE144C8G" />
  <parameter name="deviceFamily" value="MAX 10" />
  <parameter name="deviceSpeedGrade" value="8" />
  <parameter name="fabricMode" value="QSYS" />
@@ -1624,11 +1624,11 @@
    internal="Sequencer_VMonitor.smb_alertn"
    type="conduit"
    dir="end" />
- <module name="ADC_Core" kind="altera_modular_adc" version="18.1" enabled="1">
+ <module name="ADC_Core" kind="altera_modular_adc" version="21.1" enabled="1">
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="CLOCK_FREQ" value="50000000" />
   <parameter name="CORE_VAR" value="2" />
-  <parameter name="DEVICE_PART" value="10M08SAE144C8G" />
+  <parameter name="DEVICE_PART" value="10M04SAE144C8G" />
   <parameter name="ENABLE_DEBUG" value="0" />
   <parameter name="FAMILY" value="MAX 10" />
   <parameter name="MONITOR_COUNT_WIDTH" value="12" />
@@ -1843,7 +1843,7 @@
    kind="pll_lock_splitter"
    version="1.0"
    enabled="1" />
- <module name="PLL_Main" kind="altpll" version="18.1" enabled="1">
+ <module name="PLL_Main" kind="altpll" version="21.1" enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
   <parameter name="AUTO_INCLK_INTERFACE_CLOCK_RATE" value="50000000" />
   <parameter name="AVALON_USE_SEPARATE_SYSCLK" value="NO" />
@@ -3334,7 +3334,7 @@
   <parameter name="VOUT9_UVW" value="97.0" />
   <parameter name="VRAILS" value="6" />
  </module>
- <module name="clk_50m" kind="clock_source" version="18.1" enabled="1">
+ <module name="clk_50m" kind="clock_source" version="21.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
@@ -3343,7 +3343,7 @@
  <module
    name="resetn_pb"
    kind="altera_reset_bridge"
-   version="18.1"
+   version="21.1"
    enabled="1">
   <parameter name="ACTIVE_LOW_RESET" value="1" />
   <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
@@ -3353,7 +3353,7 @@
  </module>
  <connection
    kind="avalon"
-   version="18.1"
+   version="21.1"
    start="PMBus_Slave.PMBus_AVS"
    end="Sequencer_VMonitor.avs">
   <parameter name="arbitrationPriority" value="1" />
@@ -3362,7 +3362,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="18.1"
+   version="21.1"
    start="AVMM_Initializer.avm"
    end="ADC_Core.sequencer_csr">
   <parameter name="arbitrationPriority" value="1" />
@@ -3371,48 +3371,48 @@
  </connection>
  <connection
    kind="avalon_streaming"
-   version="18.1"
+   version="21.1"
    start="ADC_Core.response"
    end="ADC_Decoder.adc_in0" />
- <connection kind="clock" version="18.1" start="PLL_Main.c0" end="ADC_Core.clock" />
+ <connection kind="clock" version="21.1" start="PLL_Main.c0" end="ADC_Core.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c0"
    end="Sequencer_VMonitor.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c0"
    end="AVMM_Initializer.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c0"
    end="Sequencer_Core.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c0"
    end="ADC_Decoder.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c0"
    end="PMBus_Slave.clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="PLL_Main.c1"
    end="ADC_Core.adc_pll_clock" />
  <connection
    kind="clock"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk"
    end="PLL_Main.inclk_interface" />
  <connection
    kind="conduit"
-   version="18.1"
+   version="21.1"
    start="ADC_Core.adc_pll_locked"
    end="PLL_LockSplit.locked_out">
   <parameter name="endPort" value="" />
@@ -3423,7 +3423,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="18.1"
+   version="21.1"
    start="PLL_LockSplit.pll_locked"
    end="PLL_Main.locked_conduit">
   <parameter name="endPort" value="" />
@@ -3434,7 +3434,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="18.1"
+   version="21.1"
    start="Sequencer_Core.sequencer_monitor"
    end="Sequencer_VMonitor.sequencer_monitor">
   <parameter name="endPort" value="" />
@@ -3445,7 +3445,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="18.1"
+   version="21.1"
    start="Sequencer_VMonitor.vmon_conduit"
    end="ADC_Decoder.vmon_conduit">
   <parameter name="endPort" value="" />
@@ -3456,42 +3456,42 @@
  </connection>
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk_reset"
    end="Sequencer_VMonitor.reset" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk_reset"
    end="ADC_Decoder.reset" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk_reset"
    end="PMBus_Slave.reset" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk_reset"
    end="ADC_Core.reset_sink" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="clk_50m.clk_reset"
    end="AVMM_Initializer.resetn" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="resetn_pb.out_reset"
    end="clk_50m.clk_in_reset" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="resetn_pb.out_reset"
    end="PLL_Main.inclk_interface_reset" />
  <connection
    kind="reset"
-   version="18.1"
+   version="21.1"
    start="PLL_LockSplit.reset"
    end="clk_50m.clk_in_reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />

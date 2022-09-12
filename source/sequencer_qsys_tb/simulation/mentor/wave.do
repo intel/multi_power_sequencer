@@ -2,10 +2,8 @@ onerror {resume}
 quietly WaveActivateNextPane {} 0
 add wave -noupdate -divider {Top-Level Ports}
 add wave -noupdate /sequencer_qsys_tb/qsys_0/clk_50m_clk
-add wave -noupdate /sequencer_qsys_tb/qsys_0/i2c_conduit_clk_in
-add wave -noupdate /sequencer_qsys_tb/qsys_0/i2c_conduit_clk_oe
-add wave -noupdate /sequencer_qsys_tb/qsys_0/i2c_conduit_data_in
-add wave -noupdate /sequencer_qsys_tb/qsys_0/i2c_conduit_data_oe
+add wave -noupdate /sequencer_qsys_tb/qsys_0/pmbus_scl
+add wave -noupdate /sequencer_qsys_tb/qsys_0/pmbus_sda
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pb_resetn_reset_n
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pg_power_good
 add wave -noupdate /sequencer_qsys_tb/qsys_0/seqctl_vrail_dchg

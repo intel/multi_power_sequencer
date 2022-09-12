@@ -6,6 +6,8 @@
 **/tmp-clearbox
 **/*.qws
 **/*.qdf
+**/sim/questa/work/*
+**/sim/questa/transcript
 **/source/sequencer_qsys/*
 **/source/sequencer_qsys_tb/sequencer*
 **/source/sequencer_qsys_tb/simulation/aldec
@@ -14,3 +16,12 @@
 !**/source/sequencer_qsys_tb/simulation/mentor/adcsim_ch*.txt
 !**/source/sequencer_qsys_tb/simulation/mentor/*.do
 **/source/sequencer_qsys_tb/simulation/s*
+**/source/sequencer_qsys_tb/synthesis/*
+**/source/MultiVIN/sequencer_qsys/*
+**/source/MultiVIN/sequencer_qsys_tb/sequencer*
+**/source/MultiVIN/sequencer_qsys_tb/simulation/aldec
+**/source/MultiVIN/sequencer_qsys_tb/simulation/cadence
+**/source/MultiVIN/sequencer_qsys_tb/simulation/mentor/*
+!**/source/MultiVIN/sequencer_qsys_tb/simulation/mentor/adcsim_ch*.txt
+!**/source/MultiVIN/sequencer_qsys_tb/simulation/mentor/*.do
+**/source/MultiVIN/sequencer_qsys_tb/simulation/s*
