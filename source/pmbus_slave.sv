@@ -40,7 +40,7 @@
 
 
 module pmbus_slave #(
-	parameter                     PMB_SLAVE_ADDR  = 7'h55,
+  parameter                     PMB_SLAVE_ADDR  = 7'h55,
   parameter                     MAX_BYTES       = 2
 )(
   input  wire                   CLOCK,

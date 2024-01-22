@@ -38,17 +38,17 @@ module sequencer_ctrl #(
   parameter              DLY_PNG2DCHG =  5, // Programmable delay (in clock cycles) from power good deasserted, until discharge is asserted.
   parameter              C_CNTRSIZE   =  4  // Width of the counter vector.
 )(
-	input                  CLOCK,
+  input                  CLOCK,
   input                  ENABLE,
   input                  KEEPALIVE,
   output reg             CNTR_EN,
   input [C_CNTRSIZE-1:0] CNTR,
-	input                  GROUP_PWRGD_HI,
-	input                  VRAIL_PWRGD,
-	output reg             VRAIL_FAULT,
-	output reg             VRAIL_ENA,
-	output reg             VRAIL_DCHG,
-	output reg             NEXT_OE
+  input                  GROUP_PWRGD_HI,
+  input                  VRAIL_PWRGD,
+  output reg             VRAIL_FAULT,
+  output reg             VRAIL_ENA,
+  output reg             VRAIL_DCHG,
+  output reg             NEXT_OE
 );
 
   // Enumerate a list of states for the FSM that performs the power sequencing

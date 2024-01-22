@@ -38,14 +38,14 @@ module avmm_sequencer #(
   parameter                     P_ADDRSIZE = 8,
   parameter                     P_DATASIZE = 32
 )(
-		input                       CLOCK,
-		input                       RESET_N,
-		output reg                  AVM_M0_READ,
-		output reg                  AVM_M0_WRITE,
-		input                       AVM_M0_WAITREQUEST,
-		output reg [P_ADDRSIZE-1:0] AVM_M0_ADDRESS,
-		input      [P_DATASIZE-1:0] AVM_M0_READDATA,
-		output reg [P_DATASIZE-1:0] AVM_M0_WRITEDATA
+  input                         CLOCK,
+  input                         RESET_N,
+  output reg                    AVM_M0_READ,
+  output reg                    AVM_M0_WRITE,
+  input                         AVM_M0_WAITREQUEST,
+  output reg [P_ADDRSIZE-1:0]   AVM_M0_ADDRESS,
+  input      [P_DATASIZE-1:0]   AVM_M0_READDATA,
+  output reg [P_DATASIZE-1:0]   AVM_M0_WRITEDATA
 );
 
   // Import the structure containing the data for the read/write accesses that need to be performed
