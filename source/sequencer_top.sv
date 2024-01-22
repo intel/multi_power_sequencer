@@ -34,7 +34,8 @@
 
 module sequencer_top #(
   parameter               VRAILS     = 4,
-  parameter               PWR_GROUPS = 4
+  parameter               PWR_GROUPS = 4,
+  parameter               USE_EXTERNAL_IOBUF = 0
 )(
 	input                   CLOCK,
   input                   ENABLE,
@@ -193,7 +194,13 @@ module sequencer_top #(
   // Keep upstream supplies enabled until downstream supplies have been discharged.
   assign seq_keepalive = {1'b0, ~(vrail_dchg_i[PWR_GROUPS-1:1])};
   // Open-drain drivers for all outputs
-  assign nFAULT        = (nFault_q) ? 1'b1 : 1'bZ ;
+  generate
+    if (!USE_EXTERNAL_IOBUF)
+      assign nFAULT        = (nFault_q) ? 1'b1 : 1'bZ ;
+    else
+      assign nFAULT        = nFault_q;
+  endgenerate
+
 
   // Instantiate a voltage controller per each power rail
   genvar gv_i;
@@ -215,8 +222,13 @@ module sequencer_top #(
                        .VRAIL_DCHG(vrail_dchg_i[gv_i]),
                        .NEXT_OE(next_oe[gv_i]));
       // Open-drain drivers for all outputs
-      assign VRAIL_ENA[gv_i]  = ( vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
-      assign VRAIL_DCHG[gv_i] = (~vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
+      if (!USE_EXTERNAL_IOBUF) begin
+        assign VRAIL_ENA[gv_i]  = ( vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
+        assign VRAIL_DCHG[gv_i] = (~vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
+      end else begin
+        assign VRAIL_ENA[gv_i]  = vrail_ena_i[gv_i];
+        assign VRAIL_DCHG[gv_i] = ~vrail_ena_i[gv_i];
+      end
     end
   endgenerate
 endmodule
