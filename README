@@ -1,18 +1,18 @@
 TABLE OF CONTENTS
-	 LAST UPDATE - when was this project last updated?
-	     LICENSE - what licensing is used in this project?
+   LAST UPDATE - when was this project last updated?
+       LICENSE - what licensing is used in this project?
       RELEASES - what has changed?
-	 DOWNLOADING - how do you acquire this project?
-	 DESCRIPTION - why does this project exist?
-	    CONTENTS - what is provided in this project?
-	       USAGE - how do you use this project?
-	REQUIREMENTS - what do you need to make use of this project?
-	    SEE ALSO - other content or topics related to this project?
+   DOWNLOADING - how do you acquire this project?
+   DESCRIPTION - why does this project exist?
+      CONTENTS - what is provided in this project?
+         USAGE - how do you use this project?
+  REQUIREMENTS - what do you need to make use of this project?
+      SEE ALSO - other content or topics related to this project?
 
 
 LAST UPDATE
 
-May 27, 2020
+January 22, 2024
 
 
 LICENSE
@@ -23,6 +23,10 @@ file in the top level directory of the repository for license details.
 
 RELEASES
 
+v2.2.0 Features added:
+   - Added PLL reset
+   - Updated reset architecture in reference design by adding power-on reset and sequencing.
+   - Provided option for open-drain or push-pull drivers on nFAULT, VRAIL_ENA, and VRAIL_DCHG
 v2.1.3 Issues corrected:
    - Powerdown of groups only checked for one rail instead of all POKs low before sequencing next group.
    - Retries and timeout values were not being passed to sequencer when PMBus was disabled.
@@ -134,13 +138,9 @@ SEE ALSO
 
 The official project website for the Multi-Rail Power Sequencer and Monitor can
 be found at:
-https://01.org/multi-rail-power-sequencer-and-monitor
+https://www.intel.com/content/www/us/en/developer/topic-technology/open/multi-rail-power-sequencer/overview.html
 
 For more information about Platform Designer, please see this landing page on
 Intel.com which points to numerous Platform Designer support resources including
 documentation, training materials, tutorials, specifications, etc:
 https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-software/qsys.html
- 
- 
- 
- 

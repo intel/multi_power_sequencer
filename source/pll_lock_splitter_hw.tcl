@@ -24,7 +24,7 @@ set_module_property VERSION 1.0
 set_module_property INTERNAL false
 set_module_property OPAQUE_ADDRESS_MAP true
 set_module_property AUTHOR ""
-set_module_property DISPLAY_NAME pll_lock_splitter
+set_module_property DISPLAY_NAME "PLL Locked Splitter"
 set_module_property INSTANTIATE_IN_SYSTEM_MODULE true
 set_module_property EDITABLE true
 set_module_property REPORT_TO_TALKBACK false
@@ -65,23 +65,6 @@ add_fileset_file pll_lock_splitter.sv SYSTEM_VERILOG PATH pll_lock_splitter.sv
 
 
 # 
-# connection point reset
-# 
-add_interface reset reset start
-set_interface_property reset associatedClock ""
-set_interface_property reset associatedDirectReset ""
-set_interface_property reset associatedResetSinks ""
-set_interface_property reset synchronousEdges NONE
-set_interface_property reset ENABLED true
-set_interface_property reset EXPORT_OF ""
-set_interface_property reset PORT_NAME_MAP ""
-set_interface_property reset CMSIS_SVD_VARIABLES ""
-set_interface_property reset SVD_ADDRESS_GROUP ""
-
-add_interface_port reset RESET_N reset_n Output 1
-
-
-# 
 # connection point pll_locked
 # 
 add_interface pll_locked conduit end
@@ -99,14 +82,29 @@ add_interface_port pll_locked PLL_LOCKED export Input 1
 # 
 # connection point locked_out
 # 
-add_interface locked_out conduit end
-set_interface_property locked_out associatedClock ""
-set_interface_property locked_out associatedReset ""
-set_interface_property locked_out ENABLED true
-set_interface_property locked_out EXPORT_OF ""
-set_interface_property locked_out PORT_NAME_MAP ""
-set_interface_property locked_out CMSIS_SVD_VARIABLES ""
-set_interface_property locked_out SVD_ADDRESS_GROUP ""
+add_interface locked1_out conduit end
+set_interface_property locked1_out associatedClock ""
+set_interface_property locked1_out associatedReset ""
+set_interface_property locked1_out ENABLED true
+set_interface_property locked1_out EXPORT_OF ""
+set_interface_property locked1_out PORT_NAME_MAP ""
+set_interface_property locked1_out CMSIS_SVD_VARIABLES ""
+set_interface_property locked1_out SVD_ADDRESS_GROUP ""
 
-add_interface_port locked_out LOCKED export Output 1
+add_interface_port locked1_out LOCKED1 reset1_dsrt_qual Output 1
+
+
+# 
+# connection point locked_out
+# 
+add_interface locked2_out conduit end
+set_interface_property locked2_out associatedClock ""
+set_interface_property locked2_out associatedReset ""
+set_interface_property locked2_out ENABLED true
+set_interface_property locked2_out EXPORT_OF ""
+set_interface_property locked2_out PORT_NAME_MAP ""
+set_interface_property locked2_out CMSIS_SVD_VARIABLES ""
+set_interface_property locked2_out SVD_ADDRESS_GROUP ""
+
+add_interface_port locked2_out LOCKED2 export Output 1
 

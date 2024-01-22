@@ -5,6 +5,9 @@ add wave -noupdate /sequencer_qsys_tb/qsys_0/clk_50m_clk
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pmbus_scl
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pmbus_sda
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pb_resetn_reset_n
+add wave -noupdate /sequencer_qsys_tb/qsys_0/por_pulse_resetn_reset
+add wave -noupdate /sequencer_qsys_tb/qsys_0/reset_sequencer_reset_out0_reset
+add wave -noupdate /sequencer_qsys_tb/qsys_0/reset_sequencer_reset_out1_reset
 add wave -noupdate /sequencer_qsys_tb/qsys_0/pg_power_good
 add wave -noupdate /sequencer_qsys_tb/qsys_0/seqctl_vrail_dchg
 add wave -noupdate /sequencer_qsys_tb/qsys_0/seqctl_vrail_ena

@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "9";
          type = "int";
       }
    }
@@ -34,7 +34,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "10";
          type = "int";
       }
    }
@@ -42,7 +42,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "7";
          type = "int";
       }
    }
@@ -50,7 +50,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "6";
          type = "int";
       }
       datum sopceditor_expanded
@@ -63,7 +63,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "5";
          type = "int";
       }
       datum sopceditor_expanded
@@ -84,7 +84,31 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "8";
+         type = "int";
+      }
+   }
+   element POR_Pulse
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element Reset2Conduit
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element Reset_Sequencer
+   {
+      datum _sortIndex
+      {
+         value = "3";
          type = "int";
       }
    }
@@ -92,7 +116,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "12";
          type = "int";
       }
       datum sopceditor_expanded
@@ -105,7 +129,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "11";
          type = "int";
       }
    }
@@ -113,7 +137,7 @@
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "2";
          type = "int";
       }
       datum sopceditor_expanded
@@ -126,7 +150,7 @@
    {
       datum _sortIndex
       {
-         value = "0";
+         value = "1";
          type = "int";
       }
       datum sopceditor_expanded
@@ -1607,7 +1631,6 @@
  <interface name="clk_50m" internal="clk_50m.clk_in" type="clock" dir="end" />
  <interface name="pb_resetn" internal="resetn_pb.in_reset" type="reset" dir="end" />
  <interface name="pg" internal="ADC_Decoder.pg_input" type="conduit" dir="end" />
- <interface name="pll_main_areset_conduit" internal="PLL_Main.areset_conduit" />
  <interface name="pmbus" internal="PMBus_Slave.PMBus" type="conduit" dir="end" />
  <interface
    name="seqctl"
@@ -1624,7 +1647,7 @@
    internal="Sequencer_VMonitor.smb_alertn"
    type="conduit"
    dir="end" />
- <module name="ADC_Core" kind="altera_modular_adc" version="21.1" enabled="1">
+ <module name="ADC_Core" kind="altera_modular_adc" version="23.1" enabled="1">
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="CLOCK_FREQ" value="50000000" />
   <parameter name="CORE_VAR" value="2" />
@@ -1824,7 +1847,7 @@
   <parameter name="ADC_CHANNEL_VOUTNUM">2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</parameter>
   <parameter name="ADC_IFNUM" value="1" />
   <parameter name="CLOCK_RATE_CLK" value="50000000" />
-  <parameter name="PG_DEBOUNCE" value="1" />
+  <parameter name="PG_DEBOUNCE" value="10" />
   <parameter name="PG_NUM" value="7" />
   <parameter name="VIN_ADC_CHANNEL" value="1" />
   <parameter name="VIN_ADC_IFNUM" value="1" />
@@ -1843,7 +1866,7 @@
    kind="pll_lock_splitter"
    version="1.0"
    enabled="1" />
- <module name="PLL_Main" kind="altpll" version="21.1" enabled="1">
+ <module name="PLL_Main" kind="altpll" version="23.1" enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
   <parameter name="AUTO_INCLK_INTERFACE_CLOCK_RATE" value="50000000" />
   <parameter name="AVALON_USE_SEPARATE_SYSCLK" value="NO" />
@@ -1914,14 +1937,14 @@
   <parameter name="FEEDBACK_SOURCE" value="" />
   <parameter name="GATE_LOCK_COUNTER" value="" />
   <parameter name="GATE_LOCK_SIGNAL" value="" />
-  <parameter name="HIDDEN_CONSTANTS">CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_UNUSED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#CLK0_MULTIPLY_BY 1 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#WIDTH_CLOCK 5 CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#PLL_TYPE AUTO CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 1 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 20000 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 0 CT#PORT_ARESET PORT_UNUSED CT#BANDWIDTH_TYPE AUTO CT#INTENDED_DEVICE_FAMILY {MAX 10} CT#PORT_SCANREAD PORT_UNUSED CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 1 CT#CLK1_DIVIDE_BY 5 CT#PORT_LOCKED PORT_USED</parameter>
+  <parameter name="HIDDEN_CONSTANTS">CT#PORT_clk5 PORT_UNUSED CT#PORT_clk4 PORT_UNUSED CT#PORT_clk3 PORT_UNUSED CT#PORT_clk2 PORT_UNUSED CT#PORT_clk1 PORT_USED CT#PORT_clk0 PORT_USED CT#CLK0_MULTIPLY_BY 1 CT#PORT_SCANWRITE PORT_UNUSED CT#PORT_SCANACLR PORT_UNUSED CT#PORT_PFDENA PORT_UNUSED CT#PORT_PLLENA PORT_UNUSED CT#PORT_SCANDATA PORT_UNUSED CT#PORT_SCANCLKENA PORT_UNUSED CT#WIDTH_CLOCK 5 CT#PORT_SCANDATAOUT PORT_UNUSED CT#LPM_TYPE altpll CT#PLL_TYPE AUTO CT#CLK0_PHASE_SHIFT 0 CT#CLK1_DUTY_CYCLE 50 CT#PORT_PHASEDONE PORT_UNUSED CT#OPERATION_MODE NORMAL CT#PORT_CONFIGUPDATE PORT_UNUSED CT#CLK1_MULTIPLY_BY 1 CT#COMPENSATE_CLOCK CLK0 CT#PORT_CLKSWITCH PORT_UNUSED CT#INCLK0_INPUT_FREQUENCY 20000 CT#PORT_SCANDONE PORT_UNUSED CT#PORT_CLKLOSS PORT_UNUSED CT#PORT_INCLK1 PORT_UNUSED CT#AVALON_USE_SEPARATE_SYSCLK NO CT#PORT_INCLK0 PORT_USED CT#PORT_clkena5 PORT_UNUSED CT#PORT_clkena4 PORT_UNUSED CT#PORT_clkena3 PORT_UNUSED CT#PORT_clkena2 PORT_UNUSED CT#PORT_clkena1 PORT_UNUSED CT#PORT_clkena0 PORT_UNUSED CT#CLK1_PHASE_SHIFT 0 CT#PORT_ARESET PORT_USED CT#BANDWIDTH_TYPE AUTO CT#INTENDED_DEVICE_FAMILY {MAX 10} CT#PORT_SCANREAD PORT_UNUSED CT#PORT_PHASESTEP PORT_UNUSED CT#PORT_SCANCLK PORT_UNUSED CT#PORT_CLKBAD1 PORT_UNUSED CT#PORT_CLKBAD0 PORT_UNUSED CT#PORT_FBIN PORT_UNUSED CT#PORT_PHASEUPDOWN PORT_UNUSED CT#PORT_extclk3 PORT_UNUSED CT#PORT_extclk2 PORT_UNUSED CT#PORT_extclk1 PORT_UNUSED CT#PORT_PHASECOUNTERSELECT PORT_UNUSED CT#PORT_extclk0 PORT_UNUSED CT#PORT_ACTIVECLOCK PORT_UNUSED CT#CLK0_DUTY_CYCLE 50 CT#CLK0_DIVIDE_BY 1 CT#CLK1_DIVIDE_BY 5 CT#PORT_LOCKED PORT_USED</parameter>
   <parameter name="HIDDEN_CUSTOM_ELABORATION">altpll_avalon_elaboration</parameter>
   <parameter name="HIDDEN_CUSTOM_POST_EDIT">altpll_avalon_post_edit</parameter>
   <parameter name="HIDDEN_IF_PORTS">IF#phasecounterselect {input 3} IF#locked {output 0} IF#reset {input 0} IF#clk {input 0} IF#phaseupdown {input 0} IF#scandone {output 0} IF#readdata {output 32} IF#write {input 0} IF#scanclk {input 0} IF#phasedone {output 0} IF#c4 {output 0} IF#c3 {output 0} IF#c2 {output 0} IF#address {input 2} IF#c1 {output 0} IF#c0 {output 0} IF#writedata {input 32} IF#read {input 0} IF#areset {input 0} IF#scanclkena {input 0} IF#scandataout {output 0} IF#configupdate {input 0} IF#phasestep {input 0} IF#scandata {input 0}</parameter>
   <parameter name="HIDDEN_IS_FIRST_EDIT" value="0" />
   <parameter name="HIDDEN_IS_NUMERIC">IN#WIDTH_CLOCK 1 IN#CLK0_DUTY_CYCLE 1 IN#PLL_TARGET_HARCOPY_CHECK 1 IN#CLK1_MULTIPLY_BY 1 IN#SWITCHOVER_COUNT_EDIT 1 IN#INCLK0_INPUT_FREQUENCY 1 IN#PLL_LVDS_PLL_CHECK 1 IN#PLL_AUTOPLL_CHECK 1 IN#PLL_FASTPLL_CHECK 1 IN#CLK1_DUTY_CYCLE 1 IN#PLL_ENHPLL_CHECK 1 IN#DIV_FACTOR1 1 IN#DIV_FACTOR0 1 IN#LVDS_MODE_DATA_RATE_DIRTY 1 IN#GLOCK_COUNTER_EDIT 1 IN#CLK0_DIVIDE_BY 1 IN#MULT_FACTOR1 1 IN#MULT_FACTOR0 1 IN#CLK0_MULTIPLY_BY 1 IN#USE_MIL_SPEED_GRADE 1 IN#CLK1_DIVIDE_BY 1</parameter>
   <parameter name="HIDDEN_MF_PORTS">MF#areset 1 MF#clk 1 MF#locked 1 MF#inclk 1</parameter>
-  <parameter name="HIDDEN_PRIVATES">PT#GLOCKED_FEATURE_ENABLED 0 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 50.000 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 1 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 0 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 0 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 1 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 0 PT#BANDWIDTH_FEATURE_ENABLED 1 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ1 10.00000000 PT#OUTPUT_FREQ0 100.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE Any PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT1 0.00000000 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 5 PT#DIV_FACTOR0 1 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE1 10.000000 PT#EFF_OUTPUT_FREQ_VALUE0 50.000000 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK4 0 PT#STICKY_CLK3 0 PT#STICKY_CLK2 0 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK1 0 PT#MIRROR_CLK0 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#CLKLOSS_CHECK 0 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR1 1 PT#MULT_FACTOR0 1 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {MAX 10} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1537832136329124.mif PT#ACTIVECLK_CHECK 0</parameter>
+  <parameter name="HIDDEN_PRIVATES">PT#GLOCKED_FEATURE_ENABLED 0 PT#SPREAD_FEATURE_ENABLED 0 PT#BANDWIDTH_FREQ_UNIT MHz PT#CUR_DEDICATED_CLK c0 PT#INCLK0_FREQ_EDIT 50.000 PT#BANDWIDTH_PRESET Low PT#PLL_LVDS_PLL_CHECK 0 PT#BANDWIDTH_USE_PRESET 0 PT#AVALON_USE_SEPARATE_SYSCLK NO PT#PLL_ENHPLL_CHECK 0 PT#OUTPUT_FREQ_UNIT1 MHz PT#OUTPUT_FREQ_UNIT0 MHz PT#PHASE_RECONFIG_FEATURE_ENABLED 1 PT#CREATE_CLKBAD_CHECK 0 PT#CLKSWITCH_CHECK 0 PT#INCLK1_FREQ_EDIT 100.000 PT#NORMAL_MODE_RADIO 1 PT#SRC_SYNCH_COMP_RADIO 0 PT#PLL_ARESET_CHECK 1 PT#LONG_SCAN_RADIO 1 PT#SCAN_FEATURE_ENABLED 1 PT#PHASE_RECONFIG_INPUTS_CHECK 0 PT#USE_CLK1 1 PT#USE_CLK0 1 PT#PRIMARY_CLK_COMBO inclk0 PT#BANDWIDTH 1.000 PT#GLOCKED_COUNTER_EDIT_CHANGED 1 PT#PLL_FASTPLL_CHECK 0 PT#SPREAD_FREQ_UNIT KHz PT#PLL_AUTOPLL_CHECK 1 PT#LVDS_PHASE_SHIFT_UNIT1 deg PT#LVDS_PHASE_SHIFT_UNIT0 deg PT#OUTPUT_FREQ_MODE1 1 PT#SWITCHOVER_FEATURE_ENABLED 0 PT#MIG_DEVICE_SPEED_GRADE Any PT#OUTPUT_FREQ_MODE0 1 PT#BANDWIDTH_FEATURE_ENABLED 1 PT#INCLK0_FREQ_UNIT_COMBO MHz PT#ZERO_DELAY_RADIO 0 PT#OUTPUT_FREQ1 10.00000000 PT#OUTPUT_FREQ0 50.00000000 PT#SHORT_SCAN_RADIO 0 PT#LVDS_MODE_DATA_RATE_DIRTY 0 PT#CUR_FBIN_CLK c0 PT#PLL_ADVANCED_PARAM_CHECK 0 PT#CLKBAD_SWITCHOVER_CHECK 0 PT#PHASE_SHIFT_STEP_ENABLED_CHECK 0 PT#DEVICE_SPEED_GRADE Any PT#PLL_FBMIMIC_CHECK 0 PT#LVDS_MODE_DATA_RATE {Not Available} PT#LOCKED_OUTPUT_CHECK 1 PT#SPREAD_PERCENT 0.500 PT#PHASE_SHIFT1 0.00000000 PT#PHASE_SHIFT0 0.00000000 PT#DIV_FACTOR1 5 PT#DIV_FACTOR0 1 PT#CNX_NO_COMPENSATE_RADIO 0 PT#USE_CLKENA1 0 PT#USE_CLKENA0 0 PT#CREATE_INCLK1_CHECK 0 PT#GLOCK_COUNTER_EDIT 1048575 PT#INCLK1_FREQ_UNIT_COMBO MHz PT#EFF_OUTPUT_FREQ_VALUE1 10.000000 PT#EFF_OUTPUT_FREQ_VALUE0 50.000000 PT#SPREAD_FREQ 50.000 PT#USE_MIL_SPEED_GRADE 0 PT#EXPLICIT_SWITCHOVER_COUNTER 0 PT#STICKY_CLK4 0 PT#STICKY_CLK3 0 PT#STICKY_CLK2 0 PT#STICKY_CLK1 1 PT#STICKY_CLK0 1 PT#EXT_FEEDBACK_RADIO 0 PT#MIRROR_CLK1 0 PT#MIRROR_CLK0 0 PT#SWITCHOVER_COUNT_EDIT 1 PT#SELF_RESET_LOCK_LOSS 0 PT#PLL_PFDENA_CHECK 0 PT#INT_FEEDBACK__MODE_RADIO 1 PT#INCLK1_FREQ_EDIT_CHANGED 1 PT#CLKLOSS_CHECK 0 PT#SYNTH_WRAPPER_GEN_POSTFIX 0 PT#PHASE_SHIFT_UNIT1 deg PT#PHASE_SHIFT_UNIT0 deg PT#BANDWIDTH_USE_AUTO 1 PT#HAS_MANUAL_SWITCHOVER 1 PT#MULT_FACTOR1 1 PT#MULT_FACTOR0 1 PT#SPREAD_USE 0 PT#GLOCKED_MODE_CHECK 0 PT#SACN_INPUTS_CHECK 0 PT#DUTY_CYCLE1 50.00000000 PT#INTENDED_DEVICE_FAMILY {MAX 10} PT#DUTY_CYCLE0 50.00000000 PT#PLL_TARGET_HARCOPY_CHECK 0 PT#INCLK1_FREQ_UNIT_CHANGED 1 PT#RECONFIG_FILE ALTPLL1537832136329124.mif PT#ACTIVECLK_CHECK 0</parameter>
   <parameter name="HIDDEN_USED_PORTS">UP#locked used UP#c1 used UP#c0 used UP#areset used UP#inclk0 used</parameter>
   <parameter name="INCLK0_INPUT_FREQUENCY" value="20000" />
   <parameter name="INCLK1_INPUT_FREQUENCY" value="" />
@@ -1932,7 +1955,7 @@
   <parameter name="OPERATION_MODE" value="NORMAL" />
   <parameter name="PLL_TYPE" value="AUTO" />
   <parameter name="PORT_ACTIVECLOCK" value="PORT_UNUSED" />
-  <parameter name="PORT_ARESET" value="PORT_UNUSED" />
+  <parameter name="PORT_ARESET" value="PORT_USED" />
   <parameter name="PORT_CLKBAD0" value="PORT_UNUSED" />
   <parameter name="PORT_CLKBAD1" value="PORT_UNUSED" />
   <parameter name="PORT_CLKLOSS" value="PORT_UNUSED" />
@@ -2014,6 +2037,26 @@
   <parameter name="MAX_BYTES" value="4" />
   <parameter name="PMB_SLAVE_ADDR" value="85" />
  </module>
+ <module name="POR_Pulse" kind="por_pulse" version="1.0" enabled="1">
+  <parameter name="P_WIDTH" value="16" />
+ </module>
+ <module name="Reset2Conduit" kind="reset2conduit" version="1.0" enabled="1" />
+ <module
+   name="Reset_Sequencer"
+   kind="altera_reset_sequencer"
+   version="23.1"
+   enabled="1">
+  <parameter name="ENABLE_CSR" value="0" />
+  <parameter name="ENABLE_RESET_REQUEST_INPUT" value="0" />
+  <parameter name="LIST_ASRT_DELAY" value="0,0,0,0,0,0,0,0,0,0" />
+  <parameter name="LIST_ASRT_SEQ" value="0,1,2,3,4,5,6,7,8,9" />
+  <parameter name="LIST_DSRT_DELAY">0,128,0,0,0,0,0,0,0,0</parameter>
+  <parameter name="LIST_DSRT_SEQ" value="0,1,2,3,4,5,6,7,8,9" />
+  <parameter name="MIN_ASRT_TIME" value="1" />
+  <parameter name="NUM_INPUTS" value="1" />
+  <parameter name="NUM_OUTPUTS" value="2" />
+  <parameter name="USE_DSRT_QUAL" value="0,1,0,0,0,0,0,0,0,0" />
+ </module>
  <module name="Sequencer_Core" kind="sequencer_top" version="1.0" enabled="1">
   <parameter name="CLOCK_RATE_CLK" value="50000000" />
   <parameter name="DCHGDLY">0us,0us,0us,0us,0us,0us</parameter>
@@ -2022,6 +2065,7 @@
   <parameter name="QUALTIME">10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms,10ms</parameter>
   <parameter name="RESTARTDLY" value="200ms" />
   <parameter name="SEQDLY">10us,10us,10us,10us,10us,10us,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms,1ms</parameter>
+  <parameter name="T_USE_OPEN_DRAIN" value="true" />
   <parameter name="USE_PWR_GROUPS" value="false" />
   <parameter name="VRAILS" value="6" />
  </module>
@@ -3334,7 +3378,7 @@
   <parameter name="VOUT9_UVW" value="97.0" />
   <parameter name="VRAILS" value="6" />
  </module>
- <module name="clk_50m" kind="clock_source" version="21.1" enabled="1">
+ <module name="clk_50m" kind="clock_source" version="23.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
@@ -3343,7 +3387,7 @@
  <module
    name="resetn_pb"
    kind="altera_reset_bridge"
-   version="21.1"
+   version="23.1"
    enabled="1">
   <parameter name="ACTIVE_LOW_RESET" value="1" />
   <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
@@ -3353,7 +3397,7 @@
  </module>
  <connection
    kind="avalon"
-   version="21.1"
+   version="23.1"
    start="PMBus_Slave.PMBus_AVS"
    end="Sequencer_VMonitor.avs">
   <parameter name="arbitrationPriority" value="1" />
@@ -3362,7 +3406,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="21.1"
+   version="23.1"
    start="AVMM_Initializer.avm"
    end="ADC_Core.sequencer_csr">
   <parameter name="arbitrationPriority" value="1" />
@@ -3371,50 +3415,56 @@
  </connection>
  <connection
    kind="avalon_streaming"
-   version="21.1"
+   version="23.1"
    start="ADC_Core.response"
    end="ADC_Decoder.adc_in0" />
- <connection kind="clock" version="21.1" start="PLL_Main.c0" end="ADC_Core.clock" />
+ <connection kind="clock" version="23.1" start="PLL_Main.c0" end="ADC_Core.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c0"
    end="Sequencer_VMonitor.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c0"
    end="AVMM_Initializer.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c0"
    end="Sequencer_Core.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c0"
    end="ADC_Decoder.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c0"
    end="PMBus_Slave.clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="PLL_Main.c1"
    end="ADC_Core.adc_pll_clock" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
+   start="clk_50m.clk"
+   end="Reset_Sequencer.clk" />
+ <connection kind="clock" version="23.1" start="clk_50m.clk" end="POR_Pulse.clock" />
+ <connection
+   kind="clock"
+   version="23.1"
    start="clk_50m.clk"
    end="PLL_Main.inclk_interface" />
  <connection
    kind="conduit"
-   version="21.1"
+   version="23.1"
    start="ADC_Core.adc_pll_locked"
-   end="PLL_LockSplit.locked_out">
+   end="PLL_LockSplit.locked2_out">
   <parameter name="endPort" value="" />
   <parameter name="endPortLSB" value="0" />
   <parameter name="startPort" value="" />
@@ -3423,7 +3473,18 @@
  </connection>
  <connection
    kind="conduit"
-   version="21.1"
+   version="23.1"
+   start="PLL_Main.areset_conduit"
+   end="Reset2Conduit.conduit_end">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="23.1"
    start="PLL_LockSplit.pll_locked"
    end="PLL_Main.locked_conduit">
   <parameter name="endPort" value="" />
@@ -3434,7 +3495,18 @@
  </connection>
  <connection
    kind="conduit"
-   version="21.1"
+   version="23.1"
+   start="Reset_Sequencer.reset1_dsrt_qual"
+   end="PLL_LockSplit.locked1_out">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="23.1"
    start="Sequencer_Core.sequencer_monitor"
    end="Sequencer_VMonitor.sequencer_monitor">
   <parameter name="endPort" value="" />
@@ -3445,7 +3517,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="21.1"
+   version="23.1"
    start="Sequencer_VMonitor.vmon_conduit"
    end="ADC_Decoder.vmon_conduit">
   <parameter name="endPort" value="" />
@@ -3456,44 +3528,54 @@
  </connection>
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="clk_50m.clk_reset"
    end="Sequencer_VMonitor.reset" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="clk_50m.clk_reset"
    end="ADC_Decoder.reset" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="clk_50m.clk_reset"
    end="PMBus_Slave.reset" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="clk_50m.clk_reset"
    end="ADC_Core.reset_sink" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="clk_50m.clk_reset"
    end="AVMM_Initializer.resetn" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="resetn_pb.out_reset"
    end="clk_50m.clk_in_reset" />
  <connection
    kind="reset"
-   version="21.1"
-   start="resetn_pb.out_reset"
+   version="23.1"
+   start="Reset_Sequencer.reset_out0"
    end="PLL_Main.inclk_interface_reset" />
  <connection
    kind="reset"
-   version="21.1"
-   start="PLL_LockSplit.reset"
+   version="23.1"
+   start="Reset_Sequencer.reset_out0"
+   end="Reset2Conduit.reset_sink" />
+ <connection
+   kind="reset"
+   version="23.1"
+   start="Reset_Sequencer.reset_out1"
    end="clk_50m.clk_in_reset" />
+ <connection
+   kind="reset"
+   version="23.1"
+   start="POR_Pulse.resetn"
+   end="Reset_Sequencer.reset_in0" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

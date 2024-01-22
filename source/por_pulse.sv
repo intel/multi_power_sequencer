@@ -1,12 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////////
 //
-// Module: pll_lock_splitter
+// Module: por_pulse.sv
 //
-// Description: This module taps the locked output of the PLL conduit, outputing a
-//   reset signal that can be used by other design blocks in the system.
+// Description: This module creates a power-on reset pulse
 //
 ////////////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2019 Intel Corporation
+// Copyright (c) 2023 Intel Corporation
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to
@@ -32,14 +31,21 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////
 
-module pll_lock_splitter (
-  input  PLL_LOCKED,
-  output LOCKED1,
-  output LOCKED2
+module por_pulse #(
+  parameter                P_WIDTH = 8
+)(
+  input                    CLOCK,
+	output                   RESET_N
 );
 
-  // Asynchronous signal assigments
-  assign LOCKED1 = PLL_LOCKED;
-  assign LOCKED2 = PLL_LOCKED;
+  reg   [P_WIDTH-1:0] por_reset_q = 0;
+
+	// Assign the reset to the output of the shift register
+	assign RESET_N = por_reset_q[0];
+
+	// Implement the shift register
+  always_ff @(posedge CLOCK) begin : P_POR_SR
+    por_reset_q <= {1'b1, por_reset_q[P_WIDTH-1:1]};
+	end
 
 endmodule

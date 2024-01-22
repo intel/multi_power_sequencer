@@ -187,7 +187,7 @@
  <module
    name="clock_source_50m"
    kind="altera_avalon_clock_source"
-   version="21.1"
+   version="23.1"
    enabled="1">
   <parameter name="CLOCK_RATE" value="50" />
   <parameter name="CLOCK_UNIT" value="1000000" />
@@ -200,29 +200,29 @@
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="AUTO_GENERATION_ID" value="0" />
-  <parameter name="AUTO_UNIQUE_ID" value="$${FILENAME}_qsys_0" />
+  <parameter name="AUTO_UNIQUE_ID">sequencer_qsys_tb_qsys_0</parameter>
  </module>
  <module
    name="reset_source_0"
    kind="altera_avalon_reset_source"
-   version="21.1"
+   version="23.1"
    enabled="1">
   <parameter name="ASSERT_HIGH_RESET" value="0" />
   <parameter name="INITIAL_RESET_CYCLES" value="5" />
  </module>
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="clock_source_50m.clk"
    end="reset_source_0.clk" />
  <connection
    kind="clock"
-   version="21.1"
+   version="23.1"
    start="clock_source_50m.clk"
    end="qsys_0.clk_50m" />
  <connection
    kind="reset"
-   version="21.1"
+   version="23.1"
    start="reset_source_0.reset"
    end="qsys_0.pb_resetn" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />

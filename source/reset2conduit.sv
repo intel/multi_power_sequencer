@@ -1,12 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////////
 //
-// Module: pll_lock_splitter
+// Module: reset2conduit
 //
-// Description: This module taps the locked output of the PLL conduit, outputing a
-//   reset signal that can be used by other design blocks in the system.
+// Description: This module is a wire-through that converts a reset to a conduit type
 //
 ////////////////////////////////////////////////////////////////////////////////////
-// Copyright (c) 2019 Intel Corporation
+// Copyright (c) 2023 Intel Corporation
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to
@@ -32,14 +31,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////
 
-module pll_lock_splitter (
-  input  PLL_LOCKED,
-  output LOCKED1,
-  output LOCKED2
+module reset2conduit (
+	input  areset_in,
+	output areset_out
 );
 
   // Asynchronous signal assigments
-  assign LOCKED1 = PLL_LOCKED;
-  assign LOCKED2 = PLL_LOCKED;
+  assign areset_out = areset_in;
 
 endmodule
