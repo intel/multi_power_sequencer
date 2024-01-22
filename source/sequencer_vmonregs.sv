@@ -444,8 +444,6 @@ module sequencer_vmonregs #(
                            alarm_vin_uv_warn_limit_q[P_SAMPLES], alarm_vin_uv_fault_limit_q[P_SAMPLES],
                            ~mon_vin_pwrgd[P_SAMPLES], 3'b0}),
                 .DATA_OUT_Q(reg_status_input_q));
-      assign reg_status_input_other_err = ((reg_status_input_q[7:5] == 3'b0 ) && (reg_status_input_q[3] == 1'b0 ))? 1'b0:1'b1;
-      assign reg_status_input_err       = (reg_status_input_q      == 8'b0 )? 1'b0:1'b1;
     
       // Instantiate READ_VIN register
       reg_ro #(.P_WIDTH(16))
@@ -465,6 +463,8 @@ module sequencer_vmonregs #(
       assign reg_vin_ov_fault_resp_q = P_VIN_OV_FAULT_RESP;
       assign reg_vin_uv_fault_resp_q = P_VIN_UV_FAULT_RESP;
     end
+    assign reg_status_input_other_err = ((reg_status_input_q[7:5] == 3'b0 ) && (reg_status_input_q[3] == 1'b0 ))? 1'b0:1'b1;
+    assign reg_status_input_err       = (reg_status_input_q      == 8'b0 )? 1'b0:1'b1;
   endgenerate
 
   generate
