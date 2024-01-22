@@ -94,6 +94,16 @@ set_parameter_property DV_CLKPERIOD DESCRIPTION "Clock period for the reference 
 set_parameter_property DV_CLKPERIOD DERIVED true
 set_parameter_property DV_CLKPERIOD VISIBLE false
 
+# Enable selection of open-drain or standard push-pull drivers
+add_parameter T_USE_OPEN_DRAIN BOOLEAN true
+set_parameter_property T_USE_OPEN_DRAIN DISPLAY_NAME "Use open-drain outputs"
+set_parameter_property T_USE_OPEN_DRAIN DESCRIPTION "Controls whether open-drain or push-pull drivers are used for nFAULT, VRAIL_ENA, and VRAIL_DCHG."
+add_parameter USE_OPEN_DRAIN INTEGER 1
+set_parameter_property USE_OPEN_DRAIN TYPE INTEGER
+set_parameter_property USE_OPEN_DRAIN DERIVED true
+set_parameter_property USE_OPEN_DRAIN HDL_PARAMETER true
+set_parameter_property USE_OPEN_DRAIN VISIBLE false
+
 # Parameters relating to the VOUT output rails - loop through the number of rails and create a tab for each one
 add_parameter VOUT_NAME STRING_LIST
 set_parameter_property VOUT_NAME DISPLAY_NAME "Voltage Rail"
@@ -271,6 +281,11 @@ add_interface_port sequencer_monitor REG_TIMEOUTDLY reg_timeoutdly Input 3
 # | Elaboration callback
 # +----------------------------------------------------------------------------
 proc elaborate {} {
+  if {[ get_parameter_value T_USE_OPEN_DRAIN ] } {
+    set_parameter_value USE_OPEN_DRAIN 1
+  } else {
+    set_parameter_value USE_OPEN_DRAIN 0
+  }
   # Generate VOUT names
   set vout_list ""
   for { set out 0 } { $out < [ get_parameter_value VRAILS ] } { incr out } {   

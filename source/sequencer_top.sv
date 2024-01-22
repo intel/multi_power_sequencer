@@ -35,16 +35,16 @@
 module sequencer_top #(
   parameter               VRAILS     = 4,
   parameter               PWR_GROUPS = 4,
-  parameter               USE_EXTERNAL_IOBUF = 0
+  parameter               USE_OPEN_DRAIN = 1
 )(
-	input                   CLOCK,
+  input                   CLOCK,
   input                   ENABLE,
   input                   VIN_FAULT,
-	input  [VRAILS-1    :0] VRAIL_PWRGD,
-	output [PWR_GROUPS-1:0] VRAIL_ENA,
-	output reg [VRAILS-1:0] VMON_ENA,
-	output [PWR_GROUPS-1:0] VRAIL_DCHG,
-	output                  nFAULT,
+  input  [VRAILS-1    :0] VRAIL_PWRGD,
+  output [PWR_GROUPS-1:0] VRAIL_ENA,
+  output reg [VRAILS-1:0] VMON_ENA,
+  output [PWR_GROUPS-1:0] VRAIL_DCHG,
+  output                  nFAULT,
   input             [2:0] REG_RETRIES,
   input             [2:0] REG_TIMEOUTDLY
 );
@@ -193,15 +193,14 @@ module sequencer_top #(
   assign fault_pwrgd   = (next_oe & ~group_pwrgd) | vrail_fault;
   // Keep upstream supplies enabled until downstream supplies have been discharged.
   assign seq_keepalive = {1'b0, ~(vrail_dchg_i[PWR_GROUPS-1:1])};
-  // Open-drain drivers for all outputs
+  // Choose between open-drain or push-pull drivers for all outputs
   generate
-    if (!USE_EXTERNAL_IOBUF)
-      assign nFAULT        = (nFault_q) ? 1'b1 : 1'bZ ;
+    if (USE_OPEN_DRAIN)
+      assign nFAULT    = (nFault_q) ? 1'b1 : 1'bZ ;
     else
-      assign nFAULT        = nFault_q;
+      assign nFAULT    = (nFault_q);
   endgenerate
-
-
+  
   // Instantiate a voltage controller per each power rail
   genvar gv_i;
   generate
@@ -221,14 +220,15 @@ module sequencer_top #(
                        .VRAIL_ENA(vrail_ena_i[gv_i]),
                        .VRAIL_DCHG(vrail_dchg_i[gv_i]),
                        .NEXT_OE(next_oe[gv_i]));
-      // Open-drain drivers for all outputs
-      if (!USE_EXTERNAL_IOBUF) begin
+      // Choose between open-drain or push-pull drivers for all outputs
+      if (USE_OPEN_DRAIN) begin
         assign VRAIL_ENA[gv_i]  = ( vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
         assign VRAIL_DCHG[gv_i] = (~vrail_ena_i[gv_i]) ? 1'b1 : 1'bZ ;
       end else begin
-        assign VRAIL_ENA[gv_i]  = vrail_ena_i[gv_i];
-        assign VRAIL_DCHG[gv_i] = ~vrail_ena_i[gv_i];
+        assign VRAIL_ENA[gv_i]  = ( vrail_ena_i[gv_i]);
+        assign VRAIL_DCHG[gv_i] = (~vrail_ena_i[gv_i]);
       end
+
     end
   endgenerate
 endmodule
