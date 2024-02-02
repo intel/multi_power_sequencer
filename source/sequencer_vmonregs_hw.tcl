@@ -259,8 +259,8 @@ for { set idx 0 } { $idx < 143 } { incr idx } {
 # connection point reset
 # 
 add_interface reset reset end
-set_interface_property reset associatedClock ""
-set_interface_property reset synchronousEdges NONE
+set_interface_property reset associatedClock clock
+set_interface_property reset synchronousEdges DEASSERT
 set_interface_property reset ENABLED true
 set_interface_property reset EXPORT_OF ""
 set_interface_property reset PORT_NAME_MAP ""
