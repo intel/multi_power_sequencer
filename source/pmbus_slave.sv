@@ -88,7 +88,6 @@ module pmbus_slave #(
   logic                         store_slave_addr;
   logic                         store_command;
   logic                         store_data;
-  logic                         store_readdata;
   logic                         bitcounter_rst;
   logic                         bitcounter_en;
   logic [$clog2(MAX_BYTES)+3:0] bitcounter_q;
@@ -201,7 +200,7 @@ module pmbus_slave #(
     else begin
       // Capture the data that was read from the Avalon-MM interface the previous
       //   PMBus cycle earlier into the shadow register.
-      if (store_readdata == 1'b1)
+      if (SMB_READ & !SMB_WAITREQUEST == 1'b1)
         smb_readdata_q <= SMB_READDATA;
       // Shift the data for each byte that is being transferred out to the left (MSB to LSB)
       else if (pmbus_currstate == ST_DATA_TX)
@@ -260,7 +259,6 @@ module pmbus_slave #(
     pmbus_nextstate           <= pmbus_currstate;
     store_slave_addr          <= 1'b0;
     store_command             <= 1'b0;
-    store_readdata            <= 1'b0;
     store_data                <= 1'b0;
     bitcounter_rst            <= 1'b0;
     bitcounter_en             <= 1'b1;
@@ -302,7 +300,6 @@ module pmbus_slave #(
             if (cmd_slave_addr_q[0] == 1'b0)
               pmbus_nextstate <= ST_DATA_RX;
             else begin
-              store_readdata  <= 1'b1;
               pmbus_nextstate <= ST_DATA_TX;
             end
           end

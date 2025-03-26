@@ -145,7 +145,7 @@ add_interface_port PMBus_sideband SMB_STOP smb_stop Output 1
 # connection point PMBus_AVS
 # 
 add_interface PMBus_AVS avalon start
-set_interface_property PMBus_AVS addressUnits SYMBOLS
+set_interface_property PMBus_AVS addressUnits WORDS
 set_interface_property PMBus_AVS associatedClock clock
 set_interface_property PMBus_AVS associatedReset reset
 set_interface_property PMBus_AVS bitsPerSymbol 8
