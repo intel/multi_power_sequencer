@@ -62,7 +62,7 @@ set_parameter_property ADC_IFNUM DISPLAY_NAME "ADC Streaming Interfaces"
 set_parameter_property ADC_IFNUM DESCRIPTION "The number of Max10 ADCs that are being interfaced to."
 set_parameter_property ADC_IFNUM TYPE INTEGER
 set_parameter_property ADC_IFNUM UNITS None
-set_parameter_property ADC_IFNUM ALLOWED_RANGES {1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16}
+set_parameter_property ADC_IFNUM ALLOWED_RANGES {0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16}
 set_parameter_property ADC_IFNUM HDL_PARAMETER true
 
 add_parameter PG_NUM INTEGER 0
@@ -110,10 +110,10 @@ set_parameter_property DV_PG_DEBOUNCE HDL_PARAMETER false
 
 
 # Parameters relating to the VOUT output rails - loop through the number of rails and create a tab for each one
-add_parameter VIN_ADC_IFNUM STRING 1
+add_parameter VIN_ADC_IFNUM STRING PG_Input
 set_parameter_property VIN_ADC_IFNUM DISPLAY_NAME "ADC Interface/PG for VIN"
 set_parameter_property VIN_ADC_IFNUM DESCRIPTION "Indicates which Avalon-ST ADC interface is transmitting the voltage level for the VIN rail, or whether the Power Good (PG) will be used to monitor VIN."
-set_parameter_property VIN_ADC_IFNUM ALLOWED_RANGES {1}
+set_parameter_property VIN_ADC_IFNUM ALLOWED_RANGES {PG_Input}
 
 add_parameter VIN_ADC_CHANNEL INTEGER 0
 set_parameter_property VIN_ADC_CHANNEL DISPLAY_NAME "ADC/PG Channel for VIN"
@@ -132,13 +132,13 @@ set_parameter_property VOUT_NAME DISPLAY_HINT WIDTH:100
 set adc_if_list_init ""
 set adc_ch_list_init ""
 for { set i 0 } { $i < 143 } { incr i } {   
-  lappend adc_if_list_init "1"
+  lappend adc_if_list_init "PG_Input"
   lappend adc_ch_list_init "0"
 }
 add_parameter ADC_CHANNEL_IFNUM STRING_LIST $adc_if_list_init
 set_parameter_property ADC_CHANNEL_IFNUM DEFAULT_VALUE $adc_if_list_init
 set_parameter_property ADC_CHANNEL_IFNUM DISPLAY_NAME "ADC Interface Number/PG"
-set_parameter_property ADC_CHANNEL_IFNUM ALLOWED_RANGES {1}
+set_parameter_property ADC_CHANNEL_IFNUM ALLOWED_RANGES {PG_Input}
 set_parameter_property ADC_CHANNEL_IFNUM DISPLAY_HINT FIXED_SIZE
 set_parameter_property ADC_CHANNEL_IFNUM DISPLAY_HINT WIDTH:150
 
@@ -250,13 +250,17 @@ proc elaborate {} {
         }
       }
     } else {
-      if { ($idx_chs > 16) } {
-        send_message {error} "Specified ADC Channel $idx_chs is not valid!!!"
+      if { $idx_ifs > $ifnum } {
+        send_message {error} "Specified ADC Interface $idx_ifs is not valid!!!"
       } else {
-        if { $chk_if($idx_ifs,$idx_chs) == 1 } {
-          send_message {warning} "ADC Interface $idx_ifs channel $idx_chs is used for multiple rails!!!"
+        if { ($idx_chs > 16) } {
+          send_message {error} "Specified ADC Channel $idx_chs is not valid!!!"
         } else {
-          set chk_if($idx_ifs,$idx_chs) 1
+          if { $chk_if($idx_ifs,$idx_chs) == 1 } {
+            send_message {warning} "ADC Interface $idx_ifs channel $idx_chs is used for multiple rails!!!"
+          } else {
+            set chk_if($idx_ifs,$idx_chs) 1
+          }
         }
       }
     }
@@ -483,9 +487,13 @@ package sequencer_vmondecode_pkg;
   //   1 to ADCIN1, and so on.  The value at each location relates to the voltage rail
   //   being monitored.  \"0\" indicates VIN and the VOUT rails are indicated in increasing
   //   value, up to the \"VRAILS\" parameter.  Any number greater than \"VRAILS\" (such as 199)
-  //   is ignored, indicating that the channel is not utilized by the sequencer.
-  localparam int P_ADC_CHAN_MAP\[0:$P_ADC_IFNUM\]\[0:16\]  = $P_ADC_CHAN_MAP;
-  // When the Power Good (PG) Inputs are not being used, the following define disables the interface"
+  //   is ignored, indicating that the channel is not utilized by the sequencer."
+  if {$P_ADC_IFNUM == -1} {
+    puts $f_handle "  localparam int P_ADC_CHAN_MAP\[0:0\]\[0:0\]  = '{'{0}};"
+  } else {
+    puts $f_handle "  localparam int P_ADC_CHAN_MAP\[0:$P_ADC_IFNUM\]\[0:16\]  = $P_ADC_CHAN_MAP;"
+  }
+  puts $f_handle "  // When the Power Good (PG) Inputs are not being used, the following define disables the interface"
   if {$P_PGNUM != 0} {
     puts $f_handle "  //`define DISABLE_PGBUS"
   } else {
