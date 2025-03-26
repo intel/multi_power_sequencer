@@ -12,7 +12,7 @@ TABLE OF CONTENTS
 
 LAST UPDATE
 
-January 22, 2024
+March 26, 2025
 
 
 LICENSE
@@ -23,6 +23,18 @@ file in the top level directory of the repository for license details.
 
 RELEASES
 
+v3.0.0 Features added:
+   - Added Non-volatile error logging, black box data log, and timestamp from TOD clock
+   - Added support for non-PMBus* control plane interfaces with "Alignment Bridge"
+   - Added page support for all rails, including digital rails
+   - Added undervoltage error logging on digital POK inputs
+   - Added logging for qualification window timeout errors
+   - Added new "Sequencer Monitor" component, which combines the "Sequencer Decoder" and
+      "Sequencer Voltage Monitor" to a single component for simpler configuration.
+   - Added System Console script with numerous status and control functions, which can
+      be used to easily interface to the sequencer over JTAG and the Alignment Bridge.
+   - Changed the Sequencer Decoder to allow zero ADC interfaces, for a fully digital
+      implementation (with PMBus support or logging).
 v2.2.0 Features added:
    - Added PLL reset
    - Updated reset architecture in reference design by adding power-on reset and sequencing.
@@ -143,6 +155,4 @@ https://www.intel.com/content/www/us/en/developer/topic-technology/open/multi-ra
 For more information about Platform Designer, please see this landing page on
 Intel.com which points to numerous Platform Designer support resources including
 documentation, training materials, tutorials, specifications, etc:
-https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-software/qsys.html 
- 
- 
+https://www.intel.com/content/www/us/en/programmable/support/support-resources/design-software/qsys.html

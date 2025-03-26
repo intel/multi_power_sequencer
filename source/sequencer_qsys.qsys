@@ -13,7 +13,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "11";
          type = "int";
       }
    }
@@ -30,19 +30,27 @@
          type = "String";
       }
    }
-   element ADC_Decoder
-   {
-      datum _sortIndex
-      {
-         value = "10";
-         type = "int";
-      }
-   }
    element AVMM_Initializer
    {
       datum _sortIndex
       {
          value = "7";
+         type = "int";
+      }
+   }
+   element NVRAM_Controller
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element NVRAM_OC_Flash
+   {
+      datum _sortIndex
+      {
+         value = "14";
          type = "int";
       }
    }
@@ -78,6 +86,22 @@
       {
          value = "16";
          type = "String";
+      }
+   }
+   element PM2AVMM_Align
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element PM2AVMM_JTAG_Master
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
       }
    }
    element PMBus_Slave
@@ -116,7 +140,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "15";
          type = "int";
       }
       datum sopceditor_expanded
@@ -125,11 +149,11 @@
          type = "boolean";
       }
    }
-   element Sequencer_VMonitor
+   element Sequencer_Monitor
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -1607,10 +1631,26 @@
          type = "String";
       }
    }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
+   element sequencer_qsys
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
+         type = "String";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
- <parameter name="device" value="10M04SAE144C8G" />
+ <parameter name="device" value="10M08SAE144C8G" />
  <parameter name="deviceFamily" value="MAX 10" />
  <parameter name="deviceSpeedGrade" value="8" />
  <parameter name="fabricMode" value="QSYS" />
@@ -1630,7 +1670,11 @@
  <instanceScript></instanceScript>
  <interface name="clk_50m" internal="clk_50m.clk_in" type="clock" dir="end" />
  <interface name="pb_resetn" internal="resetn_pb.in_reset" type="reset" dir="end" />
- <interface name="pg" internal="ADC_Decoder.pg_input" type="conduit" dir="end" />
+ <interface
+   name="pg"
+   internal="Sequencer_Monitor.pg_input"
+   type="conduit"
+   dir="end" />
  <interface name="pmbus" internal="PMBus_Slave.PMBus" type="conduit" dir="end" />
  <interface
    name="seqctl"
@@ -1644,14 +1688,14 @@
    dir="end" />
  <interface
    name="smb_alertn"
-   internal="Sequencer_VMonitor.smb_alertn"
+   internal="Sequencer_Monitor.smb_alertn"
    type="conduit"
    dir="end" />
- <module name="ADC_Core" kind="altera_modular_adc" version="23.1" enabled="1">
+ <module name="ADC_Core" kind="altera_modular_adc" version="24.1" enabled="1">
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
   <parameter name="CLOCK_FREQ" value="50000000" />
   <parameter name="CORE_VAR" value="2" />
-  <parameter name="DEVICE_PART" value="10M04SAE144C8G" />
+  <parameter name="DEVICE_PART" value="10M08SAE144C8G" />
   <parameter name="ENABLE_DEBUG" value="0" />
   <parameter name="FAMILY" value="MAX 10" />
   <parameter name="MONITOR_COUNT_WIDTH" value="12" />
@@ -1839,21 +1883,6 @@
   <parameter name="use_tsd" value="false" />
  </module>
  <module
-   name="ADC_Decoder"
-   kind="sequencer_vmondecode"
-   version="1.0"
-   enabled="1">
-  <parameter name="ADC_CHANNEL_IFNUM">1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</parameter>
-  <parameter name="ADC_CHANNEL_VOUTNUM">2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</parameter>
-  <parameter name="ADC_IFNUM" value="1" />
-  <parameter name="CLOCK_RATE_CLK" value="50000000" />
-  <parameter name="PG_DEBOUNCE" value="10" />
-  <parameter name="PG_NUM" value="7" />
-  <parameter name="VIN_ADC_CHANNEL" value="1" />
-  <parameter name="VIN_ADC_IFNUM" value="1" />
-  <parameter name="VRAILS" value="6" />
- </module>
- <module
    name="AVMM_Initializer"
    kind="avmm_sequencer"
    version="1.0"
@@ -1862,11 +1891,41 @@
   <parameter name="P_DATASIZE" value="32" />
  </module>
  <module
+   name="NVRAM_Controller"
+   kind="nvram_ctrl_m10_ocflash"
+   version="1.0"
+   enabled="1">
+  <parameter name="P_ADDRSIZE" value="19" />
+  <parameter name="P_DATASIZE" value="32" />
+  <parameter name="VRAILS" value="6" />
+ </module>
+ <module
+   name="NVRAM_OC_Flash"
+   kind="altera_onchip_flash"
+   version="24.1"
+   enabled="1">
+  <parameter name="AUTO_CLOCK_RATE" value="50000000" />
+  <parameter name="CLOCK_FREQUENCY" value="116.0" />
+  <parameter name="CONFIGURATION_MODE">Single Uncompressed Image</parameter>
+  <parameter name="CONFIGURATION_SCHEME">Internal Configuration</parameter>
+  <parameter name="DATA_INTERFACE" value="Parallel" />
+  <parameter name="DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="PART_NAME" value="10M08SAE144C8G" />
+  <parameter name="READ_BURST_COUNT" value="8" />
+  <parameter name="READ_BURST_MODE" value="Incrementing" />
+  <parameter name="SECTOR_ACCESS_MODE">Read and write,Read and write,Read only,Hidden,Hidden</parameter>
+  <parameter name="autoInitializationFileName">$${FILENAME}_NVRAM_OC_Flash</parameter>
+  <parameter name="initFlashContent" value="false" />
+  <parameter name="initializationFileName">altera_onchip_flash.hex</parameter>
+  <parameter name="initializationFileNameForSim">altera_onchip_flash.dat</parameter>
+  <parameter name="useNonDefaultInitFile" value="false" />
+ </module>
+ <module
    name="PLL_LockSplit"
    kind="pll_lock_splitter"
    version="1.0"
    enabled="1" />
- <module name="PLL_Main" kind="altpll" version="23.1" enabled="1">
+ <module name="PLL_Main" kind="altpll" version="24.1" enabled="1">
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
   <parameter name="AUTO_INCLK_INTERFACE_CLOCK_RATE" value="50000000" />
   <parameter name="AVALON_USE_SEPARATE_SYSCLK" value="NO" />
@@ -2033,6 +2092,25 @@
   <parameter name="WIDTH_CLOCK" value="5" />
   <parameter name="WIDTH_PHASECOUNTERSELECT" value="" />
  </module>
+ <module
+   name="PM2AVMM_Align"
+   kind="Alignment_Bridge"
+   version="1.0"
+   enabled="0" />
+ <module
+   name="PM2AVMM_JTAG_Master"
+   kind="altera_jtag_avalon_master"
+   version="24.1"
+   enabled="0">
+  <parameter name="AUTO_DEVICE" value="10M08SAE144C8G" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <parameter name="COMPONENT_CLOCK" value="0" />
+  <parameter name="FAST_VER" value="0" />
+  <parameter name="FIFO_DEPTHS" value="2" />
+  <parameter name="PLI_PORT" value="50000" />
+  <parameter name="USE_PLI" value="0" />
+ </module>
  <module name="PMBus_Slave" kind="PMBus_Slave" version="1.0" enabled="1">
   <parameter name="MAX_BYTES" value="4" />
   <parameter name="PMB_SLAVE_ADDR" value="85" />
@@ -2044,7 +2122,7 @@
  <module
    name="Reset_Sequencer"
    kind="altera_reset_sequencer"
-   version="23.1"
+   version="24.1"
    enabled="1">
   <parameter name="ENABLE_CSR" value="0" />
   <parameter name="ENABLE_RESET_REQUEST_INPUT" value="0" />
@@ -2070,16 +2148,31 @@
   <parameter name="VRAILS" value="6" />
  </module>
  <module
-   name="Sequencer_VMonitor"
-   kind="sequencer_vmonregs"
+   name="Sequencer_Monitor"
+   kind="sequencer_monitor"
    version="1.0"
    enabled="1">
-  <parameter name="ADC_SAMPLES" value="5" />
-  <parameter name="ADC_VREF" value="2.489" />
+  <parameter name="ADC_CHANNEL_IFNUM">1,1,1,1,1,1,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input,PG_Input</parameter>
+  <parameter name="ADC_CHANNEL_VOUTNUM">2,3,4,5,6,8,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</parameter>
+  <parameter name="ADC_IFNUM" value="1" />
+  <parameter name="ADC_SAMPLES" value="3" />
+  <parameter name="ADC_VREF" value="2.5" />
+  <parameter name="AUTO_DEVICE" value="10M08SAE144C8G" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="8" />
+  <parameter name="CLOCK_RATE_CLK" value="50000000" />
+  <parameter name="COMPOSED_MONITOR" value="1" />
   <parameter name="FEATURE_LEVEL" value="2" />
+  <parameter name="LOGGING_ENA" value="0" />
+  <parameter name="LOGGING_LEVEL" value="2" />
+  <parameter name="NV_AWIDTH" value="17" />
+  <parameter name="PG_DEBOUNCE" value="10" />
   <parameter name="PG_NUM" value="7" />
   <parameter name="RETRY_ATTEMPTS" value="3" />
   <parameter name="RETRY_TIMEOUT" value="1" />
+  <parameter name="T_REQUIRE_WE_FOR_CLR" value="false" />
+  <parameter name="VIN_ADC_CHANNEL" value="1" />
+  <parameter name="VIN_ADC_IFNUM" value="1" />
   <parameter name="VIN_OFF" value="90.0" />
   <parameter name="VIN_ON" value="95.0" />
   <parameter name="VIN_OVF" value="107.0" />
@@ -2103,7 +2196,7 @@
   <parameter name="VOUT100_OVF" value="107.0" />
   <parameter name="VOUT100_OVRSP" value="true" />
   <parameter name="VOUT100_OVW" value="105.0" />
-  <parameter name="VOUT100_TYP" value="2.5" />
+  <parameter name="VOUT100_TYP" value="1.5" />
   <parameter name="VOUT100_UVF" value="93.0" />
   <parameter name="VOUT100_UVRSP" value="true" />
   <parameter name="VOUT100_UVW" value="97.0" />
@@ -2112,7 +2205,7 @@
   <parameter name="VOUT101_OVF" value="107.0" />
   <parameter name="VOUT101_OVRSP" value="true" />
   <parameter name="VOUT101_OVW" value="105.0" />
-  <parameter name="VOUT101_TYP" value="2.5" />
+  <parameter name="VOUT101_TYP" value="1.5" />
   <parameter name="VOUT101_UVF" value="93.0" />
   <parameter name="VOUT101_UVRSP" value="true" />
   <parameter name="VOUT101_UVW" value="97.0" />
@@ -2121,7 +2214,7 @@
   <parameter name="VOUT102_OVF" value="107.0" />
   <parameter name="VOUT102_OVRSP" value="true" />
   <parameter name="VOUT102_OVW" value="105.0" />
-  <parameter name="VOUT102_TYP" value="2.5" />
+  <parameter name="VOUT102_TYP" value="1.5" />
   <parameter name="VOUT102_UVF" value="93.0" />
   <parameter name="VOUT102_UVRSP" value="true" />
   <parameter name="VOUT102_UVW" value="97.0" />
@@ -2130,7 +2223,7 @@
   <parameter name="VOUT103_OVF" value="107.0" />
   <parameter name="VOUT103_OVRSP" value="true" />
   <parameter name="VOUT103_OVW" value="105.0" />
-  <parameter name="VOUT103_TYP" value="2.5" />
+  <parameter name="VOUT103_TYP" value="1.5" />
   <parameter name="VOUT103_UVF" value="93.0" />
   <parameter name="VOUT103_UVRSP" value="true" />
   <parameter name="VOUT103_UVW" value="97.0" />
@@ -2139,7 +2232,7 @@
   <parameter name="VOUT104_OVF" value="107.0" />
   <parameter name="VOUT104_OVRSP" value="true" />
   <parameter name="VOUT104_OVW" value="105.0" />
-  <parameter name="VOUT104_TYP" value="2.5" />
+  <parameter name="VOUT104_TYP" value="1.5" />
   <parameter name="VOUT104_UVF" value="93.0" />
   <parameter name="VOUT104_UVRSP" value="true" />
   <parameter name="VOUT104_UVW" value="97.0" />
@@ -2148,7 +2241,7 @@
   <parameter name="VOUT105_OVF" value="107.0" />
   <parameter name="VOUT105_OVRSP" value="true" />
   <parameter name="VOUT105_OVW" value="105.0" />
-  <parameter name="VOUT105_TYP" value="2.5" />
+  <parameter name="VOUT105_TYP" value="1.5" />
   <parameter name="VOUT105_UVF" value="93.0" />
   <parameter name="VOUT105_UVRSP" value="true" />
   <parameter name="VOUT105_UVW" value="97.0" />
@@ -2157,7 +2250,7 @@
   <parameter name="VOUT106_OVF" value="107.0" />
   <parameter name="VOUT106_OVRSP" value="true" />
   <parameter name="VOUT106_OVW" value="105.0" />
-  <parameter name="VOUT106_TYP" value="2.5" />
+  <parameter name="VOUT106_TYP" value="1.5" />
   <parameter name="VOUT106_UVF" value="93.0" />
   <parameter name="VOUT106_UVRSP" value="true" />
   <parameter name="VOUT106_UVW" value="97.0" />
@@ -2166,7 +2259,7 @@
   <parameter name="VOUT107_OVF" value="107.0" />
   <parameter name="VOUT107_OVRSP" value="true" />
   <parameter name="VOUT107_OVW" value="105.0" />
-  <parameter name="VOUT107_TYP" value="2.5" />
+  <parameter name="VOUT107_TYP" value="1.5" />
   <parameter name="VOUT107_UVF" value="93.0" />
   <parameter name="VOUT107_UVRSP" value="true" />
   <parameter name="VOUT107_UVW" value="97.0" />
@@ -2175,7 +2268,7 @@
   <parameter name="VOUT108_OVF" value="107.0" />
   <parameter name="VOUT108_OVRSP" value="true" />
   <parameter name="VOUT108_OVW" value="105.0" />
-  <parameter name="VOUT108_TYP" value="2.5" />
+  <parameter name="VOUT108_TYP" value="1.5" />
   <parameter name="VOUT108_UVF" value="93.0" />
   <parameter name="VOUT108_UVRSP" value="true" />
   <parameter name="VOUT108_UVW" value="97.0" />
@@ -2184,7 +2277,7 @@
   <parameter name="VOUT109_OVF" value="107.0" />
   <parameter name="VOUT109_OVRSP" value="true" />
   <parameter name="VOUT109_OVW" value="105.0" />
-  <parameter name="VOUT109_TYP" value="2.5" />
+  <parameter name="VOUT109_TYP" value="1.5" />
   <parameter name="VOUT109_UVF" value="93.0" />
   <parameter name="VOUT109_UVRSP" value="true" />
   <parameter name="VOUT109_UVW" value="97.0" />
@@ -2193,7 +2286,7 @@
   <parameter name="VOUT10_OVF" value="107.0" />
   <parameter name="VOUT10_OVRSP" value="true" />
   <parameter name="VOUT10_OVW" value="105.0" />
-  <parameter name="VOUT10_TYP" value="2.5" />
+  <parameter name="VOUT10_TYP" value="1.5" />
   <parameter name="VOUT10_UVF" value="93.0" />
   <parameter name="VOUT10_UVRSP" value="true" />
   <parameter name="VOUT10_UVW" value="97.0" />
@@ -2202,7 +2295,7 @@
   <parameter name="VOUT110_OVF" value="107.0" />
   <parameter name="VOUT110_OVRSP" value="true" />
   <parameter name="VOUT110_OVW" value="105.0" />
-  <parameter name="VOUT110_TYP" value="2.5" />
+  <parameter name="VOUT110_TYP" value="1.5" />
   <parameter name="VOUT110_UVF" value="93.0" />
   <parameter name="VOUT110_UVRSP" value="true" />
   <parameter name="VOUT110_UVW" value="97.0" />
@@ -2211,7 +2304,7 @@
   <parameter name="VOUT111_OVF" value="107.0" />
   <parameter name="VOUT111_OVRSP" value="true" />
   <parameter name="VOUT111_OVW" value="105.0" />
-  <parameter name="VOUT111_TYP" value="2.5" />
+  <parameter name="VOUT111_TYP" value="1.5" />
   <parameter name="VOUT111_UVF" value="93.0" />
   <parameter name="VOUT111_UVRSP" value="true" />
   <parameter name="VOUT111_UVW" value="97.0" />
@@ -2220,7 +2313,7 @@
   <parameter name="VOUT112_OVF" value="107.0" />
   <parameter name="VOUT112_OVRSP" value="true" />
   <parameter name="VOUT112_OVW" value="105.0" />
-  <parameter name="VOUT112_TYP" value="2.5" />
+  <parameter name="VOUT112_TYP" value="1.5" />
   <parameter name="VOUT112_UVF" value="93.0" />
   <parameter name="VOUT112_UVRSP" value="true" />
   <parameter name="VOUT112_UVW" value="97.0" />
@@ -2229,7 +2322,7 @@
   <parameter name="VOUT113_OVF" value="107.0" />
   <parameter name="VOUT113_OVRSP" value="true" />
   <parameter name="VOUT113_OVW" value="105.0" />
-  <parameter name="VOUT113_TYP" value="2.5" />
+  <parameter name="VOUT113_TYP" value="1.5" />
   <parameter name="VOUT113_UVF" value="93.0" />
   <parameter name="VOUT113_UVRSP" value="true" />
   <parameter name="VOUT113_UVW" value="97.0" />
@@ -2238,7 +2331,7 @@
   <parameter name="VOUT114_OVF" value="107.0" />
   <parameter name="VOUT114_OVRSP" value="true" />
   <parameter name="VOUT114_OVW" value="105.0" />
-  <parameter name="VOUT114_TYP" value="2.5" />
+  <parameter name="VOUT114_TYP" value="1.5" />
   <parameter name="VOUT114_UVF" value="93.0" />
   <parameter name="VOUT114_UVRSP" value="true" />
   <parameter name="VOUT114_UVW" value="97.0" />
@@ -2247,7 +2340,7 @@
   <parameter name="VOUT115_OVF" value="107.0" />
   <parameter name="VOUT115_OVRSP" value="true" />
   <parameter name="VOUT115_OVW" value="105.0" />
-  <parameter name="VOUT115_TYP" value="2.5" />
+  <parameter name="VOUT115_TYP" value="1.5" />
   <parameter name="VOUT115_UVF" value="93.0" />
   <parameter name="VOUT115_UVRSP" value="true" />
   <parameter name="VOUT115_UVW" value="97.0" />
@@ -2256,7 +2349,7 @@
   <parameter name="VOUT116_OVF" value="107.0" />
   <parameter name="VOUT116_OVRSP" value="true" />
   <parameter name="VOUT116_OVW" value="105.0" />
-  <parameter name="VOUT116_TYP" value="2.5" />
+  <parameter name="VOUT116_TYP" value="1.5" />
   <parameter name="VOUT116_UVF" value="93.0" />
   <parameter name="VOUT116_UVRSP" value="true" />
   <parameter name="VOUT116_UVW" value="97.0" />
@@ -2265,7 +2358,7 @@
   <parameter name="VOUT117_OVF" value="107.0" />
   <parameter name="VOUT117_OVRSP" value="true" />
   <parameter name="VOUT117_OVW" value="105.0" />
-  <parameter name="VOUT117_TYP" value="2.5" />
+  <parameter name="VOUT117_TYP" value="1.5" />
   <parameter name="VOUT117_UVF" value="93.0" />
   <parameter name="VOUT117_UVRSP" value="true" />
   <parameter name="VOUT117_UVW" value="97.0" />
@@ -2274,7 +2367,7 @@
   <parameter name="VOUT118_OVF" value="107.0" />
   <parameter name="VOUT118_OVRSP" value="true" />
   <parameter name="VOUT118_OVW" value="105.0" />
-  <parameter name="VOUT118_TYP" value="2.5" />
+  <parameter name="VOUT118_TYP" value="1.5" />
   <parameter name="VOUT118_UVF" value="93.0" />
   <parameter name="VOUT118_UVRSP" value="true" />
   <parameter name="VOUT118_UVW" value="97.0" />
@@ -2283,7 +2376,7 @@
   <parameter name="VOUT119_OVF" value="107.0" />
   <parameter name="VOUT119_OVRSP" value="true" />
   <parameter name="VOUT119_OVW" value="105.0" />
-  <parameter name="VOUT119_TYP" value="2.5" />
+  <parameter name="VOUT119_TYP" value="1.5" />
   <parameter name="VOUT119_UVF" value="93.0" />
   <parameter name="VOUT119_UVRSP" value="true" />
   <parameter name="VOUT119_UVW" value="97.0" />
@@ -2292,7 +2385,7 @@
   <parameter name="VOUT11_OVF" value="107.0" />
   <parameter name="VOUT11_OVRSP" value="true" />
   <parameter name="VOUT11_OVW" value="105.0" />
-  <parameter name="VOUT11_TYP" value="2.5" />
+  <parameter name="VOUT11_TYP" value="1.5" />
   <parameter name="VOUT11_UVF" value="93.0" />
   <parameter name="VOUT11_UVRSP" value="true" />
   <parameter name="VOUT11_UVW" value="97.0" />
@@ -2301,7 +2394,7 @@
   <parameter name="VOUT120_OVF" value="107.0" />
   <parameter name="VOUT120_OVRSP" value="true" />
   <parameter name="VOUT120_OVW" value="105.0" />
-  <parameter name="VOUT120_TYP" value="2.5" />
+  <parameter name="VOUT120_TYP" value="1.5" />
   <parameter name="VOUT120_UVF" value="93.0" />
   <parameter name="VOUT120_UVRSP" value="true" />
   <parameter name="VOUT120_UVW" value="97.0" />
@@ -2310,7 +2403,7 @@
   <parameter name="VOUT121_OVF" value="107.0" />
   <parameter name="VOUT121_OVRSP" value="true" />
   <parameter name="VOUT121_OVW" value="105.0" />
-  <parameter name="VOUT121_TYP" value="2.5" />
+  <parameter name="VOUT121_TYP" value="1.5" />
   <parameter name="VOUT121_UVF" value="93.0" />
   <parameter name="VOUT121_UVRSP" value="true" />
   <parameter name="VOUT121_UVW" value="97.0" />
@@ -2319,7 +2412,7 @@
   <parameter name="VOUT122_OVF" value="107.0" />
   <parameter name="VOUT122_OVRSP" value="true" />
   <parameter name="VOUT122_OVW" value="105.0" />
-  <parameter name="VOUT122_TYP" value="2.5" />
+  <parameter name="VOUT122_TYP" value="1.5" />
   <parameter name="VOUT122_UVF" value="93.0" />
   <parameter name="VOUT122_UVRSP" value="true" />
   <parameter name="VOUT122_UVW" value="97.0" />
@@ -2328,7 +2421,7 @@
   <parameter name="VOUT123_OVF" value="107.0" />
   <parameter name="VOUT123_OVRSP" value="true" />
   <parameter name="VOUT123_OVW" value="105.0" />
-  <parameter name="VOUT123_TYP" value="2.5" />
+  <parameter name="VOUT123_TYP" value="1.5" />
   <parameter name="VOUT123_UVF" value="93.0" />
   <parameter name="VOUT123_UVRSP" value="true" />
   <parameter name="VOUT123_UVW" value="97.0" />
@@ -2337,7 +2430,7 @@
   <parameter name="VOUT124_OVF" value="107.0" />
   <parameter name="VOUT124_OVRSP" value="true" />
   <parameter name="VOUT124_OVW" value="105.0" />
-  <parameter name="VOUT124_TYP" value="2.5" />
+  <parameter name="VOUT124_TYP" value="1.5" />
   <parameter name="VOUT124_UVF" value="93.0" />
   <parameter name="VOUT124_UVRSP" value="true" />
   <parameter name="VOUT124_UVW" value="97.0" />
@@ -2346,7 +2439,7 @@
   <parameter name="VOUT125_OVF" value="107.0" />
   <parameter name="VOUT125_OVRSP" value="true" />
   <parameter name="VOUT125_OVW" value="105.0" />
-  <parameter name="VOUT125_TYP" value="2.5" />
+  <parameter name="VOUT125_TYP" value="1.5" />
   <parameter name="VOUT125_UVF" value="93.0" />
   <parameter name="VOUT125_UVRSP" value="true" />
   <parameter name="VOUT125_UVW" value="97.0" />
@@ -2355,7 +2448,7 @@
   <parameter name="VOUT126_OVF" value="107.0" />
   <parameter name="VOUT126_OVRSP" value="true" />
   <parameter name="VOUT126_OVW" value="105.0" />
-  <parameter name="VOUT126_TYP" value="2.5" />
+  <parameter name="VOUT126_TYP" value="1.5" />
   <parameter name="VOUT126_UVF" value="93.0" />
   <parameter name="VOUT126_UVRSP" value="true" />
   <parameter name="VOUT126_UVW" value="97.0" />
@@ -2364,7 +2457,7 @@
   <parameter name="VOUT127_OVF" value="107.0" />
   <parameter name="VOUT127_OVRSP" value="true" />
   <parameter name="VOUT127_OVW" value="105.0" />
-  <parameter name="VOUT127_TYP" value="2.5" />
+  <parameter name="VOUT127_TYP" value="1.5" />
   <parameter name="VOUT127_UVF" value="93.0" />
   <parameter name="VOUT127_UVRSP" value="true" />
   <parameter name="VOUT127_UVW" value="97.0" />
@@ -2373,7 +2466,7 @@
   <parameter name="VOUT128_OVF" value="107.0" />
   <parameter name="VOUT128_OVRSP" value="true" />
   <parameter name="VOUT128_OVW" value="105.0" />
-  <parameter name="VOUT128_TYP" value="2.5" />
+  <parameter name="VOUT128_TYP" value="1.5" />
   <parameter name="VOUT128_UVF" value="93.0" />
   <parameter name="VOUT128_UVRSP" value="true" />
   <parameter name="VOUT128_UVW" value="97.0" />
@@ -2382,7 +2475,7 @@
   <parameter name="VOUT129_OVF" value="107.0" />
   <parameter name="VOUT129_OVRSP" value="true" />
   <parameter name="VOUT129_OVW" value="105.0" />
-  <parameter name="VOUT129_TYP" value="2.5" />
+  <parameter name="VOUT129_TYP" value="1.5" />
   <parameter name="VOUT129_UVF" value="93.0" />
   <parameter name="VOUT129_UVRSP" value="true" />
   <parameter name="VOUT129_UVW" value="97.0" />
@@ -2391,7 +2484,7 @@
   <parameter name="VOUT12_OVF" value="107.0" />
   <parameter name="VOUT12_OVRSP" value="true" />
   <parameter name="VOUT12_OVW" value="105.0" />
-  <parameter name="VOUT12_TYP" value="2.5" />
+  <parameter name="VOUT12_TYP" value="1.5" />
   <parameter name="VOUT12_UVF" value="93.0" />
   <parameter name="VOUT12_UVRSP" value="true" />
   <parameter name="VOUT12_UVW" value="97.0" />
@@ -2400,7 +2493,7 @@
   <parameter name="VOUT130_OVF" value="107.0" />
   <parameter name="VOUT130_OVRSP" value="true" />
   <parameter name="VOUT130_OVW" value="105.0" />
-  <parameter name="VOUT130_TYP" value="2.5" />
+  <parameter name="VOUT130_TYP" value="1.5" />
   <parameter name="VOUT130_UVF" value="93.0" />
   <parameter name="VOUT130_UVRSP" value="true" />
   <parameter name="VOUT130_UVW" value="97.0" />
@@ -2409,7 +2502,7 @@
   <parameter name="VOUT131_OVF" value="107.0" />
   <parameter name="VOUT131_OVRSP" value="true" />
   <parameter name="VOUT131_OVW" value="105.0" />
-  <parameter name="VOUT131_TYP" value="2.5" />
+  <parameter name="VOUT131_TYP" value="1.5" />
   <parameter name="VOUT131_UVF" value="93.0" />
   <parameter name="VOUT131_UVRSP" value="true" />
   <parameter name="VOUT131_UVW" value="97.0" />
@@ -2418,7 +2511,7 @@
   <parameter name="VOUT132_OVF" value="107.0" />
   <parameter name="VOUT132_OVRSP" value="true" />
   <parameter name="VOUT132_OVW" value="105.0" />
-  <parameter name="VOUT132_TYP" value="2.5" />
+  <parameter name="VOUT132_TYP" value="1.5" />
   <parameter name="VOUT132_UVF" value="93.0" />
   <parameter name="VOUT132_UVRSP" value="true" />
   <parameter name="VOUT132_UVW" value="97.0" />
@@ -2427,7 +2520,7 @@
   <parameter name="VOUT133_OVF" value="107.0" />
   <parameter name="VOUT133_OVRSP" value="true" />
   <parameter name="VOUT133_OVW" value="105.0" />
-  <parameter name="VOUT133_TYP" value="2.5" />
+  <parameter name="VOUT133_TYP" value="1.5" />
   <parameter name="VOUT133_UVF" value="93.0" />
   <parameter name="VOUT133_UVRSP" value="true" />
   <parameter name="VOUT133_UVW" value="97.0" />
@@ -2436,7 +2529,7 @@
   <parameter name="VOUT134_OVF" value="107.0" />
   <parameter name="VOUT134_OVRSP" value="true" />
   <parameter name="VOUT134_OVW" value="105.0" />
-  <parameter name="VOUT134_TYP" value="2.5" />
+  <parameter name="VOUT134_TYP" value="1.5" />
   <parameter name="VOUT134_UVF" value="93.0" />
   <parameter name="VOUT134_UVRSP" value="true" />
   <parameter name="VOUT134_UVW" value="97.0" />
@@ -2445,7 +2538,7 @@
   <parameter name="VOUT135_OVF" value="107.0" />
   <parameter name="VOUT135_OVRSP" value="true" />
   <parameter name="VOUT135_OVW" value="105.0" />
-  <parameter name="VOUT135_TYP" value="2.5" />
+  <parameter name="VOUT135_TYP" value="1.5" />
   <parameter name="VOUT135_UVF" value="93.0" />
   <parameter name="VOUT135_UVRSP" value="true" />
   <parameter name="VOUT135_UVW" value="97.0" />
@@ -2454,7 +2547,7 @@
   <parameter name="VOUT136_OVF" value="107.0" />
   <parameter name="VOUT136_OVRSP" value="true" />
   <parameter name="VOUT136_OVW" value="105.0" />
-  <parameter name="VOUT136_TYP" value="2.5" />
+  <parameter name="VOUT136_TYP" value="1.5" />
   <parameter name="VOUT136_UVF" value="93.0" />
   <parameter name="VOUT136_UVRSP" value="true" />
   <parameter name="VOUT136_UVW" value="97.0" />
@@ -2463,7 +2556,7 @@
   <parameter name="VOUT137_OVF" value="107.0" />
   <parameter name="VOUT137_OVRSP" value="true" />
   <parameter name="VOUT137_OVW" value="105.0" />
-  <parameter name="VOUT137_TYP" value="2.5" />
+  <parameter name="VOUT137_TYP" value="1.5" />
   <parameter name="VOUT137_UVF" value="93.0" />
   <parameter name="VOUT137_UVRSP" value="true" />
   <parameter name="VOUT137_UVW" value="97.0" />
@@ -2472,7 +2565,7 @@
   <parameter name="VOUT138_OVF" value="107.0" />
   <parameter name="VOUT138_OVRSP" value="true" />
   <parameter name="VOUT138_OVW" value="105.0" />
-  <parameter name="VOUT138_TYP" value="2.5" />
+  <parameter name="VOUT138_TYP" value="1.5" />
   <parameter name="VOUT138_UVF" value="93.0" />
   <parameter name="VOUT138_UVRSP" value="true" />
   <parameter name="VOUT138_UVW" value="97.0" />
@@ -2481,7 +2574,7 @@
   <parameter name="VOUT139_OVF" value="107.0" />
   <parameter name="VOUT139_OVRSP" value="true" />
   <parameter name="VOUT139_OVW" value="105.0" />
-  <parameter name="VOUT139_TYP" value="2.5" />
+  <parameter name="VOUT139_TYP" value="1.5" />
   <parameter name="VOUT139_UVF" value="93.0" />
   <parameter name="VOUT139_UVRSP" value="true" />
   <parameter name="VOUT139_UVW" value="97.0" />
@@ -2490,7 +2583,7 @@
   <parameter name="VOUT13_OVF" value="107.0" />
   <parameter name="VOUT13_OVRSP" value="true" />
   <parameter name="VOUT13_OVW" value="105.0" />
-  <parameter name="VOUT13_TYP" value="2.5" />
+  <parameter name="VOUT13_TYP" value="1.5" />
   <parameter name="VOUT13_UVF" value="93.0" />
   <parameter name="VOUT13_UVRSP" value="true" />
   <parameter name="VOUT13_UVW" value="97.0" />
@@ -2499,7 +2592,7 @@
   <parameter name="VOUT140_OVF" value="107.0" />
   <parameter name="VOUT140_OVRSP" value="true" />
   <parameter name="VOUT140_OVW" value="105.0" />
-  <parameter name="VOUT140_TYP" value="2.5" />
+  <parameter name="VOUT140_TYP" value="1.5" />
   <parameter name="VOUT140_UVF" value="93.0" />
   <parameter name="VOUT140_UVRSP" value="true" />
   <parameter name="VOUT140_UVW" value="97.0" />
@@ -2508,7 +2601,7 @@
   <parameter name="VOUT141_OVF" value="107.0" />
   <parameter name="VOUT141_OVRSP" value="true" />
   <parameter name="VOUT141_OVW" value="105.0" />
-  <parameter name="VOUT141_TYP" value="2.5" />
+  <parameter name="VOUT141_TYP" value="1.5" />
   <parameter name="VOUT141_UVF" value="93.0" />
   <parameter name="VOUT141_UVRSP" value="true" />
   <parameter name="VOUT141_UVW" value="97.0" />
@@ -2517,7 +2610,7 @@
   <parameter name="VOUT142_OVF" value="107.0" />
   <parameter name="VOUT142_OVRSP" value="true" />
   <parameter name="VOUT142_OVW" value="105.0" />
-  <parameter name="VOUT142_TYP" value="2.5" />
+  <parameter name="VOUT142_TYP" value="1.5" />
   <parameter name="VOUT142_UVF" value="93.0" />
   <parameter name="VOUT142_UVRSP" value="true" />
   <parameter name="VOUT142_UVW" value="97.0" />
@@ -2526,7 +2619,7 @@
   <parameter name="VOUT14_OVF" value="107.0" />
   <parameter name="VOUT14_OVRSP" value="true" />
   <parameter name="VOUT14_OVW" value="105.0" />
-  <parameter name="VOUT14_TYP" value="2.5" />
+  <parameter name="VOUT14_TYP" value="1.5" />
   <parameter name="VOUT14_UVF" value="93.0" />
   <parameter name="VOUT14_UVRSP" value="true" />
   <parameter name="VOUT14_UVW" value="97.0" />
@@ -2535,7 +2628,7 @@
   <parameter name="VOUT15_OVF" value="107.0" />
   <parameter name="VOUT15_OVRSP" value="true" />
   <parameter name="VOUT15_OVW" value="105.0" />
-  <parameter name="VOUT15_TYP" value="2.5" />
+  <parameter name="VOUT15_TYP" value="1.5" />
   <parameter name="VOUT15_UVF" value="93.0" />
   <parameter name="VOUT15_UVRSP" value="true" />
   <parameter name="VOUT15_UVW" value="97.0" />
@@ -2544,7 +2637,7 @@
   <parameter name="VOUT16_OVF" value="107.0" />
   <parameter name="VOUT16_OVRSP" value="true" />
   <parameter name="VOUT16_OVW" value="105.0" />
-  <parameter name="VOUT16_TYP" value="2.5" />
+  <parameter name="VOUT16_TYP" value="1.5" />
   <parameter name="VOUT16_UVF" value="93.0" />
   <parameter name="VOUT16_UVRSP" value="true" />
   <parameter name="VOUT16_UVW" value="97.0" />
@@ -2553,7 +2646,7 @@
   <parameter name="VOUT17_OVF" value="107.0" />
   <parameter name="VOUT17_OVRSP" value="true" />
   <parameter name="VOUT17_OVW" value="105.0" />
-  <parameter name="VOUT17_TYP" value="2.5" />
+  <parameter name="VOUT17_TYP" value="1.5" />
   <parameter name="VOUT17_UVF" value="93.0" />
   <parameter name="VOUT17_UVRSP" value="true" />
   <parameter name="VOUT17_UVW" value="97.0" />
@@ -2562,7 +2655,7 @@
   <parameter name="VOUT18_OVF" value="107.0" />
   <parameter name="VOUT18_OVRSP" value="true" />
   <parameter name="VOUT18_OVW" value="105.0" />
-  <parameter name="VOUT18_TYP" value="2.5" />
+  <parameter name="VOUT18_TYP" value="1.5" />
   <parameter name="VOUT18_UVF" value="93.0" />
   <parameter name="VOUT18_UVRSP" value="true" />
   <parameter name="VOUT18_UVW" value="97.0" />
@@ -2571,7 +2664,7 @@
   <parameter name="VOUT19_OVF" value="107.0" />
   <parameter name="VOUT19_OVRSP" value="true" />
   <parameter name="VOUT19_OVW" value="105.0" />
-  <parameter name="VOUT19_TYP" value="2.5" />
+  <parameter name="VOUT19_TYP" value="1.5" />
   <parameter name="VOUT19_UVF" value="93.0" />
   <parameter name="VOUT19_UVRSP" value="true" />
   <parameter name="VOUT19_UVW" value="97.0" />
@@ -2580,7 +2673,7 @@
   <parameter name="VOUT1_OVF" value="107.0" />
   <parameter name="VOUT1_OVRSP" value="true" />
   <parameter name="VOUT1_OVW" value="105.0" />
-  <parameter name="VOUT1_TYP" value="0.596" />
+  <parameter name="VOUT1_TYP" value="0.6" />
   <parameter name="VOUT1_UVF" value="93.0" />
   <parameter name="VOUT1_UVRSP" value="true" />
   <parameter name="VOUT1_UVW" value="97.0" />
@@ -2589,7 +2682,7 @@
   <parameter name="VOUT20_OVF" value="107.0" />
   <parameter name="VOUT20_OVRSP" value="true" />
   <parameter name="VOUT20_OVW" value="105.0" />
-  <parameter name="VOUT20_TYP" value="2.5" />
+  <parameter name="VOUT20_TYP" value="1.5" />
   <parameter name="VOUT20_UVF" value="93.0" />
   <parameter name="VOUT20_UVRSP" value="true" />
   <parameter name="VOUT20_UVW" value="97.0" />
@@ -2598,7 +2691,7 @@
   <parameter name="VOUT21_OVF" value="107.0" />
   <parameter name="VOUT21_OVRSP" value="true" />
   <parameter name="VOUT21_OVW" value="105.0" />
-  <parameter name="VOUT21_TYP" value="2.5" />
+  <parameter name="VOUT21_TYP" value="1.5" />
   <parameter name="VOUT21_UVF" value="93.0" />
   <parameter name="VOUT21_UVRSP" value="true" />
   <parameter name="VOUT21_UVW" value="97.0" />
@@ -2607,7 +2700,7 @@
   <parameter name="VOUT22_OVF" value="107.0" />
   <parameter name="VOUT22_OVRSP" value="true" />
   <parameter name="VOUT22_OVW" value="105.0" />
-  <parameter name="VOUT22_TYP" value="2.5" />
+  <parameter name="VOUT22_TYP" value="1.5" />
   <parameter name="VOUT22_UVF" value="93.0" />
   <parameter name="VOUT22_UVRSP" value="true" />
   <parameter name="VOUT22_UVW" value="97.0" />
@@ -2616,7 +2709,7 @@
   <parameter name="VOUT23_OVF" value="107.0" />
   <parameter name="VOUT23_OVRSP" value="true" />
   <parameter name="VOUT23_OVW" value="105.0" />
-  <parameter name="VOUT23_TYP" value="2.5" />
+  <parameter name="VOUT23_TYP" value="1.5" />
   <parameter name="VOUT23_UVF" value="93.0" />
   <parameter name="VOUT23_UVRSP" value="true" />
   <parameter name="VOUT23_UVW" value="97.0" />
@@ -2625,7 +2718,7 @@
   <parameter name="VOUT24_OVF" value="107.0" />
   <parameter name="VOUT24_OVRSP" value="true" />
   <parameter name="VOUT24_OVW" value="105.0" />
-  <parameter name="VOUT24_TYP" value="2.5" />
+  <parameter name="VOUT24_TYP" value="1.5" />
   <parameter name="VOUT24_UVF" value="93.0" />
   <parameter name="VOUT24_UVRSP" value="true" />
   <parameter name="VOUT24_UVW" value="97.0" />
@@ -2634,7 +2727,7 @@
   <parameter name="VOUT25_OVF" value="107.0" />
   <parameter name="VOUT25_OVRSP" value="true" />
   <parameter name="VOUT25_OVW" value="105.0" />
-  <parameter name="VOUT25_TYP" value="2.5" />
+  <parameter name="VOUT25_TYP" value="1.5" />
   <parameter name="VOUT25_UVF" value="93.0" />
   <parameter name="VOUT25_UVRSP" value="true" />
   <parameter name="VOUT25_UVW" value="97.0" />
@@ -2643,7 +2736,7 @@
   <parameter name="VOUT26_OVF" value="107.0" />
   <parameter name="VOUT26_OVRSP" value="true" />
   <parameter name="VOUT26_OVW" value="105.0" />
-  <parameter name="VOUT26_TYP" value="2.5" />
+  <parameter name="VOUT26_TYP" value="1.5" />
   <parameter name="VOUT26_UVF" value="93.0" />
   <parameter name="VOUT26_UVRSP" value="true" />
   <parameter name="VOUT26_UVW" value="97.0" />
@@ -2652,7 +2745,7 @@
   <parameter name="VOUT27_OVF" value="107.0" />
   <parameter name="VOUT27_OVRSP" value="true" />
   <parameter name="VOUT27_OVW" value="105.0" />
-  <parameter name="VOUT27_TYP" value="2.5" />
+  <parameter name="VOUT27_TYP" value="1.5" />
   <parameter name="VOUT27_UVF" value="93.0" />
   <parameter name="VOUT27_UVRSP" value="true" />
   <parameter name="VOUT27_UVW" value="97.0" />
@@ -2661,7 +2754,7 @@
   <parameter name="VOUT28_OVF" value="107.0" />
   <parameter name="VOUT28_OVRSP" value="true" />
   <parameter name="VOUT28_OVW" value="105.0" />
-  <parameter name="VOUT28_TYP" value="2.5" />
+  <parameter name="VOUT28_TYP" value="1.5" />
   <parameter name="VOUT28_UVF" value="93.0" />
   <parameter name="VOUT28_UVRSP" value="true" />
   <parameter name="VOUT28_UVW" value="97.0" />
@@ -2670,7 +2763,7 @@
   <parameter name="VOUT29_OVF" value="107.0" />
   <parameter name="VOUT29_OVRSP" value="true" />
   <parameter name="VOUT29_OVW" value="105.0" />
-  <parameter name="VOUT29_TYP" value="2.5" />
+  <parameter name="VOUT29_TYP" value="1.5" />
   <parameter name="VOUT29_UVF" value="93.0" />
   <parameter name="VOUT29_UVRSP" value="true" />
   <parameter name="VOUT29_UVW" value="97.0" />
@@ -2679,7 +2772,7 @@
   <parameter name="VOUT2_OVF" value="107.0" />
   <parameter name="VOUT2_OVRSP" value="true" />
   <parameter name="VOUT2_OVW" value="105.0" />
-  <parameter name="VOUT2_TYP" value="0.596" />
+  <parameter name="VOUT2_TYP" value="0.6" />
   <parameter name="VOUT2_UVF" value="93.0" />
   <parameter name="VOUT2_UVRSP" value="true" />
   <parameter name="VOUT2_UVW" value="97.0" />
@@ -2688,7 +2781,7 @@
   <parameter name="VOUT30_OVF" value="107.0" />
   <parameter name="VOUT30_OVRSP" value="true" />
   <parameter name="VOUT30_OVW" value="105.0" />
-  <parameter name="VOUT30_TYP" value="2.5" />
+  <parameter name="VOUT30_TYP" value="1.5" />
   <parameter name="VOUT30_UVF" value="93.0" />
   <parameter name="VOUT30_UVRSP" value="true" />
   <parameter name="VOUT30_UVW" value="97.0" />
@@ -2697,7 +2790,7 @@
   <parameter name="VOUT31_OVF" value="107.0" />
   <parameter name="VOUT31_OVRSP" value="true" />
   <parameter name="VOUT31_OVW" value="105.0" />
-  <parameter name="VOUT31_TYP" value="2.5" />
+  <parameter name="VOUT31_TYP" value="1.5" />
   <parameter name="VOUT31_UVF" value="93.0" />
   <parameter name="VOUT31_UVRSP" value="true" />
   <parameter name="VOUT31_UVW" value="97.0" />
@@ -2706,7 +2799,7 @@
   <parameter name="VOUT32_OVF" value="107.0" />
   <parameter name="VOUT32_OVRSP" value="true" />
   <parameter name="VOUT32_OVW" value="105.0" />
-  <parameter name="VOUT32_TYP" value="2.5" />
+  <parameter name="VOUT32_TYP" value="1.5" />
   <parameter name="VOUT32_UVF" value="93.0" />
   <parameter name="VOUT32_UVRSP" value="true" />
   <parameter name="VOUT32_UVW" value="97.0" />
@@ -2715,7 +2808,7 @@
   <parameter name="VOUT33_OVF" value="107.0" />
   <parameter name="VOUT33_OVRSP" value="true" />
   <parameter name="VOUT33_OVW" value="105.0" />
-  <parameter name="VOUT33_TYP" value="2.5" />
+  <parameter name="VOUT33_TYP" value="1.5" />
   <parameter name="VOUT33_UVF" value="93.0" />
   <parameter name="VOUT33_UVRSP" value="true" />
   <parameter name="VOUT33_UVW" value="97.0" />
@@ -2724,7 +2817,7 @@
   <parameter name="VOUT34_OVF" value="107.0" />
   <parameter name="VOUT34_OVRSP" value="true" />
   <parameter name="VOUT34_OVW" value="105.0" />
-  <parameter name="VOUT34_TYP" value="2.5" />
+  <parameter name="VOUT34_TYP" value="1.5" />
   <parameter name="VOUT34_UVF" value="93.0" />
   <parameter name="VOUT34_UVRSP" value="true" />
   <parameter name="VOUT34_UVW" value="97.0" />
@@ -2733,7 +2826,7 @@
   <parameter name="VOUT35_OVF" value="107.0" />
   <parameter name="VOUT35_OVRSP" value="true" />
   <parameter name="VOUT35_OVW" value="105.0" />
-  <parameter name="VOUT35_TYP" value="2.5" />
+  <parameter name="VOUT35_TYP" value="1.5" />
   <parameter name="VOUT35_UVF" value="93.0" />
   <parameter name="VOUT35_UVRSP" value="true" />
   <parameter name="VOUT35_UVW" value="97.0" />
@@ -2742,7 +2835,7 @@
   <parameter name="VOUT36_OVF" value="107.0" />
   <parameter name="VOUT36_OVRSP" value="true" />
   <parameter name="VOUT36_OVW" value="105.0" />
-  <parameter name="VOUT36_TYP" value="2.5" />
+  <parameter name="VOUT36_TYP" value="1.5" />
   <parameter name="VOUT36_UVF" value="93.0" />
   <parameter name="VOUT36_UVRSP" value="true" />
   <parameter name="VOUT36_UVW" value="97.0" />
@@ -2751,7 +2844,7 @@
   <parameter name="VOUT37_OVF" value="107.0" />
   <parameter name="VOUT37_OVRSP" value="true" />
   <parameter name="VOUT37_OVW" value="105.0" />
-  <parameter name="VOUT37_TYP" value="2.5" />
+  <parameter name="VOUT37_TYP" value="1.5" />
   <parameter name="VOUT37_UVF" value="93.0" />
   <parameter name="VOUT37_UVRSP" value="true" />
   <parameter name="VOUT37_UVW" value="97.0" />
@@ -2760,7 +2853,7 @@
   <parameter name="VOUT38_OVF" value="107.0" />
   <parameter name="VOUT38_OVRSP" value="true" />
   <parameter name="VOUT38_OVW" value="105.0" />
-  <parameter name="VOUT38_TYP" value="2.5" />
+  <parameter name="VOUT38_TYP" value="1.5" />
   <parameter name="VOUT38_UVF" value="93.0" />
   <parameter name="VOUT38_UVRSP" value="true" />
   <parameter name="VOUT38_UVW" value="97.0" />
@@ -2769,7 +2862,7 @@
   <parameter name="VOUT39_OVF" value="107.0" />
   <parameter name="VOUT39_OVRSP" value="true" />
   <parameter name="VOUT39_OVW" value="105.0" />
-  <parameter name="VOUT39_TYP" value="2.5" />
+  <parameter name="VOUT39_TYP" value="1.5" />
   <parameter name="VOUT39_UVF" value="93.0" />
   <parameter name="VOUT39_UVRSP" value="true" />
   <parameter name="VOUT39_UVW" value="97.0" />
@@ -2778,7 +2871,7 @@
   <parameter name="VOUT3_OVF" value="107.0" />
   <parameter name="VOUT3_OVRSP" value="true" />
   <parameter name="VOUT3_OVW" value="105.0" />
-  <parameter name="VOUT3_TYP" value="0.599" />
+  <parameter name="VOUT3_TYP" value="0.6" />
   <parameter name="VOUT3_UVF" value="93.0" />
   <parameter name="VOUT3_UVRSP" value="true" />
   <parameter name="VOUT3_UVW" value="97.0" />
@@ -2787,7 +2880,7 @@
   <parameter name="VOUT40_OVF" value="107.0" />
   <parameter name="VOUT40_OVRSP" value="true" />
   <parameter name="VOUT40_OVW" value="105.0" />
-  <parameter name="VOUT40_TYP" value="2.5" />
+  <parameter name="VOUT40_TYP" value="1.5" />
   <parameter name="VOUT40_UVF" value="93.0" />
   <parameter name="VOUT40_UVRSP" value="true" />
   <parameter name="VOUT40_UVW" value="97.0" />
@@ -2796,7 +2889,7 @@
   <parameter name="VOUT41_OVF" value="107.0" />
   <parameter name="VOUT41_OVRSP" value="true" />
   <parameter name="VOUT41_OVW" value="105.0" />
-  <parameter name="VOUT41_TYP" value="2.5" />
+  <parameter name="VOUT41_TYP" value="1.5" />
   <parameter name="VOUT41_UVF" value="93.0" />
   <parameter name="VOUT41_UVRSP" value="true" />
   <parameter name="VOUT41_UVW" value="97.0" />
@@ -2805,7 +2898,7 @@
   <parameter name="VOUT42_OVF" value="107.0" />
   <parameter name="VOUT42_OVRSP" value="true" />
   <parameter name="VOUT42_OVW" value="105.0" />
-  <parameter name="VOUT42_TYP" value="2.5" />
+  <parameter name="VOUT42_TYP" value="1.5" />
   <parameter name="VOUT42_UVF" value="93.0" />
   <parameter name="VOUT42_UVRSP" value="true" />
   <parameter name="VOUT42_UVW" value="97.0" />
@@ -2814,7 +2907,7 @@
   <parameter name="VOUT43_OVF" value="107.0" />
   <parameter name="VOUT43_OVRSP" value="true" />
   <parameter name="VOUT43_OVW" value="105.0" />
-  <parameter name="VOUT43_TYP" value="2.5" />
+  <parameter name="VOUT43_TYP" value="1.5" />
   <parameter name="VOUT43_UVF" value="93.0" />
   <parameter name="VOUT43_UVRSP" value="true" />
   <parameter name="VOUT43_UVW" value="97.0" />
@@ -2823,7 +2916,7 @@
   <parameter name="VOUT44_OVF" value="107.0" />
   <parameter name="VOUT44_OVRSP" value="true" />
   <parameter name="VOUT44_OVW" value="105.0" />
-  <parameter name="VOUT44_TYP" value="2.5" />
+  <parameter name="VOUT44_TYP" value="1.5" />
   <parameter name="VOUT44_UVF" value="93.0" />
   <parameter name="VOUT44_UVRSP" value="true" />
   <parameter name="VOUT44_UVW" value="97.0" />
@@ -2832,7 +2925,7 @@
   <parameter name="VOUT45_OVF" value="107.0" />
   <parameter name="VOUT45_OVRSP" value="true" />
   <parameter name="VOUT45_OVW" value="105.0" />
-  <parameter name="VOUT45_TYP" value="2.5" />
+  <parameter name="VOUT45_TYP" value="1.5" />
   <parameter name="VOUT45_UVF" value="93.0" />
   <parameter name="VOUT45_UVRSP" value="true" />
   <parameter name="VOUT45_UVW" value="97.0" />
@@ -2841,7 +2934,7 @@
   <parameter name="VOUT46_OVF" value="107.0" />
   <parameter name="VOUT46_OVRSP" value="true" />
   <parameter name="VOUT46_OVW" value="105.0" />
-  <parameter name="VOUT46_TYP" value="2.5" />
+  <parameter name="VOUT46_TYP" value="1.5" />
   <parameter name="VOUT46_UVF" value="93.0" />
   <parameter name="VOUT46_UVRSP" value="true" />
   <parameter name="VOUT46_UVW" value="97.0" />
@@ -2850,7 +2943,7 @@
   <parameter name="VOUT47_OVF" value="107.0" />
   <parameter name="VOUT47_OVRSP" value="true" />
   <parameter name="VOUT47_OVW" value="105.0" />
-  <parameter name="VOUT47_TYP" value="2.5" />
+  <parameter name="VOUT47_TYP" value="1.5" />
   <parameter name="VOUT47_UVF" value="93.0" />
   <parameter name="VOUT47_UVRSP" value="true" />
   <parameter name="VOUT47_UVW" value="97.0" />
@@ -2859,7 +2952,7 @@
   <parameter name="VOUT48_OVF" value="107.0" />
   <parameter name="VOUT48_OVRSP" value="true" />
   <parameter name="VOUT48_OVW" value="105.0" />
-  <parameter name="VOUT48_TYP" value="2.5" />
+  <parameter name="VOUT48_TYP" value="1.5" />
   <parameter name="VOUT48_UVF" value="93.0" />
   <parameter name="VOUT48_UVRSP" value="true" />
   <parameter name="VOUT48_UVW" value="97.0" />
@@ -2868,7 +2961,7 @@
   <parameter name="VOUT49_OVF" value="107.0" />
   <parameter name="VOUT49_OVRSP" value="true" />
   <parameter name="VOUT49_OVW" value="105.0" />
-  <parameter name="VOUT49_TYP" value="2.5" />
+  <parameter name="VOUT49_TYP" value="1.5" />
   <parameter name="VOUT49_UVF" value="93.0" />
   <parameter name="VOUT49_UVRSP" value="true" />
   <parameter name="VOUT49_UVW" value="97.0" />
@@ -2877,7 +2970,7 @@
   <parameter name="VOUT4_OVF" value="107.0" />
   <parameter name="VOUT4_OVRSP" value="true" />
   <parameter name="VOUT4_OVW" value="105.0" />
-  <parameter name="VOUT4_TYP" value="0.597" />
+  <parameter name="VOUT4_TYP" value="0.6" />
   <parameter name="VOUT4_UVF" value="93.0" />
   <parameter name="VOUT4_UVRSP" value="true" />
   <parameter name="VOUT4_UVW" value="97.0" />
@@ -2886,7 +2979,7 @@
   <parameter name="VOUT50_OVF" value="107.0" />
   <parameter name="VOUT50_OVRSP" value="true" />
   <parameter name="VOUT50_OVW" value="105.0" />
-  <parameter name="VOUT50_TYP" value="2.5" />
+  <parameter name="VOUT50_TYP" value="1.5" />
   <parameter name="VOUT50_UVF" value="93.0" />
   <parameter name="VOUT50_UVRSP" value="true" />
   <parameter name="VOUT50_UVW" value="97.0" />
@@ -2895,7 +2988,7 @@
   <parameter name="VOUT51_OVF" value="107.0" />
   <parameter name="VOUT51_OVRSP" value="true" />
   <parameter name="VOUT51_OVW" value="105.0" />
-  <parameter name="VOUT51_TYP" value="2.5" />
+  <parameter name="VOUT51_TYP" value="1.5" />
   <parameter name="VOUT51_UVF" value="93.0" />
   <parameter name="VOUT51_UVRSP" value="true" />
   <parameter name="VOUT51_UVW" value="97.0" />
@@ -2904,7 +2997,7 @@
   <parameter name="VOUT52_OVF" value="107.0" />
   <parameter name="VOUT52_OVRSP" value="true" />
   <parameter name="VOUT52_OVW" value="105.0" />
-  <parameter name="VOUT52_TYP" value="2.5" />
+  <parameter name="VOUT52_TYP" value="1.5" />
   <parameter name="VOUT52_UVF" value="93.0" />
   <parameter name="VOUT52_UVRSP" value="true" />
   <parameter name="VOUT52_UVW" value="97.0" />
@@ -2913,7 +3006,7 @@
   <parameter name="VOUT53_OVF" value="107.0" />
   <parameter name="VOUT53_OVRSP" value="true" />
   <parameter name="VOUT53_OVW" value="105.0" />
-  <parameter name="VOUT53_TYP" value="2.5" />
+  <parameter name="VOUT53_TYP" value="1.5" />
   <parameter name="VOUT53_UVF" value="93.0" />
   <parameter name="VOUT53_UVRSP" value="true" />
   <parameter name="VOUT53_UVW" value="97.0" />
@@ -2922,7 +3015,7 @@
   <parameter name="VOUT54_OVF" value="107.0" />
   <parameter name="VOUT54_OVRSP" value="true" />
   <parameter name="VOUT54_OVW" value="105.0" />
-  <parameter name="VOUT54_TYP" value="2.5" />
+  <parameter name="VOUT54_TYP" value="1.5" />
   <parameter name="VOUT54_UVF" value="93.0" />
   <parameter name="VOUT54_UVRSP" value="true" />
   <parameter name="VOUT54_UVW" value="97.0" />
@@ -2931,7 +3024,7 @@
   <parameter name="VOUT55_OVF" value="107.0" />
   <parameter name="VOUT55_OVRSP" value="true" />
   <parameter name="VOUT55_OVW" value="105.0" />
-  <parameter name="VOUT55_TYP" value="2.5" />
+  <parameter name="VOUT55_TYP" value="1.5" />
   <parameter name="VOUT55_UVF" value="93.0" />
   <parameter name="VOUT55_UVRSP" value="true" />
   <parameter name="VOUT55_UVW" value="97.0" />
@@ -2940,7 +3033,7 @@
   <parameter name="VOUT56_OVF" value="107.0" />
   <parameter name="VOUT56_OVRSP" value="true" />
   <parameter name="VOUT56_OVW" value="105.0" />
-  <parameter name="VOUT56_TYP" value="2.5" />
+  <parameter name="VOUT56_TYP" value="1.5" />
   <parameter name="VOUT56_UVF" value="93.0" />
   <parameter name="VOUT56_UVRSP" value="true" />
   <parameter name="VOUT56_UVW" value="97.0" />
@@ -2949,7 +3042,7 @@
   <parameter name="VOUT57_OVF" value="107.0" />
   <parameter name="VOUT57_OVRSP" value="true" />
   <parameter name="VOUT57_OVW" value="105.0" />
-  <parameter name="VOUT57_TYP" value="2.5" />
+  <parameter name="VOUT57_TYP" value="1.5" />
   <parameter name="VOUT57_UVF" value="93.0" />
   <parameter name="VOUT57_UVRSP" value="true" />
   <parameter name="VOUT57_UVW" value="97.0" />
@@ -2958,7 +3051,7 @@
   <parameter name="VOUT58_OVF" value="107.0" />
   <parameter name="VOUT58_OVRSP" value="true" />
   <parameter name="VOUT58_OVW" value="105.0" />
-  <parameter name="VOUT58_TYP" value="2.5" />
+  <parameter name="VOUT58_TYP" value="1.5" />
   <parameter name="VOUT58_UVF" value="93.0" />
   <parameter name="VOUT58_UVRSP" value="true" />
   <parameter name="VOUT58_UVW" value="97.0" />
@@ -2967,7 +3060,7 @@
   <parameter name="VOUT59_OVF" value="107.0" />
   <parameter name="VOUT59_OVRSP" value="true" />
   <parameter name="VOUT59_OVW" value="105.0" />
-  <parameter name="VOUT59_TYP" value="2.5" />
+  <parameter name="VOUT59_TYP" value="1.5" />
   <parameter name="VOUT59_UVF" value="93.0" />
   <parameter name="VOUT59_UVRSP" value="true" />
   <parameter name="VOUT59_UVW" value="97.0" />
@@ -2985,7 +3078,7 @@
   <parameter name="VOUT60_OVF" value="107.0" />
   <parameter name="VOUT60_OVRSP" value="true" />
   <parameter name="VOUT60_OVW" value="105.0" />
-  <parameter name="VOUT60_TYP" value="2.5" />
+  <parameter name="VOUT60_TYP" value="1.5" />
   <parameter name="VOUT60_UVF" value="93.0" />
   <parameter name="VOUT60_UVRSP" value="true" />
   <parameter name="VOUT60_UVW" value="97.0" />
@@ -2994,7 +3087,7 @@
   <parameter name="VOUT61_OVF" value="107.0" />
   <parameter name="VOUT61_OVRSP" value="true" />
   <parameter name="VOUT61_OVW" value="105.0" />
-  <parameter name="VOUT61_TYP" value="2.5" />
+  <parameter name="VOUT61_TYP" value="1.5" />
   <parameter name="VOUT61_UVF" value="93.0" />
   <parameter name="VOUT61_UVRSP" value="true" />
   <parameter name="VOUT61_UVW" value="97.0" />
@@ -3003,7 +3096,7 @@
   <parameter name="VOUT62_OVF" value="107.0" />
   <parameter name="VOUT62_OVRSP" value="true" />
   <parameter name="VOUT62_OVW" value="105.0" />
-  <parameter name="VOUT62_TYP" value="2.5" />
+  <parameter name="VOUT62_TYP" value="1.5" />
   <parameter name="VOUT62_UVF" value="93.0" />
   <parameter name="VOUT62_UVRSP" value="true" />
   <parameter name="VOUT62_UVW" value="97.0" />
@@ -3012,7 +3105,7 @@
   <parameter name="VOUT63_OVF" value="107.0" />
   <parameter name="VOUT63_OVRSP" value="true" />
   <parameter name="VOUT63_OVW" value="105.0" />
-  <parameter name="VOUT63_TYP" value="2.5" />
+  <parameter name="VOUT63_TYP" value="1.5" />
   <parameter name="VOUT63_UVF" value="93.0" />
   <parameter name="VOUT63_UVRSP" value="true" />
   <parameter name="VOUT63_UVW" value="97.0" />
@@ -3021,7 +3114,7 @@
   <parameter name="VOUT64_OVF" value="107.0" />
   <parameter name="VOUT64_OVRSP" value="true" />
   <parameter name="VOUT64_OVW" value="105.0" />
-  <parameter name="VOUT64_TYP" value="2.5" />
+  <parameter name="VOUT64_TYP" value="1.5" />
   <parameter name="VOUT64_UVF" value="93.0" />
   <parameter name="VOUT64_UVRSP" value="true" />
   <parameter name="VOUT64_UVW" value="97.0" />
@@ -3030,7 +3123,7 @@
   <parameter name="VOUT65_OVF" value="107.0" />
   <parameter name="VOUT65_OVRSP" value="true" />
   <parameter name="VOUT65_OVW" value="105.0" />
-  <parameter name="VOUT65_TYP" value="2.5" />
+  <parameter name="VOUT65_TYP" value="1.5" />
   <parameter name="VOUT65_UVF" value="93.0" />
   <parameter name="VOUT65_UVRSP" value="true" />
   <parameter name="VOUT65_UVW" value="97.0" />
@@ -3039,7 +3132,7 @@
   <parameter name="VOUT66_OVF" value="107.0" />
   <parameter name="VOUT66_OVRSP" value="true" />
   <parameter name="VOUT66_OVW" value="105.0" />
-  <parameter name="VOUT66_TYP" value="2.5" />
+  <parameter name="VOUT66_TYP" value="1.5" />
   <parameter name="VOUT66_UVF" value="93.0" />
   <parameter name="VOUT66_UVRSP" value="true" />
   <parameter name="VOUT66_UVW" value="97.0" />
@@ -3048,7 +3141,7 @@
   <parameter name="VOUT67_OVF" value="107.0" />
   <parameter name="VOUT67_OVRSP" value="true" />
   <parameter name="VOUT67_OVW" value="105.0" />
-  <parameter name="VOUT67_TYP" value="2.5" />
+  <parameter name="VOUT67_TYP" value="1.5" />
   <parameter name="VOUT67_UVF" value="93.0" />
   <parameter name="VOUT67_UVRSP" value="true" />
   <parameter name="VOUT67_UVW" value="97.0" />
@@ -3057,7 +3150,7 @@
   <parameter name="VOUT68_OVF" value="107.0" />
   <parameter name="VOUT68_OVRSP" value="true" />
   <parameter name="VOUT68_OVW" value="105.0" />
-  <parameter name="VOUT68_TYP" value="2.5" />
+  <parameter name="VOUT68_TYP" value="1.5" />
   <parameter name="VOUT68_UVF" value="93.0" />
   <parameter name="VOUT68_UVRSP" value="true" />
   <parameter name="VOUT68_UVW" value="97.0" />
@@ -3066,7 +3159,7 @@
   <parameter name="VOUT69_OVF" value="107.0" />
   <parameter name="VOUT69_OVRSP" value="true" />
   <parameter name="VOUT69_OVW" value="105.0" />
-  <parameter name="VOUT69_TYP" value="2.5" />
+  <parameter name="VOUT69_TYP" value="1.5" />
   <parameter name="VOUT69_UVF" value="93.0" />
   <parameter name="VOUT69_UVRSP" value="true" />
   <parameter name="VOUT69_UVW" value="97.0" />
@@ -3075,7 +3168,7 @@
   <parameter name="VOUT6_OVF" value="107.0" />
   <parameter name="VOUT6_OVRSP" value="true" />
   <parameter name="VOUT6_OVW" value="105.0" />
-  <parameter name="VOUT6_TYP" value="2.5" />
+  <parameter name="VOUT6_TYP" value="1.5" />
   <parameter name="VOUT6_UVF" value="93.0" />
   <parameter name="VOUT6_UVRSP" value="true" />
   <parameter name="VOUT6_UVW" value="97.0" />
@@ -3084,7 +3177,7 @@
   <parameter name="VOUT70_OVF" value="107.0" />
   <parameter name="VOUT70_OVRSP" value="true" />
   <parameter name="VOUT70_OVW" value="105.0" />
-  <parameter name="VOUT70_TYP" value="2.5" />
+  <parameter name="VOUT70_TYP" value="1.5" />
   <parameter name="VOUT70_UVF" value="93.0" />
   <parameter name="VOUT70_UVRSP" value="true" />
   <parameter name="VOUT70_UVW" value="97.0" />
@@ -3093,7 +3186,7 @@
   <parameter name="VOUT71_OVF" value="107.0" />
   <parameter name="VOUT71_OVRSP" value="true" />
   <parameter name="VOUT71_OVW" value="105.0" />
-  <parameter name="VOUT71_TYP" value="2.5" />
+  <parameter name="VOUT71_TYP" value="1.5" />
   <parameter name="VOUT71_UVF" value="93.0" />
   <parameter name="VOUT71_UVRSP" value="true" />
   <parameter name="VOUT71_UVW" value="97.0" />
@@ -3102,7 +3195,7 @@
   <parameter name="VOUT72_OVF" value="107.0" />
   <parameter name="VOUT72_OVRSP" value="true" />
   <parameter name="VOUT72_OVW" value="105.0" />
-  <parameter name="VOUT72_TYP" value="2.5" />
+  <parameter name="VOUT72_TYP" value="1.5" />
   <parameter name="VOUT72_UVF" value="93.0" />
   <parameter name="VOUT72_UVRSP" value="true" />
   <parameter name="VOUT72_UVW" value="97.0" />
@@ -3111,7 +3204,7 @@
   <parameter name="VOUT73_OVF" value="107.0" />
   <parameter name="VOUT73_OVRSP" value="true" />
   <parameter name="VOUT73_OVW" value="105.0" />
-  <parameter name="VOUT73_TYP" value="2.5" />
+  <parameter name="VOUT73_TYP" value="1.5" />
   <parameter name="VOUT73_UVF" value="93.0" />
   <parameter name="VOUT73_UVRSP" value="true" />
   <parameter name="VOUT73_UVW" value="97.0" />
@@ -3120,7 +3213,7 @@
   <parameter name="VOUT74_OVF" value="107.0" />
   <parameter name="VOUT74_OVRSP" value="true" />
   <parameter name="VOUT74_OVW" value="105.0" />
-  <parameter name="VOUT74_TYP" value="2.5" />
+  <parameter name="VOUT74_TYP" value="1.5" />
   <parameter name="VOUT74_UVF" value="93.0" />
   <parameter name="VOUT74_UVRSP" value="true" />
   <parameter name="VOUT74_UVW" value="97.0" />
@@ -3129,7 +3222,7 @@
   <parameter name="VOUT75_OVF" value="107.0" />
   <parameter name="VOUT75_OVRSP" value="true" />
   <parameter name="VOUT75_OVW" value="105.0" />
-  <parameter name="VOUT75_TYP" value="2.5" />
+  <parameter name="VOUT75_TYP" value="1.5" />
   <parameter name="VOUT75_UVF" value="93.0" />
   <parameter name="VOUT75_UVRSP" value="true" />
   <parameter name="VOUT75_UVW" value="97.0" />
@@ -3138,7 +3231,7 @@
   <parameter name="VOUT76_OVF" value="107.0" />
   <parameter name="VOUT76_OVRSP" value="true" />
   <parameter name="VOUT76_OVW" value="105.0" />
-  <parameter name="VOUT76_TYP" value="2.5" />
+  <parameter name="VOUT76_TYP" value="1.5" />
   <parameter name="VOUT76_UVF" value="93.0" />
   <parameter name="VOUT76_UVRSP" value="true" />
   <parameter name="VOUT76_UVW" value="97.0" />
@@ -3147,7 +3240,7 @@
   <parameter name="VOUT77_OVF" value="107.0" />
   <parameter name="VOUT77_OVRSP" value="true" />
   <parameter name="VOUT77_OVW" value="105.0" />
-  <parameter name="VOUT77_TYP" value="2.5" />
+  <parameter name="VOUT77_TYP" value="1.5" />
   <parameter name="VOUT77_UVF" value="93.0" />
   <parameter name="VOUT77_UVRSP" value="true" />
   <parameter name="VOUT77_UVW" value="97.0" />
@@ -3156,7 +3249,7 @@
   <parameter name="VOUT78_OVF" value="107.0" />
   <parameter name="VOUT78_OVRSP" value="true" />
   <parameter name="VOUT78_OVW" value="105.0" />
-  <parameter name="VOUT78_TYP" value="2.5" />
+  <parameter name="VOUT78_TYP" value="1.5" />
   <parameter name="VOUT78_UVF" value="93.0" />
   <parameter name="VOUT78_UVRSP" value="true" />
   <parameter name="VOUT78_UVW" value="97.0" />
@@ -3165,7 +3258,7 @@
   <parameter name="VOUT79_OVF" value="107.0" />
   <parameter name="VOUT79_OVRSP" value="true" />
   <parameter name="VOUT79_OVW" value="105.0" />
-  <parameter name="VOUT79_TYP" value="2.5" />
+  <parameter name="VOUT79_TYP" value="1.5" />
   <parameter name="VOUT79_UVF" value="93.0" />
   <parameter name="VOUT79_UVRSP" value="true" />
   <parameter name="VOUT79_UVW" value="97.0" />
@@ -3174,7 +3267,7 @@
   <parameter name="VOUT7_OVF" value="107.0" />
   <parameter name="VOUT7_OVRSP" value="true" />
   <parameter name="VOUT7_OVW" value="105.0" />
-  <parameter name="VOUT7_TYP" value="2.5" />
+  <parameter name="VOUT7_TYP" value="1.5" />
   <parameter name="VOUT7_UVF" value="93.0" />
   <parameter name="VOUT7_UVRSP" value="true" />
   <parameter name="VOUT7_UVW" value="97.0" />
@@ -3183,7 +3276,7 @@
   <parameter name="VOUT80_OVF" value="107.0" />
   <parameter name="VOUT80_OVRSP" value="true" />
   <parameter name="VOUT80_OVW" value="105.0" />
-  <parameter name="VOUT80_TYP" value="2.5" />
+  <parameter name="VOUT80_TYP" value="1.5" />
   <parameter name="VOUT80_UVF" value="93.0" />
   <parameter name="VOUT80_UVRSP" value="true" />
   <parameter name="VOUT80_UVW" value="97.0" />
@@ -3192,7 +3285,7 @@
   <parameter name="VOUT81_OVF" value="107.0" />
   <parameter name="VOUT81_OVRSP" value="true" />
   <parameter name="VOUT81_OVW" value="105.0" />
-  <parameter name="VOUT81_TYP" value="2.5" />
+  <parameter name="VOUT81_TYP" value="1.5" />
   <parameter name="VOUT81_UVF" value="93.0" />
   <parameter name="VOUT81_UVRSP" value="true" />
   <parameter name="VOUT81_UVW" value="97.0" />
@@ -3201,7 +3294,7 @@
   <parameter name="VOUT82_OVF" value="107.0" />
   <parameter name="VOUT82_OVRSP" value="true" />
   <parameter name="VOUT82_OVW" value="105.0" />
-  <parameter name="VOUT82_TYP" value="2.5" />
+  <parameter name="VOUT82_TYP" value="1.5" />
   <parameter name="VOUT82_UVF" value="93.0" />
   <parameter name="VOUT82_UVRSP" value="true" />
   <parameter name="VOUT82_UVW" value="97.0" />
@@ -3210,7 +3303,7 @@
   <parameter name="VOUT83_OVF" value="107.0" />
   <parameter name="VOUT83_OVRSP" value="true" />
   <parameter name="VOUT83_OVW" value="105.0" />
-  <parameter name="VOUT83_TYP" value="2.5" />
+  <parameter name="VOUT83_TYP" value="1.5" />
   <parameter name="VOUT83_UVF" value="93.0" />
   <parameter name="VOUT83_UVRSP" value="true" />
   <parameter name="VOUT83_UVW" value="97.0" />
@@ -3219,7 +3312,7 @@
   <parameter name="VOUT84_OVF" value="107.0" />
   <parameter name="VOUT84_OVRSP" value="true" />
   <parameter name="VOUT84_OVW" value="105.0" />
-  <parameter name="VOUT84_TYP" value="2.5" />
+  <parameter name="VOUT84_TYP" value="1.5" />
   <parameter name="VOUT84_UVF" value="93.0" />
   <parameter name="VOUT84_UVRSP" value="true" />
   <parameter name="VOUT84_UVW" value="97.0" />
@@ -3228,7 +3321,7 @@
   <parameter name="VOUT85_OVF" value="107.0" />
   <parameter name="VOUT85_OVRSP" value="true" />
   <parameter name="VOUT85_OVW" value="105.0" />
-  <parameter name="VOUT85_TYP" value="2.5" />
+  <parameter name="VOUT85_TYP" value="1.5" />
   <parameter name="VOUT85_UVF" value="93.0" />
   <parameter name="VOUT85_UVRSP" value="true" />
   <parameter name="VOUT85_UVW" value="97.0" />
@@ -3237,7 +3330,7 @@
   <parameter name="VOUT86_OVF" value="107.0" />
   <parameter name="VOUT86_OVRSP" value="true" />
   <parameter name="VOUT86_OVW" value="105.0" />
-  <parameter name="VOUT86_TYP" value="2.5" />
+  <parameter name="VOUT86_TYP" value="1.5" />
   <parameter name="VOUT86_UVF" value="93.0" />
   <parameter name="VOUT86_UVRSP" value="true" />
   <parameter name="VOUT86_UVW" value="97.0" />
@@ -3246,7 +3339,7 @@
   <parameter name="VOUT87_OVF" value="107.0" />
   <parameter name="VOUT87_OVRSP" value="true" />
   <parameter name="VOUT87_OVW" value="105.0" />
-  <parameter name="VOUT87_TYP" value="2.5" />
+  <parameter name="VOUT87_TYP" value="1.5" />
   <parameter name="VOUT87_UVF" value="93.0" />
   <parameter name="VOUT87_UVRSP" value="true" />
   <parameter name="VOUT87_UVW" value="97.0" />
@@ -3255,7 +3348,7 @@
   <parameter name="VOUT88_OVF" value="107.0" />
   <parameter name="VOUT88_OVRSP" value="true" />
   <parameter name="VOUT88_OVW" value="105.0" />
-  <parameter name="VOUT88_TYP" value="2.5" />
+  <parameter name="VOUT88_TYP" value="1.5" />
   <parameter name="VOUT88_UVF" value="93.0" />
   <parameter name="VOUT88_UVRSP" value="true" />
   <parameter name="VOUT88_UVW" value="97.0" />
@@ -3264,7 +3357,7 @@
   <parameter name="VOUT89_OVF" value="107.0" />
   <parameter name="VOUT89_OVRSP" value="true" />
   <parameter name="VOUT89_OVW" value="105.0" />
-  <parameter name="VOUT89_TYP" value="2.5" />
+  <parameter name="VOUT89_TYP" value="1.5" />
   <parameter name="VOUT89_UVF" value="93.0" />
   <parameter name="VOUT89_UVRSP" value="true" />
   <parameter name="VOUT89_UVW" value="97.0" />
@@ -3273,7 +3366,7 @@
   <parameter name="VOUT8_OVF" value="107.0" />
   <parameter name="VOUT8_OVRSP" value="true" />
   <parameter name="VOUT8_OVW" value="105.0" />
-  <parameter name="VOUT8_TYP" value="2.5" />
+  <parameter name="VOUT8_TYP" value="1.5" />
   <parameter name="VOUT8_UVF" value="93.0" />
   <parameter name="VOUT8_UVRSP" value="true" />
   <parameter name="VOUT8_UVW" value="97.0" />
@@ -3282,7 +3375,7 @@
   <parameter name="VOUT90_OVF" value="107.0" />
   <parameter name="VOUT90_OVRSP" value="true" />
   <parameter name="VOUT90_OVW" value="105.0" />
-  <parameter name="VOUT90_TYP" value="2.5" />
+  <parameter name="VOUT90_TYP" value="1.5" />
   <parameter name="VOUT90_UVF" value="93.0" />
   <parameter name="VOUT90_UVRSP" value="true" />
   <parameter name="VOUT90_UVW" value="97.0" />
@@ -3291,7 +3384,7 @@
   <parameter name="VOUT91_OVF" value="107.0" />
   <parameter name="VOUT91_OVRSP" value="true" />
   <parameter name="VOUT91_OVW" value="105.0" />
-  <parameter name="VOUT91_TYP" value="2.5" />
+  <parameter name="VOUT91_TYP" value="1.5" />
   <parameter name="VOUT91_UVF" value="93.0" />
   <parameter name="VOUT91_UVRSP" value="true" />
   <parameter name="VOUT91_UVW" value="97.0" />
@@ -3300,7 +3393,7 @@
   <parameter name="VOUT92_OVF" value="107.0" />
   <parameter name="VOUT92_OVRSP" value="true" />
   <parameter name="VOUT92_OVW" value="105.0" />
-  <parameter name="VOUT92_TYP" value="2.5" />
+  <parameter name="VOUT92_TYP" value="1.5" />
   <parameter name="VOUT92_UVF" value="93.0" />
   <parameter name="VOUT92_UVRSP" value="true" />
   <parameter name="VOUT92_UVW" value="97.0" />
@@ -3309,7 +3402,7 @@
   <parameter name="VOUT93_OVF" value="107.0" />
   <parameter name="VOUT93_OVRSP" value="true" />
   <parameter name="VOUT93_OVW" value="105.0" />
-  <parameter name="VOUT93_TYP" value="2.5" />
+  <parameter name="VOUT93_TYP" value="1.5" />
   <parameter name="VOUT93_UVF" value="93.0" />
   <parameter name="VOUT93_UVRSP" value="true" />
   <parameter name="VOUT93_UVW" value="97.0" />
@@ -3318,7 +3411,7 @@
   <parameter name="VOUT94_OVF" value="107.0" />
   <parameter name="VOUT94_OVRSP" value="true" />
   <parameter name="VOUT94_OVW" value="105.0" />
-  <parameter name="VOUT94_TYP" value="2.5" />
+  <parameter name="VOUT94_TYP" value="1.5" />
   <parameter name="VOUT94_UVF" value="93.0" />
   <parameter name="VOUT94_UVRSP" value="true" />
   <parameter name="VOUT94_UVW" value="97.0" />
@@ -3327,7 +3420,7 @@
   <parameter name="VOUT95_OVF" value="107.0" />
   <parameter name="VOUT95_OVRSP" value="true" />
   <parameter name="VOUT95_OVW" value="105.0" />
-  <parameter name="VOUT95_TYP" value="2.5" />
+  <parameter name="VOUT95_TYP" value="1.5" />
   <parameter name="VOUT95_UVF" value="93.0" />
   <parameter name="VOUT95_UVRSP" value="true" />
   <parameter name="VOUT95_UVW" value="97.0" />
@@ -3336,7 +3429,7 @@
   <parameter name="VOUT96_OVF" value="107.0" />
   <parameter name="VOUT96_OVRSP" value="true" />
   <parameter name="VOUT96_OVW" value="105.0" />
-  <parameter name="VOUT96_TYP" value="2.5" />
+  <parameter name="VOUT96_TYP" value="1.5" />
   <parameter name="VOUT96_UVF" value="93.0" />
   <parameter name="VOUT96_UVRSP" value="true" />
   <parameter name="VOUT96_UVW" value="97.0" />
@@ -3345,7 +3438,7 @@
   <parameter name="VOUT97_OVF" value="107.0" />
   <parameter name="VOUT97_OVRSP" value="true" />
   <parameter name="VOUT97_OVW" value="105.0" />
-  <parameter name="VOUT97_TYP" value="2.5" />
+  <parameter name="VOUT97_TYP" value="1.5" />
   <parameter name="VOUT97_UVF" value="93.0" />
   <parameter name="VOUT97_UVRSP" value="true" />
   <parameter name="VOUT97_UVW" value="97.0" />
@@ -3354,7 +3447,7 @@
   <parameter name="VOUT98_OVF" value="107.0" />
   <parameter name="VOUT98_OVRSP" value="true" />
   <parameter name="VOUT98_OVW" value="105.0" />
-  <parameter name="VOUT98_TYP" value="2.5" />
+  <parameter name="VOUT98_TYP" value="1.5" />
   <parameter name="VOUT98_UVF" value="93.0" />
   <parameter name="VOUT98_UVRSP" value="true" />
   <parameter name="VOUT98_UVW" value="97.0" />
@@ -3363,7 +3456,7 @@
   <parameter name="VOUT99_OVF" value="107.0" />
   <parameter name="VOUT99_OVRSP" value="true" />
   <parameter name="VOUT99_OVW" value="105.0" />
-  <parameter name="VOUT99_TYP" value="2.5" />
+  <parameter name="VOUT99_TYP" value="1.5" />
   <parameter name="VOUT99_UVF" value="93.0" />
   <parameter name="VOUT99_UVRSP" value="true" />
   <parameter name="VOUT99_UVW" value="97.0" />
@@ -3372,13 +3465,13 @@
   <parameter name="VOUT9_OVF" value="107.0" />
   <parameter name="VOUT9_OVRSP" value="true" />
   <parameter name="VOUT9_OVW" value="105.0" />
-  <parameter name="VOUT9_TYP" value="2.5" />
+  <parameter name="VOUT9_TYP" value="1.5" />
   <parameter name="VOUT9_UVF" value="93.0" />
   <parameter name="VOUT9_UVRSP" value="true" />
   <parameter name="VOUT9_UVW" value="97.0" />
   <parameter name="VRAILS" value="6" />
  </module>
- <module name="clk_50m" kind="clock_source" version="23.1" enabled="1">
+ <module name="clk_50m" kind="clock_source" version="24.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
@@ -3387,7 +3480,7 @@
  <module
    name="resetn_pb"
    kind="altera_reset_bridge"
-   version="23.1"
+   version="24.1"
    enabled="1">
   <parameter name="ACTIVE_LOW_RESET" value="1" />
   <parameter name="AUTO_CLK_CLOCK_RATE" value="-1" />
@@ -3397,16 +3490,25 @@
  </module>
  <connection
    kind="avalon"
-   version="23.1"
+   version="24.1"
    start="PMBus_Slave.PMBus_AVS"
-   end="Sequencer_VMonitor.avs">
+   end="Sequencer_Monitor.avs">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
    kind="avalon"
-   version="23.1"
+   version="24.1"
+   start="PM2AVMM_Align.avm"
+   end="Sequencer_Monitor.avs">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
    start="AVMM_Initializer.avm"
    end="ADC_Core.sequencer_csr">
   <parameter name="arbitrationPriority" value="1" />
@@ -3414,55 +3516,106 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
+   kind="avalon"
+   version="24.1"
+   start="NVRAM_Controller.flash_csr"
+   end="NVRAM_OC_Flash.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="NVRAM_Controller.flash_data"
+   end="NVRAM_OC_Flash.data">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="Sequencer_Monitor.flash_data"
+   end="NVRAM_OC_Flash.data">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="24.1"
+   start="PM2AVMM_JTAG_Master.master"
+   end="PM2AVMM_Align.avs">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
    kind="avalon_streaming"
-   version="23.1"
+   version="24.1"
    start="ADC_Core.response"
-   end="ADC_Decoder.adc_in0" />
- <connection kind="clock" version="23.1" start="PLL_Main.c0" end="ADC_Core.clock" />
+   end="Sequencer_Monitor.adc_in0" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
    start="PLL_Main.c0"
-   end="Sequencer_VMonitor.clock" />
+   end="PM2AVMM_JTAG_Master.clk" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
+   start="PLL_Main.c0"
+   end="PM2AVMM_Align.clk" />
+ <connection
+   kind="clock"
+   version="24.1"
+   start="PLL_Main.c0"
+   end="NVRAM_OC_Flash.clk" />
+ <connection
+   kind="clock"
+   version="24.1"
    start="PLL_Main.c0"
    end="AVMM_Initializer.clock" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
    start="PLL_Main.c0"
    end="Sequencer_Core.clock" />
  <connection
    kind="clock"
-   version="23.1"
-   start="PLL_Main.c0"
-   end="ADC_Decoder.clock" />
- <connection
-   kind="clock"
-   version="23.1"
+   version="24.1"
    start="PLL_Main.c0"
    end="PMBus_Slave.clock" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
+   start="PLL_Main.c0"
+   end="NVRAM_Controller.clock" />
+ <connection kind="clock" version="24.1" start="PLL_Main.c0" end="ADC_Core.clock" />
+ <connection
+   kind="clock"
+   version="24.1"
+   start="PLL_Main.c0"
+   end="Sequencer_Monitor.clock" />
+ <connection
+   kind="clock"
+   version="24.1"
    start="PLL_Main.c1"
    end="ADC_Core.adc_pll_clock" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk"
    end="Reset_Sequencer.clk" />
- <connection kind="clock" version="23.1" start="clk_50m.clk" end="POR_Pulse.clock" />
+ <connection kind="clock" version="24.1" start="clk_50m.clk" end="POR_Pulse.clock" />
  <connection
    kind="clock"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk"
    end="PLL_Main.inclk_interface" />
  <connection
    kind="conduit"
-   version="23.1"
+   version="24.1"
    start="ADC_Core.adc_pll_locked"
    end="PLL_LockSplit.locked2_out">
   <parameter name="endPort" value="" />
@@ -3473,7 +3626,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="23.1"
+   version="24.1"
    start="PLL_Main.areset_conduit"
    end="Reset2Conduit.conduit_end">
   <parameter name="endPort" value="" />
@@ -3484,7 +3637,18 @@
  </connection>
  <connection
    kind="conduit"
-   version="23.1"
+   version="24.1"
+   start="NVRAM_Controller.nvlog_conduit"
+   end="Sequencer_Monitor.nvlog_conduit">
+  <parameter name="endPort" value="" />
+  <parameter name="endPortLSB" value="0" />
+  <parameter name="startPort" value="" />
+  <parameter name="startPortLSB" value="0" />
+  <parameter name="width" value="0" />
+ </connection>
+ <connection
+   kind="conduit"
+   version="24.1"
    start="PLL_LockSplit.pll_locked"
    end="PLL_Main.locked_conduit">
   <parameter name="endPort" value="" />
@@ -3495,7 +3659,7 @@
  </connection>
  <connection
    kind="conduit"
-   version="23.1"
+   version="24.1"
    start="Reset_Sequencer.reset1_dsrt_qual"
    end="PLL_LockSplit.locked1_out">
   <parameter name="endPort" value="" />
@@ -3506,20 +3670,9 @@
  </connection>
  <connection
    kind="conduit"
-   version="23.1"
+   version="24.1"
    start="Sequencer_Core.sequencer_monitor"
-   end="Sequencer_VMonitor.sequencer_monitor">
-  <parameter name="endPort" value="" />
-  <parameter name="endPortLSB" value="0" />
-  <parameter name="startPort" value="" />
-  <parameter name="startPortLSB" value="0" />
-  <parameter name="width" value="0" />
- </connection>
- <connection
-   kind="conduit"
-   version="23.1"
-   start="Sequencer_VMonitor.vmon_conduit"
-   end="ADC_Decoder.vmon_conduit">
+   end="Sequencer_Monitor.sequencer_monitor">
   <parameter name="endPort" value="" />
   <parameter name="endPortLSB" value="0" />
   <parameter name="startPort" value="" />
@@ -3528,52 +3681,67 @@
  </connection>
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk_reset"
-   end="Sequencer_VMonitor.reset" />
+   end="PM2AVMM_JTAG_Master.clk_reset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk_reset"
-   end="ADC_Decoder.reset" />
+   end="NVRAM_OC_Flash.nreset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk_reset"
    end="PMBus_Slave.reset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
+   start="clk_50m.clk_reset"
+   end="PM2AVMM_Align.reset" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_50m.clk_reset"
+   end="NVRAM_Controller.reset" />
+ <connection
+   kind="reset"
+   version="24.1"
+   start="clk_50m.clk_reset"
+   end="Sequencer_Monitor.reset" />
+ <connection
+   kind="reset"
+   version="24.1"
    start="clk_50m.clk_reset"
    end="ADC_Core.reset_sink" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="clk_50m.clk_reset"
    end="AVMM_Initializer.resetn" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="resetn_pb.out_reset"
    end="clk_50m.clk_in_reset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="Reset_Sequencer.reset_out0"
    end="PLL_Main.inclk_interface_reset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="Reset_Sequencer.reset_out0"
    end="Reset2Conduit.reset_sink" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="Reset_Sequencer.reset_out1"
    end="clk_50m.clk_in_reset" />
  <connection
    kind="reset"
-   version="23.1"
+   version="24.1"
    start="POR_Pulse.resetn"
    end="Reset_Sequencer.reset_in0" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
