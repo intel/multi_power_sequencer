@@ -73,7 +73,40 @@ set_parameter_property ADC_VREF DESCRIPTION "Exact level for the ADC reference v
 add_parameter FEATURE_LEVEL INTEGER 2
 set_parameter_property FEATURE_LEVEL DISPLAY_NAME "Functionality Level"
 set_parameter_property FEATURE_LEVEL DESCRIPTION "Functionality Level for the Voltage Monitor.  Reduced functionality will allow for a smaller implementation size."
-set_parameter_property FEATURE_LEVEL ALLOWED_RANGES {"0: No PMBus" "1: Hard-Coded Thresholds" "2: Full-featured"}
+set_parameter_property FEATURE_LEVEL ALLOWED_RANGES {"0: No Control Interface" "1: Hard-Coded Thresholds" "2: Full-featured"}
+
+add_parameter LOGGING_LEVEL INTEGER 2
+set_parameter_property LOGGING_LEVEL DISPLAY_NAME "Error Logging Level"
+set_parameter_property LOGGING_LEVEL DESCRIPTION "NVRAM Error logging level.  Reduced functionality will allow for a smaller implementation size."
+set_parameter_property LOGGING_LEVEL ALLOWED_RANGES {"0: No Logging" "1: Error Logging; no Black Box" "2: Full logging support"}
+set_parameter_update_callback LOGGING_LEVEL param_adj_logging_init
+
+add_parameter LOGGING_ENA INTEGER 0
+set_parameter_property LOGGING_ENA DISPLAY_NAME "Power-on Logging Enable"
+set_parameter_property LOGGING_ENA DESCRIPTION "NVRAM Error logging enable.  Determines whether logging is enabled by default at initial power-on.  Logging can be dynamically enabled or disabled through the MFR_NV_MASTER_EN command."
+set_parameter_property LOGGING_ENA ALLOWED_RANGES {"0: Logs disabled " "1: Error Log enabled; Black Box disabled" "3: Error and Black Box Logs enabled"}
+set_parameter_update_callback LOGGING_ENA param_adj_logging_init
+
+# This callback is run every time the Use Power Groups setting is toggled
+proc param_adj_logging_init { arg } {
+    # Logging is enabled as an option - provide ability to adjust default setting at power-on
+    if {[get_parameter_value LOGGING_LEVEL] ne 0} {
+      set_parameter_property LOGGING_ENA ENABLED true
+    # Logging is disabled as an option - set LOGGING_ENA to '0'
+    } else {
+      set_parameter_property LOGGING_ENA ENABLED false
+      set_parameter_value LOGGING_ENA 0
+    }
+}
+
+add_parameter NV_AWIDTH INTEGER 0
+set_parameter_property NV_AWIDTH DEFAULT_VALUE 12
+set_parameter_property NV_AWIDTH DISPLAY_NAME "Flash Address Width"
+set_parameter_property NV_AWIDTH DESCRIPTION "The address width for the Flash interface."
+set_parameter_property NV_AWIDTH TYPE INTEGER
+set_parameter_property NV_AWIDTH UNITS None
+set_parameter_property NV_AWIDTH ALLOWED_RANGES 3:32
+set_parameter_property NV_AWIDTH HDL_PARAMETER true
 
 add_parameter ADC_SAMPLES INTEGER 5
 set_parameter_property ADC_SAMPLES DISPLAY_NAME "ADC Samples to Check"
@@ -90,6 +123,22 @@ set_parameter_property RETRY_TIMEOUT DISPLAY_NAME "Timeout Interval on Retry"
 set_parameter_property RETRY_TIMEOUT DESCRIPTION "The delay interval that the sequencer will wait between retries."
 set_parameter_property RETRY_TIMEOUT ALLOWED_RANGES {"0: No Delay" "1: Use Delay Specified by the Sequencer"}
 set_parameter_property RETRY_TIMEOUT DISPLAY_HINT RADIO
+
+add_parameter T_REQUIRE_WE_FOR_CLR BOOLEAN false
+set_parameter_property T_REQUIRE_WE_FOR_CLR DISPLAY_NAME "Require 'Write Byte' for CLEAR_FAULTS"
+set_parameter_property T_REQUIRE_WE_FOR_CLR DESCRIPTION "Change PMBus command from default of 'Send Byte' to 'Write Byte'.  This is useful for non-PMBus implementations, such as I2C or any other Avalon-MM interface, to prevent unintentional clears."
+add_parameter REQUIRE_WE_FOR_CLR INTEGER 1
+set_parameter_property REQUIRE_WE_FOR_CLR TYPE INTEGER
+set_parameter_property REQUIRE_WE_FOR_CLR DERIVED true
+set_parameter_property REQUIRE_WE_FOR_CLR HDL_PARAMETER true
+set_parameter_property REQUIRE_WE_FOR_CLR VISIBLE false
+
+# Read the frequency of the input clock (in Hertz)
+add_parameter CLOCK_RATE_CLK INTEGER 0
+set_parameter_property CLOCK_RATE_CLK DISPLAY_NAME "Component's Clock Frequency"
+set_parameter_property CLOCK_RATE_CLK DISPLAY_UNITS "Hz"
+set_parameter_property CLOCK_RATE_CLK SYSTEM_INFO {CLOCK_RATE clock}
+set_parameter_property CLOCK_RATE_CLK VISIBLE false
 
 # Parameters relating to the VIN input
 add_display_item "" "Voltage Monitor Thresholds" GROUP TAB
@@ -249,6 +298,10 @@ for { set idx 0 } { $idx < 143 } { incr idx } {
   add_display_item "Derived Thresholds ${idx}" DV_VOUT${idx}_OFF PARAMETER
 }
 
+# When called in a composed system by the "Sequencer Monitor", turn off error
+#   checking and use the error checking from the monitor component.
+add_parameter COMPOSED_MONITOR INTEGER 0
+set_parameter_property COMPOSED_MONITOR VISIBLE false
 
 # 
 # display items
@@ -288,7 +341,7 @@ add_interface_port clock CLOCK clk Input 1
 # connection point avs
 # 
 add_interface avs avalon end
-set_interface_property avs addressUnits SYMBOLS
+set_interface_property avs addressUnits WORDS
 set_interface_property avs associatedClock clock
 set_interface_property avs associatedReset reset
 set_interface_property avs bitsPerSymbol 8
@@ -316,6 +369,7 @@ add_interface_port avs AVS_S0_ADDRESS address Input 8
 add_interface_port avs AVS_S0_BYTEEN byteenable Input 4
 add_interface_port avs AVS_S0_READDATA readdata Output 32
 add_interface_port avs AVS_S0_WRITEDATA writedata Input 32
+add_interface_port avs AVS_S0_WAITREQUEST waitrequest Output 1
 set_interface_assignment avs embeddedsw.configuration.isFlash 0
 set_interface_assignment avs embeddedsw.configuration.isMemoryDevice 0
 set_interface_assignment avs embeddedsw.configuration.isNonVolatileStorage 0
@@ -354,6 +408,7 @@ add_interface_port sequencer_monitor SEQ_ENABLE enable Output 1
 add_interface_port sequencer_monitor SEQ_VIN_FAULT vin_fault Output 1
 add_interface_port sequencer_monitor SEQ_VRAIL_PWRGD vrail_pwrgd Output VRAILS
 add_interface_port sequencer_monitor SEQ_VMON_ENA vmon_ena Input VRAILS
+add_interface_port sequencer_monitor SEQ_QUAL_FAULT vmon_qual_fault Input VRAILS
 add_interface_port sequencer_monitor SEQ_RETRIES reg_retries Output 3
 add_interface_port sequencer_monitor SEQ_TIMEOUTDLY reg_timeoutdly Output 3
 
@@ -394,45 +449,107 @@ proc elaborate {} {
     set_port_property AVS_S0_BYTEEN termination true
     set_port_property AVS_S0_READDATA termination true
     set_port_property AVS_S0_WRITEDATA termination true
+    set_port_property AVS_S0_WAITREQUEST termination true
     set_port_property AVS_S0_READ termination_value 0
     set_port_property AVS_S0_WRITE termination_value 0
     set_port_property AVS_S0_ADDRESS termination_value 0
     set_port_property AVS_S0_BYTEEN termination_value 0
     set_port_property AVS_S0_WRITEDATA termination_value 0
   }
+  # Optionally enable the Flash interface
+  if {[get_parameter_value LOGGING_LEVEL] > "0" } {
+    # 
+    # connection point flash_data
+    # 
+    add_interface flash_data avalon start
+    set_interface_property flash_data addressUnits SYMBOLS
+    set_interface_property flash_data associatedClock clock
+    set_interface_property flash_data associatedReset reset
+    set_interface_property flash_data bitsPerSymbol 8
+    set_interface_property flash_data burstOnBurstBoundariesOnly false
+    set_interface_property flash_data burstcountUnits WORDS
+    set_interface_property flash_data doStreamReads false
+    set_interface_property flash_data doStreamWrites false
+    set_interface_property flash_data holdTime 0
+    set_interface_property flash_data linewrapBursts false
+    set_interface_property flash_data maximumPendingReadTransactions 0
+    set_interface_property flash_data maximumPendingWriteTransactions 0
+    set_interface_property flash_data readLatency 0
+    set_interface_property flash_data readWaitTime 1
+    set_interface_property flash_data setupTime 0
+    set_interface_property flash_data timingUnits Cycles
+    set_interface_property flash_data writeWaitTime 0
+    set_interface_property flash_data ENABLED true
+    set_interface_property flash_data EXPORT_OF ""
+    set_interface_property flash_data PORT_NAME_MAP ""
+    set_interface_property flash_data CMSIS_SVD_VARIABLES ""
+    set_interface_property flash_data SVD_ADDRESS_GROUP ""
+    
+    add_interface_port flash_data FLASH_DATA_READ read Output 1
+    add_interface_port flash_data FLASH_DATA_WRITE write Output 1
+    add_interface_port flash_data FLASH_DATA_WAITREQUEST waitrequest Input 1
+    add_interface_port flash_data FLASH_DATA_ADDRESS address Output "NV_AWIDTH"
+    add_interface_port flash_data FLASH_DATA_READDATA readdata Input 32
+    add_interface_port flash_data FLASH_DATA_WRITEDATA writedata Output 32
+    # 
+    # connection point nvlog_conduit
+    # 
+    add_interface nvlog_conduit conduit end
+    set_interface_property nvlog_conduit associatedClock ""
+    set_interface_property nvlog_conduit associatedReset ""
+    set_interface_property nvlog_conduit ENABLED true
+    set_interface_property nvlog_conduit EXPORT_OF ""
+    set_interface_property nvlog_conduit PORT_NAME_MAP ""
+    set_interface_property nvlog_conduit CMSIS_SVD_VARIABLES ""
+    set_interface_property nvlog_conduit SVD_ADDRESS_GROUP ""
+    
+    add_interface_port nvlog_conduit FLASH_ERASEPAGE flash_erasepage Output 1
+    add_interface_port nvlog_conduit NVLOG_ERROR nvlog_error Output 1
+    add_interface_port nvlog_conduit NVLOG_BBENA nvlog_bbena Output 1
+    add_interface_port nvlog_conduit NVLOG_FAULTTYPE nvlog_faulttype Output 8
+    add_interface_port nvlog_conduit NVLOG_FAULTPAGE nvlog_faultpage Output 8
+    add_interface_port nvlog_conduit NVLOG_TIMESTAMP nvlog_timestamp Output 32
+    add_interface_port nvlog_conduit NVLOG_BBDATA nvlog_bbdata Output "(VRAILS*2) + 2"
+    add_interface_port nvlog_conduit NVLOG_FLASHENTRIES_Q nvlog_flashentries_q Input 8
+  }
   # Optionally enable the Power Good (PG) interface
   if {[get_parameter_value PG_NUM] > "0" } {
     add_interface_port vmon_conduit POWER_GOOD_IN power_good Input PG_NUM
   }
+  if {[ get_parameter_value T_REQUIRE_WE_FOR_CLR ] } {
+    set_parameter_value REQUIRE_WE_FOR_CLR 1
+  } else {
+    set_parameter_value REQUIRE_WE_FOR_CLR 0
+  }
   # Calculate the derived voltage thresholds for informational purposes, back to the GUI
   set P_VIN_OVF [format "%.3f" [expr [get_parameter_value VIN_OVF] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_OVF $P_VIN_OVF
-  if { $P_VIN_OVF > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_OVF > $P_ADC_VREF } {
     send_message {warning} "VIN Overvoltage fault threshold exceeds VREF_ADC!!!"
   }
   set P_VIN_OVW [format "%.3f" [expr [get_parameter_value VIN_OVW] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_OVW $P_VIN_OVW
-  if { $P_VIN_OVW > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_OVW > $P_ADC_VREF } {
     send_message {warning} "VIN Overvoltage warning threshold exceeds VREF_ADC!!!"
   }
   set P_VIN_UVW [format "%.3f" [expr [get_parameter_value VIN_UVW] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_UVW $P_VIN_UVW
-  if { $P_VIN_UVW > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_UVW > $P_ADC_VREF } {
     send_message {warning} "VIN Undervoltage fault threshold exceeds VREF_ADC!!!"
   }
   set P_VIN_ON  [format "%.3f" [expr [get_parameter_value VIN_ON ] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_ON  $P_VIN_ON
-  if { $P_VIN_ON > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_ON > $P_ADC_VREF } {
     send_message {warning} "VIN On threshold exceeds VREF_ADC!!!"
   }
   set P_VIN_UVF [format "%.3f" [expr [get_parameter_value VIN_UVF] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_UVF $P_VIN_UVF
-  if { $P_VIN_UVF > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_UVF > $P_ADC_VREF } {
     send_message {warning} "VIN Undervoltage fault threshold exceeds VREF_ADC!!!"
   }
   set P_VIN_OFF [format "%.3f" [expr [get_parameter_value VIN_OFF] * [get_parameter_value VIN_TYP] / 100 ]]
   set_parameter_value DV_VIN_OFF $P_VIN_OFF
-  if { $P_VIN_OFF > $P_ADC_VREF } {
+  if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $P_VIN_OFF > $P_ADC_VREF } {
     send_message {warning} "VIN Off threshold exceeds VREF_ADC!!!"
   }
 
@@ -445,32 +562,32 @@ proc elaborate {} {
       # Calculate the derived voltage thresholds for informational purposes, back to the GUI
       set TEMP_OVF [format "%.3f" [expr [get_parameter_value VOUT${idx}_OVF] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_OVF $TEMP_OVF
-      if { $TEMP_OVF > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_OVF > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Overvoltage fault threshold exceeds VREF_ADC!!!"
       }
       set TEMP_OVW [format "%.3f" [expr [get_parameter_value VOUT${idx}_OVW] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_OVW $TEMP_OVW
-      if { $TEMP_OVW > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_OVW > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Overvoltage warning threshold exceeds VREF_ADC!!!"
       }
       set TEMP_UVW [format "%.3f" [expr [get_parameter_value VOUT${idx}_UVW] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_UVW $TEMP_UVW
-      if { $TEMP_UVW > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_UVW > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Undervoltage threshold warning exceeds VREF_ADC!!!"
       }
       set TEMP_ON  [format "%.3f" [expr [get_parameter_value VOUT${idx}_ON ] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_ON  $TEMP_ON
-      if { $TEMP_ON > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_ON > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Power Good assertion threshold exceeds VREF_ADC!!!"
       }
       set TEMP_UVF [format "%.3f" [expr [get_parameter_value VOUT${idx}_UVF] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_UVF $TEMP_UVF
-      if { $TEMP_UVF > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_UVF > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Undervoltage fault threshold exceeds VREF_ADC!!!"
       }
       set TEMP_OFF [format "%.3f" [expr [get_parameter_value VOUT${idx}_OFF] * [get_parameter_value VOUT${idx}_TYP] / 100 ]]
       set_parameter_value DV_VOUT${idx}_OFF $TEMP_OFF
-      if { $TEMP_OFF > $P_ADC_VREF } {
+      if { [get_parameter_value COMPOSED_MONITOR] eq 0 && $TEMP_OFF > $P_ADC_VREF } {
         send_message {warning} "VOUT${idx} Power good deassertion threshold exceeds VREF_ADC!!!"
       }
     }
@@ -486,8 +603,11 @@ proc generate { entity_name } {
   # Calculate the various thresholds for the voltage comparator logic on VIN and VOUT rails,
   #   storing as hexadecimal values.
   set P_FEATURE_LEVEL  [get_parameter_value FEATURE_LEVEL]
+  set P_LOGGING_LEVEL  [get_parameter_value LOGGING_LEVEL]
+  set P_LOGGING_ENA    [get_parameter_value LOGGING_ENA]
   set P_RETRY_ATTEMPTS [get_parameter_value RETRY_ATTEMPTS]
   set P_RETRY_TIMEOUT  [get_parameter_value RETRY_TIMEOUT]
+  set P_CLOCK_RATE_CLK [get_parameter_value CLOCK_RATE_CLK]
   set P_SAMPLES  [get_parameter_value ADC_SAMPLES]
   set P_VRAILS   [get_parameter_value VRAILS]
   set P_VRAILSm1 [expr [ get_parameter_value VRAILS ] -1 ]
@@ -572,10 +692,19 @@ proc generate { entity_name } {
 
 package sequencer_vmon_pkg;
   // Specifies the level of functionality that the voltage monitor logic should provide:
-  //   0: No PMBus support
+  //   0: No Control Interface (PMBus, I2C, JTAG, ...)
   //   1: Hard-coded thresholds for all voltage level commands
   //   2: Full-featured
   localparam int P_MONITOR_FUNCT_LEVEL    = $P_FEATURE_LEVEL;
+  // Specifies the level of support for NVRAM error logging:
+  //   0: No logging of errors
+  //   1: Logging of errors; no blackbox mode
+  //   2: Full logging of errors with blackbox
+  localparam int P_LOGGING_FUNCT_LEVEL    = $P_LOGGING_LEVEL;
+  // Inital register setting for Log Enables
+  localparam int P_LOGGING_ENA            = $P_LOGGING_ENA;
+  // The clock frequency of the input clock (used for time of day clock).
+  localparam int P_CLOCK_RATE_CLK   = $P_CLOCK_RATE_CLK;
   // The number of attempts the sequencer should make to come up, after detecting an error condition.
   localparam bit \[2:0\] P_RETRY_ATTEMPTS   = $P_RETRY_ATTEMPTS;
   // The amount of time the sequencer should wait between retry attempts.  NOTE: This is an encoded
@@ -585,6 +714,11 @@ package sequencer_vmon_pkg;
   if {$P_FEATURE_LEVEL == 0} { 
     puts $f_handle "
   `define DISABLE_PMBUS"
+  }
+
+  if {$P_LOGGING_LEVEL == 0} { 
+    puts $f_handle "
+  `define DISABLE_FLASH"
   }
 
   puts $f_handle "
@@ -650,7 +784,7 @@ package sequencer_vmon_pkg;
   ////////////////////////////////////////////////////////////////////////////////////
   
   // What is the number of supported PMBus Commands
-  localparam integer   P_NUMBER_COMMANDS         = 26;
+  localparam integer   P_NUMBER_COMMANDS         = 34;
   // Supported PMBus Commands
   localparam bit \[7:0\] P_CMD_PAGE                = 8'h00;
   localparam bit \[7:0\] P_CMD_CLEAR_FAULTS        = 8'h03;
@@ -678,13 +812,35 @@ package sequencer_vmon_pkg;
   localparam bit \[7:0\] P_CMD_STATUS_OTHER        = 8'h7F;
   localparam bit \[7:0\] P_CMD_READ_VIN            = 8'h88;
   localparam bit \[7:0\] P_CMD_READ_VOUT           = 8'h8B;
-  
+  localparam bit \[7:0\] P_CMD_MFR_TOD             = 8'hC4;
+  localparam bit \[7:0\] P_CMD_MFR_TOD_ADJUST      = 8'hC5;
+  localparam bit \[7:0\] P_CMD_MFR_NV_CONTROL      = 8'hD0;
+  localparam bit \[7:0\] P_CMD_MFR_NV_MASTER_EN    = 8'hD1;
+  localparam bit \[7:0\] P_CMD_MFR_NV_PAGE_EN      = 8'hD2;
+  localparam bit \[7:0\] P_CMD_MFR_NV_ERRLOG_DAT   = 8'hD4;
+  localparam bit \[7:0\] P_CMD_MFR_NV_ERRLOG_BBDAT = 8'hD5;
+  localparam bit \[7:0\] P_CMD_MFR_NV_ERRLOG_TOD   = 8'hD6;
+
+  // Offsets for flash data.  A total of 32 entries will be stored
+  //   Optional blackbox Data will be stored from 0x0 - 0x800.
+  //   It will correlate to the log entry's error code and timestamp.
+  //   Each entry can accomodate VIN + 255 pages (64 bytes of data).
+  //
+  //   Log entries will consist of the error code, page, and a
+  //   timestamp (8 bytes of data), and will be stored from
+  //   0x800 - 0x900.
+  //
+  // Addresses are specified for 32-bit words, not bytes
+  localparam         P_OFFSET_BBDATA = 12'h000;
+  localparam         P_OFFSET_LOG    = 12'h200;
+
   // This structure is used by the command decode logic
   typedef struct packed
   {
     bit \[7:0\]  command;   // 16-bit opcode, enumerated type
     bit        enable;    // enable or disable command usage
     bit        multipage; // '0' = global, '1' = multi-page
+    bit        railtype;  // '0' = analog, '1' = all
     bit \[$P_VRAILSm1:0\] select;    // register select lines (one per page). For global accesses, only bit 0 is used.
   } command_struct_t;
 endpackage
@@ -693,9 +849,11 @@ endpackage
   # Add the IP file generated above to the fileset for the Voltage Monitor
   add_fileset_file sequencer_vmon_pkg.sv SYSTEM_VERILOG PATH $vmon_pkg_file_path
   add_fileset_file sequencer_vmondecode_pkg.sv SYSTEM_VERILOG PATH sequencer_vmondecode_pkg.sv
+  add_fileset_file reg_oneshot.sv SYSTEM_VERILOG PATH reg_oneshot.sv
   add_fileset_file reg_ro.sv SYSTEM_VERILOG PATH reg_ro.sv
   add_fileset_file reg_rw.sv SYSTEM_VERILOG PATH reg_rw.sv
   add_fileset_file reg_rw_bounds.sv SYSTEM_VERILOG PATH reg_rw_page.sv
+  add_fileset_file reg_cntr_rw.sv SYSTEM_VERILOG PATH reg_cntr_rw.sv
   add_fileset_file reg_wtc.sv SYSTEM_VERILOG PATH reg_wtc.sv
   add_fileset_file sequencer_vmonregs.sv SYSTEM_VERILOG PATH sequencer_vmonregs.sv TOP_LEVEL_FILE
 }

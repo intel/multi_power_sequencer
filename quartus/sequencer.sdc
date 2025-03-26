@@ -48,6 +48,12 @@ create_clock -name clk_ref -period 50.0MHz [get_ports {clk}]
 
 derive_pll_clocks
 derive_clock_uncertainty
+# Constrain the clock divider on the internal flash, if it's instantiated
+if {[get_collection_size [get_registers *avmm_data_controller|flash_se_neg_reg -nowarn]] != 0} {
+  create_generated_clock -name flash_se_neg_reg -divide_by 2 \
+    -source [get_pins -compatibility_mode { *avmm_data_controller|flash_se_neg_reg|clk }] \
+    [get_pins -compatibility_mode { *avmm_data_controller|flash_se_neg_reg|q } ]
+}
 
 
 #**************************************************************

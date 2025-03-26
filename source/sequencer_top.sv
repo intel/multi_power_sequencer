@@ -43,6 +43,7 @@ module sequencer_top #(
   input  [VRAILS-1    :0] VRAIL_PWRGD,
   output [PWR_GROUPS-1:0] VRAIL_ENA,
   output reg [VRAILS-1:0] VMON_ENA,
+  output reg [VRAILS-1:0] VMON_QUAL_FAULT,
   output [PWR_GROUPS-1:0] VRAIL_DCHG,
   output                  nFAULT,
   input             [2:0] REG_RETRIES,
@@ -154,6 +155,7 @@ module sequencer_top #(
           tmp_pwrgd_and[P_PWRGROUP[i]] = tmp_pwrgd_and[P_PWRGROUP[i]] & VRAIL_PWRGD[i];
           tmp_pwrgd_or [P_PWRGROUP[i]] = tmp_pwrgd_or [P_PWRGROUP[i]] | VRAIL_PWRGD[i];
           VMON_ENA[i]                  = vrail_ena_i[P_PWRGROUP[i]];
+          VMON_QUAL_FAULT[i]           = vrail_fault[P_PWRGROUP[i]] & cntr_en[P_PWRGROUP[i]];
         end
         group_pwrgd    = tmp_pwrgd_and;
         group_pwrgd_hi = tmp_pwrgd_or;
@@ -161,9 +163,10 @@ module sequencer_top #(
     end
     // Power Groups aren't being used, so pass the Power Good signal through to the sequencers
     else begin
-      assign group_pwrgd    = VRAIL_PWRGD;
-      assign group_pwrgd_hi = VRAIL_PWRGD;
-      assign VMON_ENA       = vrail_ena_i;
+      assign group_pwrgd     = VRAIL_PWRGD;
+      assign group_pwrgd_hi  = VRAIL_PWRGD;
+      assign VMON_ENA        = vrail_ena_i;
+      assign VMON_QUAL_FAULT = vrail_fault & cntr_en[VRAILS-1:0];
     end
   endgenerate
 

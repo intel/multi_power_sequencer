@@ -274,6 +274,7 @@ add_interface_port sequencer_monitor ENABLE enable Input 1
 add_interface_port sequencer_monitor VIN_FAULT vin_fault Input 1
 add_interface_port sequencer_monitor VRAIL_PWRGD vrail_pwrgd Input VRAILS
 add_interface_port sequencer_monitor VMON_ENA vmon_ena Output VRAILS
+add_interface_port sequencer_monitor VMON_QUAL_FAULT vmon_qual_fault Output VRAILS
 add_interface_port sequencer_monitor REG_RETRIES reg_retries Input 3
 add_interface_port sequencer_monitor REG_TIMEOUTDLY reg_timeoutdly Input 3
 
