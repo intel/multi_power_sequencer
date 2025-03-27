@@ -87,6 +87,18 @@ proc CLEAR_STATUS {} {
 }
 
 ######################################################################
+# Procedure: SET_REF
+#   Changes the value of the ADC reference voltage used for calculation
+#   within the tcl script only - this does not affect the HW
+######################################################################
+proc SET_REF {ref_v} {
+  global mast
+  variable G_VREF
+
+  set G_VREF $ref_v
+}
+
+######################################################################
 # Procedure: SET_PAGE
 #   Specify the PMBus page register in the slave device
 ######################################################################
